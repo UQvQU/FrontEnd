@@ -1,4 +1,4 @@
-var minEatingSpeed = function(piles, H = 8){
+var minEatingSpeed = function(piles, H){
     let low = 1,
         hi = Math.max(...piles);
     
@@ -20,4 +20,4 @@ function canEatAllBananas(piles, H, low){
     // 如果耗时小于等于H则返回true
     return h <= H;
 }
-console.log(minEatingSpeed([3, 6, 7, 11]));
+minEatingSpeed(piles, H);
