@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>街头霸王</title>
+</head>
+<body>
+   <button id="replay">播放录像</button> 
+    <script>
+        let currentPlay = null;
+        const ChunLi = {
+            name: "ChunLi",
+            attack: function(){
+                console.log(`${this.name}攻击a`);
+            },
+            defanse: function(){
+                console.log(`${this.name}防御d`);
+            },
+            jump: function(){
+                console.log(`${this.name}跳跃w`)
+            },
+            crouch: function(){
+                console.log(`${this.name}蹲下s`);
+            }
+        }
+        const Ryu = {
+            name: "Ryu",
+            attack: function(){
+                console.log(`${this.name}攻击a`);
+            },
+            defanse: function(){
+                console.log(`${this.name}防御d`);
+            },
+            jump: function(){
+                console.log(`${this.name}跳跃w`)
+            },
+            crouch: function(){
+                console.log(`${this.name}蹲下s`);
+            }
+        }
+        const commands = {
+            "119":"jump", //跳跃w
+            "115":"crouch", //蹲下s
+            "97":"defanse", //防御d
+            "100":"attack" //攻击a
+        }
+        currentPlay = ChunLi;
+        // 录制回放
+        const commandStack = [];
+        document.onkeypress = function(ev){
+            // JSON keyCode 对应的 动作 动起来
+            let keyCode = ev.keyCode,
+            // let command = commands[keyCode];
+                command = commands[keyCode]? makeCommands(currentPlay, commands[keyCode]) : null;
+            if(command){
+                // console.log(typeof ev.keyCode);  
+                // console.log(typeof commands[ev.keyCode]);
+                // who do it -> 参数
+                // Ryu[commands[ev.keyCode]](); => who[do]();
+                // console.log(keyCode, command);
+                // makeCommands(Ryu, command)();
+                command(); 
+                commandStack.push(command); 
+            }
+        }
+        // 封装 makeCommands(角色, 动作命令)
+        let makeCommands = function(reciver, state){
+            // reciver[state]();
+            return function(){
+                // console.log(reciver[state]);
+                reciver[state]();
+            }
+        }
+        document.getElementById('replay').onclick = function(){
+            let command;
+            while(command = commandStack.shift()){
+                command();
+            }
+        }
+    </script>
+</body>
+</html>
