@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>买房</title>
+</head>
+<body>
+    <script>
+        // 事件监听
+        // dom.addEventListener(event_type, callback)
+        // 事件点击 触发执行 
+        // 1. 申明注册submit：添加监听事件
+        // 2. 触发时：沿DOM树广播查找
+        // 3. 回调函数执行
+        // 买房
+        // 售楼部（body）有房卖了
+        // 购房者
+        var saleOffice = {
+            name: '万达星城',
+        }
+        saleOffice.clientList = []; //购房者 
+        // 1. 监听申明
+        // 参数 fun 到时给购房者回复：fun
+        saleOffice.listener = function(fun){
+            saleOffice.clientList.push(fun); //增加购房者信息
+        };  
+        // 2. 触发
+        saleOffice.trigger = function(){
+            for(var i = 0; i < saleOffice.clientList.length; i++){
+                typeof saleOffice.clientList[i] == 'function' ? saleOffice.clientList[i](20000, 92) : null;
+            }
+        };
+        saleOffice.listener(function(price, squareMeter){
+            console.log(price,squareMeter);
+            if(price > 15000){
+                console.log('单平方价超过越南标准······');
+            }
+            if(squareMeter < 100){
+                console.log('太小了，太小了······');
+            }
+        }); 
+        // saleOffice.listener(function(price, squareMeter){
+        //     if(squareMeter < 100){
+        //         console.log('太小了，太小了······');
+        //     }
+        // }) 
+    </script>
+</body>
+</html>
