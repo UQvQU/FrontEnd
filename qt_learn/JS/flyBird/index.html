@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>flyBird</title>
+</head>
+<body>
+    <!-- 游戏背景 -->
+    <div id="wrapBg">
+        <!-- 开始标题 -->
+        <div class="headTitle" id="headTitle">
+            <img src="./img/bird0.png" alt="headBird" id="headBird">
+        </div>
+        <!-- 开始按钮 -->
+        <div id="startBtn"></div>
+        <!-- 青草1 -->
+        <div id="grassLand1"></div>
+        <!-- 青草2 -->
+        <div id="grassLand2"></div>
+    </div>
+    <script src="./js/bird.js"></script>
+    <script>
+        let jsWrapBg = document.querySelector('#wrapBg');
+        let jsHeadTitle = document.querySelector('#headTitle');
+        let jsHeadBird = document.querySelector('#headBird');
+        let jsStartBtn = document.querySelector('#startBtn');
+        let jsGrassLand1 = document.querySelector('#grassLand1');
+        let jsGrassLand2 = document.querySelector('#grassLand2');
+
+        function landRun(){
+            // 草地们刚好移出屏幕
+            if(jsGrassLand1.offsetLeft <= -343){
+                jsGrassLand1.style.left = '343px';
+            }
+            if(jsGrassLand2.offsetLeft <= -343){
+                jsGrassLand2.style.left = '343px';
+            }
+            // 草地们不断移动
+            jsGrassLand1.style.left = jsGrassLand1.offsetLeft - 3 + 'px';
+            jsGrassLand2.style.left = jsGrassLand2.offsetLeft - 3 + 'px';
+        }
+        // 草地动起来
+        let landTimer = setInterval(landRun, 30);
+        
+        // 标题动起来
+        let Y = 3;
+        let index = 0;
+        let imgArr = ['img/bird0.png', 'img/bird1.png'];
+        // 利用帧动画的原理做出小鸟摆动翅膀的样子
+        let headWaveTimer = setInterval(headWave, 200);
+        function headWave(){
+            Y *= -1;
+            jsHeadTitle.style.top = jsHeadTitle.offsetTop + Y + 'px';
+            jsHeadBird.src = imgArr[index++];
+            index = index > 1 ? 0 : index;
+        }
+    
+        jsStartBtn.onclick = function(){
+            // 隐藏标题并且关闭定时间器，减少浏览器性能消耗
+            jsHeadTitle.style.display = 'none';
+            clearInterval(headWaveTimer);
+            // 隐藏按钮
+            jsStartBtn.style.display = 'none';
+
+            // 插入小鸟到页面中
+            bird.showBird(jsWrapBg); 
+            // 控制小鸟飞行下落
+            bird.flyBird();
+            // 逐帧动画，小鸟扇动翅膀
+            bird.wingWave();
+        }
+        
+        jsWrapBg.onclick = function(){
+            bird.fallSpeed = -8;
+        }
+    </script>
+    
+</body>
+</html>
