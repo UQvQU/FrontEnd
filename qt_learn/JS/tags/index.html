@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="infoList">
+        <li><a href="javascript:;" class="info" data-id="1">获取信息</a></li>
+        <li><a href="javascript:;" class="info" data-id="2">获取信息</a></li>
+        <li><a href="javascript:;" class="info" data-id="3">获取信息</a></li>
+    </ul>
+    <div class="userInfo"></div>
+
+    <!-- <a href="javascript:;" id="info_a">Get Student Info</a>
+    <div class="tar">aaa</div> -->
+    <script>
+        
+        // const tar = document.querySelector('.tar');
+        // const infoA = document.querySelector('#info_a');
+        // const getStudentInfo = (event) => {
+        //     console.log(event);
+        //     // 箭头函数中的this指向上一级，此处为window
+        //     console.log(this); 
+        //     console.log(this === event.target)
+
+        // }
+        // const target = function(event){
+        //     console.log(arguments);
+        //     console.log(event);
+        // }
+        // infoA.addEventListener('click', getStudentInfo, false);
+        // tar.addEventListener('click', target);
+
+
+        const infos = document.querySelectorAll('.info');
+        // for(let i = 0; i < infos.length; i++){
+        //     infos[i].addEventListener('click', () => {
+        //         const id = event.target.dataset.id;
+        //         fetchStudentInfoById(id);
+        //     })
+        // }
+
+        // 高阶函数 --> 参数为函数
+        // [] forEach ( fun )
+        // infos.forEach((info, index) => {
+        //     console.log(info);
+        //     console.log(index);
+        // })
+
+
+        const fetchStudentInfoById = (id) => {
+            // console.log(id);
+            // 异步发送请求获取数据 (数据形式：可读流)
+            fetch('/data.json')
+                .then(data => data.json())
+                .then(data => {
+
+                    // console.log(data.students[id-1]);
+
+                    
+                    // let info;
+                    // data.students.forEach(item => {
+                    //     if(item.id == id){
+                    //         info = item;
+                    //     }
+                    // })
+                    // console.log(info);
+
+
+                    // filter函数返回一个数组对象
+                    let info = (data.students.filter(student => student.id == id))[0];
+                    // console.log(info);
+                    // 将获取的信息渲染到页面上
+                    renderStudent(info);
+                });
+        }
+        const renderStudent = (student) => {
+            document.querySelector('.userInfo').innerHTML = 
+            `<p>学号：${student.id}</p>
+             <p>姓名：${student.userName}</p>`
+        }
+
+        // 遍历增加监听事件
+        // for(let info of infos){
+        //     info.addEventListener('click', () => {
+        //         const id = event.target.dataset.id;
+        //         // console.log(id);
+        //         const studentInfo = fetchStudentInfoById(id);
+        //     })
+        // }
+
+        // 箭头函数只有一个参数的情况下可以省略括号
+        // 每个a标签都加监听事件消耗性能，可以直接在父元素直接添加一个监听事件,利用冒泡机制
+        document.querySelector('.infoList').addEventListener('click', function(event) {
+            console.log(event.target, this);
+            const id = event.target.dataset.id;
+            const studentInfo = fetchStudentInfoById(id);
+        });
+
+    </script>
+</body>
+</html>
