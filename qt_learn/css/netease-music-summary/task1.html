@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .animLineUp{
+            animation: ani 5s infinite;
+        }
+         
+        .paras{
+            width: 500px;
+            height: 200px;
+            line-height: 1.6667;
+            letter-spacing: 1px;
+            color: #333;
+            /* border:1px solid #abe; */
+        }
+        .paras .para{
+            font-size: 16px;
+        }
+        .paras .para .fcRed{
+            color: #df493a;
+        }
+        
+        @keyframes ani{
+            0%{
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            50%{
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100%{
+                opacity: 0;
+                transform: translateY(6px);
+            }
+        }
+        .night{
+            /* border: 1px solid #000; */
+            width: 500px;
+            height: 500px;
+            
+        }
+        .night .cat{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-origin: bottom left;
+        }
+        
+        .night .cat .maowei{
+            left: 158px;
+            top: 129px;
+            width: 64px;
+            height: 194px;
+            transform-origin: 40.625% 96.3917525773196%;
+            position: absolute;
+            background: url('./images/maowei.png') no-repeat;
+            animation: ani_maowei 3s cubic-bezier(.445,.05,.55,.95) infinite;
+        }
+        .night .cat .maozhua-1{
+            left: 230.5px;
+            top: 498px;
+            width: 34px;
+            height: 81px;
+            transform-origin: 61.0294117647059% 4.93827160493827%;
+            position: absolute;
+            background: url('./images/maozhua.png') no-repeat;
+            animation: ani_maozhua-1 3s cubic-bezier(.445,.05,.55,.95) infinite;
+        }
+        .night .cat .maoshenti{
+            left: 167px;
+            top: 311.5px;
+            width: 117px;
+            height: 201px;
+            position: absolute;
+            background: url('./images/maoshenti.png') no-repeat;
+        }
+        .night .cat .maoyan1{
+            left: 243.75px;
+            top: 492.5px;
+            width: 3px;
+            height: 3px;
+            transform: rotate(21deg);
+            position: absolute;
+            background: url('./images/maoyan1.png') no-repeat;
+        }
+        .night .cat .maoyan2{
+            left: 259.25px;
+            top: 499px;
+            width: 3px;
+            height: 3px;
+            transform: rotate(26deg);
+            position: absolute;
+            background: url('./images/maoyan2.png') no-repeat;
+        }
+        .night .cat .maozui{
+            left: 246.75px;
+            top: 504.25px;
+            width: 4px;
+            height: 3px;
+            position: absolute;
+            background: url('./images/maozui.png') no-repeat;
+        }
+        @keyframes ani_maowei{
+            0% {
+                -webkit-transform: rotate(-5deg);
+                transform: rotate(-5deg);
+            }
+            50% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(-5deg);
+                transform: rotate(-5deg);
+            }
+        }
+        @keyframes ani_maozhua-1{
+            0% {
+                -webkit-transform: rotate(-5deg);
+                transform: rotate(-5deg);
+            }
+            50% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(-5deg);
+                transform: rotate(-5deg);
+            }
+        }
+    </style>
+</head>
+<body>
+        <div class="paras">
+            <p class="para animLineUp" style="transition-delay: 0.2s;">
+                <em class="fcRed">11月22日</em>
+            </p>
+            <p class="para animLineUp" style="transition-delay: .3s">大概是很特别的一天</p>
+            <p class="para animLineUp" style="transition-delay: .4s">这一天里</p>
+            <p class="para animLineUp" style="transition-delay: .5s">
+                TA把William Joseph的
+                <em class="fcRed">《Radioactive》</em>
+            </p>
+            <p class="para animLineUp" style="transition-delay: .6s">
+                反复听了
+                <em class="fcRed">48次</em>
+            </p>
+        </div>
+        <div class="view night">
+                <div class="cat">
+                    <div class="ren"></div>
+                    <div class="shou1-3">
+                        <div class="shou1-2">
+                            <div class="shou1-1"></div>
+                        </div>
+                    </div>
+                    <!-- <div class="shou1-3"></div> -->
+                    
+                    <div class="maowei"></div>
+                    <div class="maozhua-1"></div>
+                    <div class="maoshenti"></div>
+                    <div class="maoyan1"></div>
+                    <div class="maoyan2"></div>
+                    <div class="maozui"></div>
+                    
+                </div>
+        </div>
+       
+</body>
+</html>

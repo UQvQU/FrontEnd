@@ -156,8 +156,7 @@ em{
     color: #df493a;
 }
 
-.view.night{
-}
+
 .night .bg{
     background-color: #feded1;
 }
@@ -378,8 +377,7 @@ em{
     background-size: 100%;
     background-position: bottom;
 }
-.old .bg{   
-}
+
 .old .chair{
     position: absolute;
     bottom: 0;
@@ -555,6 +553,78 @@ em{
     animation-name:juanAnimation,juanAnimation; */
 
 }
+
+.favourite-songs .art{
+    position: absolute;
+    left: 0;
+    width: 750px;
+    bottom: 0;
+    height: 1334px;
+    transform: scale(.5);
+    transform-origin: bottom left;
+}
+.mainwrap{
+    position: absolute;
+    width: 486px;
+    height: 494px;
+    bottom: 0;
+    right: 0;
+    transform: scale(.5);
+}
+.shoubi{
+    position: absolute;
+    left: 70px;
+    top: -115px;
+    background-image: url('./images/shoubi.png');
+    width: 246px;
+    height: 270px;
+    animation: shoubi 1.3s steps(1) infinite;
+    background-position: 0 0;
+}
+.man{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('./images/man.png') no-repeat;
+}
+.tou{
+    position: absolute;
+    left: 220px;
+    top: -5px;
+    width: 94px;
+    height: 101px;
+    background: url('./images/tou.png') no-repeat;
+    animation: tou 1.3s steps(1) infinite;
+}
+.notes{
+    position: relative;
+    width: 375px;
+    height: 667px;
+    border: 1px solid #000;
+    background: url('http://s5.music.126.net/static_public/5c21db8d4684556c72180904/notes.eca9b7c6e40734a059f7b7c7f02477ec.svg') no-repeat;
+}
+.swiper-slide-active .word{
+    animation: blurAppear 2s linear forwards;
+}
+.words .word{
+    /* filter: blur(10px); */
+    opacity: 0;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    background-size: 120px;
+    background-repeat: no-repeat;
+    
+}
+span.word:nth-child(1){
+    background-image: url('./images/word-002.png');
+}
+span.word:nth-child(2){
+    background-image: url('./images/word-003.png');
+}
+
 
 @keyframes ani_swing{
     0%{
@@ -2491,5 +2561,99 @@ em{
     }
     100% {
         background-position: -1449px -954px;
+    }
+}
+@keyframes shoubi{
+    0% {
+        background-position: 0 0;
+    }
+    8.33% {
+        background-position: -246px 0;
+    }
+    16.67% {
+        background-position: -492px 0;
+    }
+    25% {
+        background-position: -738px 0;
+    }
+    33.33% {
+        background-position: -984px 0;
+    }
+    41.67% {
+        background-position: -1230px 0;
+    }
+    50% {
+        background-position: -1476px 0;
+    }
+    58.33% {
+        background-position: -1722px 0;
+    }
+    66.67% {
+        background-position: -1968px 0;
+    }
+    75% {
+        background-position: -2214px 0;
+    }
+    83.33% {
+        background-position: -2460px 0;
+    }
+    91.67% {
+        background-position: -2706px 0;
+    }
+    100% {
+        background-position: -2952px 0;
+    }
+}
+@keyframes tou{
+    0% {
+        background-position: 0 0;
+    }
+    8.33% {
+        background-position: -94px 0;
+    }
+    16.67% {
+        background-position: -188px 0;
+    }
+    25% {
+        background-position: -282px 0;
+    }
+    33.33% {
+        background-position: -376px 0;
+    }
+    41.67% {
+        background-position: -470px 0;
+    }
+    50% {
+        background-position: -564px 0;
+    }
+    58.33% {
+        background-position: -658px 0;
+    }
+    66.67% {
+        background-position: -752px 0;
+    }
+    75% {
+        background-position: -846px 0;
+    }
+    83.33% {
+        background-position: -940px 0;
+    }
+    91.67% {
+        background-position: -1034px 0;
+    }
+    100% {
+        background-position: -1128px 0;
+    }
+}
+@keyframes blurAppear{
+    0%{
+        transform: scale(.8);
+        opacity: 0;
+        filter: blur(10px);
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
     }
 }
