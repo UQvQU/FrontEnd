@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <li>0</li>
+    </div>
+    <script>
+        let box = document.getElementById('box');
+        let callback = function(mutationList){
+            console.log(mutationList);
+        }
+        let observer = new MutationObserver(callback);
+        // 监听属性变化
+        observer.observe(box, {
+            attributes: true,
+            childList: true
+        });
+        box.setAttribute('style','color: red');
+        let div = document.createElement('div');
+        let text = document.createTextNode('adb');
+        div.appendChild(text);
+        box.appendChild(div);
+
+
+// http://games.sina.com.cn/z/cs/test.shtml?from=wap&qq-pf-to=pcqq.c2c
+        var observe1 = new MutationObserver(function(mutationList){
+            for (let mut of mutationList){
+                //type attriibuteName
+                // 颜色一旦发生变化就触发点击事件
+                if(mut.type === 'attributes' && mut.attributeName === 'bgcolor'){
+                    // 触发click
+                    setInterval(stopTest,10);
+                    // stopTest();
+                }
+            }
+        });
+        observe1.observe(document.body, {
+            attributes: true
+        })
+    </script>
+</body>
+</html>

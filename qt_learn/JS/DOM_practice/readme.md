@@ -5,6 +5,8 @@
 
 - attr
 - document : 一棵dom树
+- node
+- mutationObserver 监听 dom 树的变化
 
 2. ECMAScript (ES) 规定语法
 
