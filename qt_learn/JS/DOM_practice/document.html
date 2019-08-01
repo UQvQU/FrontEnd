@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="" alt="">
+        <img src="" alt="">
+    </div>
+    <form action="">
+        <input type="text" name="username">
+    </form>
+    <script src=""></script>
+    <script>
+        console.log('all', document.all);
+        console.log('images', document.images);
+        console.log('forms', document.forms);
+        console.log('html1', document.getRootNode().nodeName);
+        console.log('html2', document.documentElement.nodeName);
+        console.log('body', document.body);
+
+        document.body.addEventListener('click', () => {
+            let forms = document.forms[0];
+            // 通过子元素的属性获取子元素
+            let inputNode = forms['username'];
+            console.log(inputNode);
+            // 获取输入框的值
+            console.log(inputNode.value);
+
+        })
+
+        let html = document.documentElement;
+        html.style.fontSize = '32px';
+
+
+    </script>
+</body>
+</html>

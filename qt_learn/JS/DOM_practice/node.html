@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <li>1</li>
+    </div>
+    <script>
+        let box = document.querySelector('#box');
+        console.log(box.firstChild.nodeType);
+        console.log(box.childNodes);
+        const liNode = document.createElement('li');
+        console.log(liNode);
+        const text = document.createTextNode('text');
+        console.log(text);
+        liNode.appendChild(text);
+        console.log(liNode.childNodes);
+        box.insertBefore(liNode, box.firstChild);
+        console.log(box.childNodes);
+
+        const list = box.querySelectorAll('li');
+        for(let li of list){
+            li.addEventListener('click', () => {
+                // li.remove();
+                box.removeChild(li);
+            })
+        }
+    </script>
+</body>
+</html>

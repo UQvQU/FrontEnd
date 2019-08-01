@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 自定义属性  data-**  -->
+    <div class="red" data-tt = '1'>
+        box
+    </div>
+    <script>
+        let box = document.querySelector('.red');
+        let className = box.getAttribute('class');
+        box.setAttribute('class','blue');
+        // 获取自定义属性 someNode.dataset.**
+        console.log(box.dataset.tt);
+        // 获取所有属性
+        console.log(box.getAttributeNames());
+    </script>
+</body>
+</html>
