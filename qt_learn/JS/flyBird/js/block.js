@@ -47,7 +47,7 @@ function Block() {
     }
     // 管道移动
     this.moveBlock = function(){
-        this.upDivWrap.style.left = this.upDivWrap.offsetLeft - 1 + 'px';
-        this.downDivWrap.style.left = this.downDivWrap.offsetLeft - 1 + 'px';
+        this.upDivWrap.style.left = this.upDivWrap.offsetLeft - 3 + 'px';
+        this.downDivWrap.style.left = this.downDivWrap.offsetLeft - 3 + 'px';
     }
 }
