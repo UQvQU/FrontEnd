@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/login" method="post" id="userForm" class="form" name="user">
+        <fieldset>昵称</fieldset>
+        <span>昵称</span>
+        <input type="text" name="nickName"/>
+        <button type="submit">确定</button>
+    </form>
+    <script>
+        const oForm = document.forms["user"];
+        oForm.addEventListener('submit', function(event){
+            console.log('submit');
+            event.preventDefault();
+            // 通过name属性获取输入框
+            let nickName = oForm["nickName"].value;
+            if(!nickName){
+                alert("请输入昵称");
+                return;
+            }
+            this.submit();
+            // oForm.submit();
+        })
+    </script>
+</body>
+</html>
