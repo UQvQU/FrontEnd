@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const ages = [32, 15, 19, 12];
+        const adultPreset = ages.some(age => age >= 18);  // 判断是否含有大于18的项，返回Boolean值
+        const allAdultPreset = ages.filter(age => age >= 18); // 找出大于18的所有项
+        const allOldEnough = ages.every(age => age >= 18); // 判断是否每一项都大于18，返回Boolean值
+        console.log(allAdultPreset, adultPreset, allOldEnough);
+
+        const arrays = [1,'5', 2, 1, 1, '1', 3, '3', 4];
+        // arr.filter 数组不重复出现
+        const arrays1 = unique(arrays);
+        // function unique(){
+        //     let arrs = [];
+        //     for(let array of arrays){
+        //         if(arrs.some(arr => arr === array)){
+        //             continue;
+        //         }
+        //         arrs.push(array);
+        //     }
+        //     // console.log(arrs);
+        //     return arrs;
+        // }
+        console.log(arrays1);
+        //改进版
+        function unique(arrays){
+            let arrs = arrays.filter((item, index, arrays) => {
+                console.log(item, index);
+                return arrays.indexOf(item) === index;
+            })
+            return arrs;
+        }
+    </script>
+
+</body>
+</html>
