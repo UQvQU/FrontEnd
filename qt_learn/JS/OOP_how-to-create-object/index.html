@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = new Object();
+        obj.name = '勾魂';
+        obj.age = 24;
+        // 2.函数封装
+        function createPerson(name, age){
+            let p = new Object();
+            p.name = name;
+            p.age = age;
+            return p;
+        }
+        // 3.构造函数
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        let p1 = new Person('追魂', '20');
+        function Foo(name){
+            this.name = name;
+            // return 2;
+            return{
+                name: "幽魂",
+                age: 20000
+            }
+        }
+        let f = new Foo('销魂');
+        console.log(f.name);
+    </script>  
+</body>
+</html>
