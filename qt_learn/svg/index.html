@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    html,body{
+        background-color: #abf;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    .progress-ring__circle{
+        /* stroke-dasharray:326.726 326.726; */
+        /* stroke-dashoffset: 10; */
+        transition: stroke-dashoffset .4s;
+        transform: rotate(-90deg);
+        /* transform-origin: center; */
+        transform-origin: 50%;
+    }
+    .progress-ring__text{
+        text-anchor: middle;  /* 文本水平居中 */
+        dominant-baseline: middle; /* 文本垂直居中 */
+
+    }
+    input{
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 80px;
+    }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 数学图形 svg 矢量图  svg不同于一般图片，不是由像素点组成 -->
+    <!-- <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <circle cx="100" cy="50" r="40" stroke="#000" stroke-width="3" fill="#f00"></circle>
+    </svg> -->
+
+    <svg class="progress-ring" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+        <circle class="progress-ring__circle" cx="60" cy="60" r="52" stroke-width="5" stroke="#ffa" fill="#aba" ></circle>
+        <text class="progress-ring__text" x="60" y="60" fill="#fff" opacity=".9">50%</text>
+    </svg>
+    <!-- <div style="width: 100px;height:100px; border:3px  dashed #000"></div> -->
+    <input type="number" step="5" min="0" max="100" value="10"/>
+    <script>
+        var circle = document.querySelector('circle');
+        var radius = circle.r.baseVal.value;
+        var circumference = radius * 2 * Math.PI;
+        var input = document.querySelector('input');
+        var text = document.querySelector('text');
+        // 初始化stroke
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = `${circumference}`;
+
+        setProgress(input.value);
+        input.addEventListener('change',function(e){
+            setProgress(input.value);
+        })
+        function setProgress(percent){
+            //offset
+            const offset = circumference - percent / 100 * circumference;
+            circle.style.strokeDashoffset = offset;
+            // text
+            const textValue = percent + '%';
+            text.innerHTML = textValue;
+        }
+
+    </script>
+</body>
+</html>
