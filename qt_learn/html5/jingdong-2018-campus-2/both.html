@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 40px;
+            height: 40px;
+            background-color: #540;
+        }
+        /* .box1{
+            animation: long 1s 2s forwards;
+            background-color: #f40;
+        }
+        .box2{
+            animation: long 1s 2s backwards;
+            background-color: #140;
+        } */
+        .box1{
+            animation: long 1s 2s none;
+            background-color: #f40;
+        }
+        .box2{
+            animation: long 1s 2s both;
+            background-color: #140;
+        }
+        @keyframes long{
+            0%{
+                width: 300px;
+            }
+            100%{
+                width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+</body>
+</html>
