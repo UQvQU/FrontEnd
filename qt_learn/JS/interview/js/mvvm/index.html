@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" id="txt">
+        <p id="show-txt"></p>
+    </div>
+</body>
+<!-- <script>
+    const oInput = document.getElementById('txt');
+    const txtEle = document.getElementById('show-txt');
+    // txt 和 oInput、p双向绑定
+    const obj= {
+        txt: '纳德拉'
+    };
+    function init(){
+        // oInput.value = obj.txt;
+        // txtEle.innerText = obj.txt;
+        render(obj.txt);
+        setTimeout(function(){
+            obj.txt = '甘地';
+            render(obj.txt)
+        }, 1000)
+    }
+    init();
+    function render(txt){
+        oInput.value = txt;
+        txtEle.innerText = txt;
+    }
+    
+    // 不能实时更新
+    // oInput.addEventListener('change', function(){
+    //     p.innerText = this.value;
+    // })
+    oInput.addEventListener('input', function(){
+        txtEle.innerText = this.value;
+        obj.txt = this.value;
+    })
+</script> -->
+<script>
+    // 这个页面(静态)的数据(data)核心
+    // 保证页面和数据的双向绑定
+    // 1. 函数封装思想：大于10行 分函数 ；每个函数只做一件事 便于复用
+    const obj = {
+        txt: '唐纳德'
+    };
+    const oInput = document.getElementById('txt');
+    const txtEle = document.getElementById('show-txt');
+    // defineProperty() 定义属性方法
+    Object.defineProperty(obj, 'txt', {
+        get: function(){
+            console.log('获取');
+            // oInput.value = obj.txt;
+            return obj.txt;
+        },
+        set: function(newValue){
+            console.log('设置');
+            // obj.txt = newValue;
+            oInput.value = newValue;
+            txtEle.innerHTML = newValue;
+            return newValue;
+        }
+    });
+    // console.log(obj.txt.get);
+    setTimeout(() => {
+        obj.txt = 'thx';
+    }, 1000);
+    oInput.addEventListener('keyup', function(e){
+        obj.txt = e.target.value;
+        // txtEle.innerText = e.target.value;
+    })
+</script>
+
+</html>
