@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div class="inbox">
+        <div class="item">
+            <input type="checkbox">
+            <p>check to item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check to item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check to item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check to item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check to item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check to item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check to item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check to item</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>check to item</p>
+        </div>
+    </div>
+    <script>
+        const allCheckBox = document.querySelectorAll('.inbox input[type="checkbox"]');
+        // shift + click 选中所有
+        allCheckBox.forEach(checkbox =>  checkbox.addEventListener('click', handleClick))
+        function handleClick(e){
+            // shiftKey -> Shift键   ctrlKey -> Ctrl键
+            // if(e.ctrlKey && this.checked){
+            //     // console.log('yes');
+            //     allCheckBox.forEach(checkbox => checkbox.checked = true )
+            // }else if(e.ctrlKey && !this.checked){
+            //     allCheckBox.forEach(checkbox => checkbox.checked = false )
+            // }
+            if(e.ctrlKey){
+                // console.log('yes');
+                allCheckBox.forEach(checkbox => {
+                    if(checkbox != this)
+                        checkbox.checked = this.checked;
+                } )
+            }
+
+        }
+    </script>
+</body>
+</html>
