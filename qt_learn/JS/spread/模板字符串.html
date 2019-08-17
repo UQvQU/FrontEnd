@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+    // 模板字符串 是 普通字符串的增强
+    const str = `${
+      [123, 456].map(e => 
+      `<li>${e}<li>`).join()
+      }
+    `;
+    console.log(str);
+    // 标签模板 是 模板字符串的增强
+    // 提供了 模板字符串 的信息 让我们自定义 
+    // 模板 字符串的 组合
+    let total = 100, count = 10
+    function combine(strings, ...args) {
+      console.log(strings, args);
+      let i = 0, result = '';
+      while (i < strings.length) {
+        result += strings[i];
+        if (i < args.length) result += (args[i] * 100);
+        i ++;
+      }
+      // console.log(result);
+      return result;
+    }
+    // strings ['the total is', ',the count is', '']
+    // args [100, 10]
+    combine`the total \` is ${total}, 
+    the count is${count}`;
+
+    const dict = {
+      html: 'hyper text markup lang',
+      css: 'style sheets',
+      js: 'javascript'
+    }
+    function combine1(strings, ...args) {
+      console.log(strings, args);
+      let i = 0, result = '';
+      while (i < strings.length) {
+        result += strings[i];
+        if (i < args.length) {
+          let value = args[i];
+          if (dict[value]) {
+            result += `<strong>${dict[value]}<>`
+          }
+        }
+        i ++;
+      }
+      // console.log(result);
+      return result;
+    }
+    let html = combine1`i am lilei,i learn
+     ${'html'}, ${'css'}`;
+     document.getElementById('box')
+     .innerHTML = html;
+
+  </script>
+</body>
+</html>
