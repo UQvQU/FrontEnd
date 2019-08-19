@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function doSomething(status){
+        //     var map = {
+        //         a: () => {console.log('a')},
+        //         b: () => {console.log('b')},
+        //         default: () => {console.log('c')}
+        //     }
+        //     if(map[status]){
+        //         map[status]();
+        //     }else{
+        //         map['default']();
+        //     }
+        // }
+        var twoSum = function(nums, target){
+            var map = {};
+            for(let i = 0; i < nums.length; i++){
+                map[nums[i]] = i;
+            }
+            console.log(map);
+            for(let j = 0; j < nums.length; j++){
+                let num1 = nums[j];
+                let num2 = target - num1;
+                if(map[num2] !== undefined && map[num2] !== j){
+                    return [j, map[num2]];
+                }
+            }
+
+        };
+        twoSum([2, 7, 8, 9], 9);
+    </script>
+</body>
+</html>

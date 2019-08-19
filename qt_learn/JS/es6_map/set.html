@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var set = new Set();
+        set.add(1);
+        set.add(2);
+        set.add(1);
+        for(let v of set){
+            console.log(v);
+        }
+        console.log('size'+set.size,...set);
+
+        // 数组去重
+        var arr = [1,2,5,2,1,9,5];
+        var set = new Set(arr); //去重
+        console.log([...set]);  //展开(...)并放入数组中([])
+    </script>
+</body>
+</html>
