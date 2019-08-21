@@ -16,9 +16,12 @@
             group,  //分组
             renderer; //渲染 
         var mouseX = 0, mouseY = 0; //鼠标坐标
+        var windowHalfX = window.innerWidth / 2,
+            windowHalfY = window.innerHeight / 2;
 
         init(); 
         animate();
+
         function init(){
             canvas = document.getElementById('webglcanvas');
             // canvas.width = window.innerWidth;
@@ -26,7 +29,7 @@
             // 距离范围：start end   焦距
             camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 2000);
             // x y 无偏移量 -> 角度为正前方
-            camera.position.z = 400;
+            camera.position.z = 500;
             // camera.position.y = 100;
             // camera.position.x = 1000;
             // 场景
@@ -55,14 +58,27 @@
                 antialias: true //抗锯齿
             })
             renderer.setSize(window.innerWidth, window.innerHeight);
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+        }
+        function onDocumentMouseMove(event){
+            console.log(event);
+            mouseX = event.clientX - windowHalfX;
+            mouseY = event.clientY - windowHalfY;
+            // group.rotation.x += mouseX;
         }
         function animate(){
             // 每秒60帧
-            requestAnimationFrame(animate);
+            // setInterval() 不够精确
+            requestAnimationFrame(animate);   // 请求运动帧，不断运行animate(), 不停调用render
             render();
         }
         function render(){
+            // 转起来\(^o^)/~
+            camera.position.x += (mouseX-camera.position.x) * 0.05;
+            camera.position.y += (mouseY-camera.position.y) * 0.05;
             camera.lookAt(scene.position);
+            //绕y轴旋转
+            group.rotation.y += 0.005;
             renderer.render(scene, camera);
         }
     </script>
