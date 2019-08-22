@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .good{
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+   <div id="app">
+    {{message}}
+    <p class="cool" v-bind:class="isGood ? 'good' : ''" @click="good">{{message}}</p>
+    <p class="cool" :class="[activeClass]">O(∩_∩)O哈哈~</p>
+    <ul>
+        <li v-for="list in lists">{{list.text}}</li>
+    </ul>
+    <input type="text" v-model="content">
+    <p>{{content}}</p>
+    </div> 
+    
+    <script>
+       var app = new Vue({
+           el: '#app',
+           data:{
+                isGood: false,
+                activeClass: 'active',
+                lists: [
+                    {text: 'hello world'},
+                    {text: 'hello js'},
+                    {text: 'hello vue'}
+                ],
+                content: '',
+                message: 'O(∩_∩)O哈哈~'
+           },
+           methods:{
+               good(){
+                   this.isGood = !this.isGood;
+                   this.message = this.message.split('').reverse().join('');
+               },
+           }
+       })
+   </script>
+</body>
+</html>
