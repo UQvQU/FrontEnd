@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 1;
+        function test(o, s){
+            console.log(this === window)
+            console.log(a, o, s);
+            console.log(this.a);
+            return o;
+        }
+        test();
+        var obj = {
+            a: 2
+        }
+        test.call(obj);
+        var testObj
+
+        
+        Function.prototype.myCall = function(obj, ...rest){
+            console.log('myCall', this);
+            // 实现 call()
+            // 对象中函数的this指向对象本身
+            obj._call = this;
+            // 将所有参数展开传送 
+            console.log(test === obj._call && this === obj._call && this === test);
+            let result = obj._call(...rest);
+            // _call没有作用了啦
+            delete obj._call;
+            return result;
+        }
+        var result = test.myCall(obj, 'av', 'cv', 'dv');
+        console.log(result);
+    </script>
+</body>
+</html>
