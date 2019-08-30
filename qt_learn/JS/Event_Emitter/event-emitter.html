@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 实现 event emitter
+
+        class EventEmitter{
+            constructor(){
+                this._events = {}
+            }
+            on(type, fun){
+                // console.log('on');
+                if(typeof fun !== 'function'){
+                    return null;
+                }
+                const handler = this._events[type];
+                if(!handler){
+                    this._events[type] = fun;
+                }else{
+                    this._events[type] = [].concat(this._events[type], fun);
+                }
+                return this;
+            }
+            emit(type, ...args){
+                // console.log('emit');
+                const handler = this._events[type];
+                if(Array.isArray(handler)){
+                    for(let n of handler){
+                        n.call(this, ...args);
+                    }
+                }else{
+                    handler.call(this, ...args);
+                }
+            }
+        }
+
+        const ev = new EventEmitter();
+        ev.on('ev1', function(){
+            console.log(1);
+        });
+        // 同一个事件有多个订阅  数组存储
+        ev.on('ev2', function(a, b){
+            console.log(2,a,b);
+        });
+        // 要保证this指向ev
+        ev.on('ev2', function(a, b){
+            console.log(3,a,b);
+            console.log(this === ev);
+        });
+        ev.emit('ev2', 1, 2);
+        
+    </script>
+</body>
+</html>
