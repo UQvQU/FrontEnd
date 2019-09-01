@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 防抖函数 防止无意多次点击 -->
+    <button id="btn">提交成功</button>
+    <script>
+        // 防抖函数 一定时间之内该方法只允许执行一次，执行最后那一次
+        const debounce = (fun, delay) => {
+            let timer = null;
+            // console.log(this.name, 1);
+            return (...args) => {
+                // 如果上一次timer尚未执行完成，直接清除
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    // console.log(this.name, 2);
+                    fun.apply(this, args);
+                }, delay);
+            }
+        }
+        const oDebounce = debounce(success, 1000, 1,2);
+        
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click', oDebounce);
+        function success(a,b){
+            console.log('提交成功',a,b);
+            this.name = 'success';
+        }
+        
+        
+    </script>
+</body>
+</html>
