@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <div class="msg"></div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data(){
+                return {
+                    message: 'hello world!'
+                }
+            },
+            // 未创建vue实例之前
+            // 可制作加载动画
+            beforeCreate(){
+                console.log('beforeCreate');
+            },
+            // 获取相应的数据、请求网络接口并赋给属性，
+            // 还可以结束创建之前函数内的程序，eg:结束加载动画
+            created(){
+                console.log('created');
+            },
+            beforeMount(){
+                console.log('beforeMount');
+            },
+            // 此时可以从后台获取数据
+            mounted(){
+                console.log('mounted');
+            },
+            // 放一些组件更新之前要做的事情
+            beforeUpdate(){
+                console.log('beforeUpdate');
+            },
+            updated(){
+                console.log('updated');
+            },
+            beforeDestroy(){
+                console.log('beforeDestroy');
+            },
+            // 
+            destroyed(){
+                console.log('destroyed');
+            }
+            
+        })
+    </script>
+</body>
+</html>
