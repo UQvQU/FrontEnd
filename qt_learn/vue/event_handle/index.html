@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="example">
+        <h2>绑定监听</h2>
+        <button @click="test1">test1</button>
+        <button @click="test2('thx')">test2</button>
+        <button @click="test3">test3</button>
+        <button @click="test4(4, $event)">test4</button>
+        
+        <h2>事件修饰符</h2>
+        <div style="width: 200px;height: 200px;background: #f40;" @click="test5">
+            <div style="width: 100px;height: 100px;background: #abe;" @click.stop="test6"></div>
+        </div>
+        <a href="https://www.baidu.com" @click.prevent="test7">百度</a>
+
+        <h2>按键修饰符</h2>
+        <input type="text" @keyup.13 = "test8">
+        <input type="text" @keyup.enter = "test8">
+
+
+    </div>
+    <script>
+        new Vue({
+            el: '#example',
+            data: {
+                test1 () {
+                    alert('test1');
+                },
+                test2 (message) {
+                    alert(message);
+                },
+                test3 (event) {
+                    alert(event.target.innerHTML);
+                },
+                test4 (number, event){
+                    alert(number + event.target.innerHTML);
+                },
+                test5 () {
+                    alert('out');
+                },
+                // 阻止事件冒泡
+                test6 () {
+                    // event.stopPropagation(); 
+                    alert('inner');
+                },
+                test7 () {
+                    // event.preventDefault();
+                    alert('点击了');
+                },
+                test8 (event) {
+                    // if(event.keyCode === 13)  //enter回车后alert
+                    alert(event.target.value + event.keyCode);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
