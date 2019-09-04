@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        <button @click="destroyVM">destroy vm</button>
+        <p v-show="isShow">THX</p>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#test',
+            data: {
+                isShow: true
+            },
+            mounted () {  //初始化显示之后立即调用
+                this.interValId = setInterval(() => {
+                    console.log('oh my gad')
+                    this.isShow = !this.isShow
+                }, 1000)
+            },
+            methods:{
+                destroyVM () {
+                    this.$destroy();
+                }
+            },
+            
+            beforeDestroy () {
+                // 清除定时器，否则造成内存泄露，vm destroy后定时器仍然存在
+                clearInterval(this.interValId);
+            }
+        })
+
+    </script>
+</body>
+</html>
