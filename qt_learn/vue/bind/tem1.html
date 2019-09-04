@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{message.toUpperCase()}}</h2>
+        <p v-text="message"></p>
+        <p v-html="message"></p>
+
+        <h2>指令一：强制数据绑定</h2>
+        <!-- <img v-bind:src="imgUrl" alt=""> -->
+        <img :src="imgUrl" alt="">
+
+        <h2>指令二：绑定事件监听</h2>
+        <button @click="test">test1</button>
+        <button @click="test2(message)">test1</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: '<a href="www.baidu.com">helloWorld!</a>',
+                imgUrl: 'https://vuejs.bootcss.com/images/logo.png'
+            },
+            methods: {
+                test () {
+                    alert('O(∩_∩)O哈哈~');
+                },
+                test2(content){
+                    alert(content);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

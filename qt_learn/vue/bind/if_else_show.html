@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        <!-- v-if="false" -> dom结构会被移除 -->
+        <p v-if="ok">success</p>
+        <p v-else>failure</p>
+
+        <!-- 若频繁切换 宜用v-show -->
+        <!-- v-show="false" -> style="display: none;" -->
+        <p v-show="ok">表白成功</p>
+        <p v-show="!ok">表白失败</p>
+
+        <button @click="ok=!ok">切换</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                ok: false
+            }
+        })
+    </script>
+</body>
+</html>

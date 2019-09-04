@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .aClass{
+            color: #f40;
+        }
+        .bClass{
+            color: #abe;
+        }
+        .cClass{
+            /* color: #aa1; */
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <!-- 相同的样式：动态class无法覆盖静态的class -->
+        <h2>class绑定： :class='xxx'</h2>
+        <!-- aClass 为一个变量 -->
+        <p :class="a" class="cClass">xxx是字符串</p>
+        <p :class="{aClass: isA, bClass: isB}" class="cClass">xxx是对象</p>    
+        <p :class="['aClass', 'cClass']">xxx是数组</p>  
+
+        <h2>style绑定 :style=''</h2>
+        <p :style="{color: activeColor, fontSize: fontSize + 'px'}">:style</p>
+
+        <button @click="update">更新</button>
+        
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#demo',
+            data: {
+                a: 'aClass',
+                isA: true,
+                isB: false,
+                activeColor: '#f40',
+                fontSize: 20
+            },
+            methods: {
+                update () {
+                    this.a = 'bClass';
+                    this.isB = true;
+                    this.activeColor = '#abe';
+                    this.fontSize = 30;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

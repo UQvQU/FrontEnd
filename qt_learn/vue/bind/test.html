@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        姓氏：<input type="text" placeholder="first name" v-model="firstName"/><br/>
+        名字：<input type="text" placeholder="last name" v-model="lastName"/><br/>
+        姓名1（单向computed）：<input type="text" placeholder="full name1" v-model="fullName1"/><br/>
+        姓名2（单向watch）：<input type="text" placeholder="full name2" v-model="fullName2"/><br/>
+        姓名3（双向）：<input type="text" placeholder="full name3" v-model="fullName3"/>  <br/>      
+    
+    <p>{{fullName1}}</p>
+    <p>{{fullName1}}</p>
+    <p>{{fullName1}}</p>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#demo',
+            data: {
+                firstName: 'hx',
+                lastName: 'T',
+                fullName2: 'hx T',
+            },
+            computed: {
+                fullName1 () {  //fullName1的值会被缓存，若属性值不变，可直接获取值，该函数不会再执行
+                    console.log('a');
+                    return this.firstName + ' ' + this.lastName;
+                },
+                fullName3: {
+                    get() {
+                        return this.firstName + ' ' + this.lastName;
+                    },
+                    set(value) {
+                        this.firstName = value.split(' ')[0];
+                        this.lastName = value.split(' ')[1];
+                    }
+                }
+            },
+            watch: {
+                firstName: function (newVal){
+                    this.fullName2 = newVal + ' ' + this.lastName;
+                }
+            }
+            
+        })
+        vm.$watch('lastName', function (newVal){        
+            this.fullName2 = this.firstName + ' ' + newVal; 
+        })
+
+    </script>
+</body>
+</html>

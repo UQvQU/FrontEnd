@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <!-- 列表过滤 排序 -->
+</head>
+<body>
+    <div id="test">
+        <input type="text" v-model="searchName">
+        <ul>
+            <li v-for="(p, index) in filterPersons" :key="index">
+                {{index}}--{{p.name}}--{{p.age}}
+            </li>
+        </ul>
+        <button @click="orderType = 1">年龄升序</button>
+        <button @click="orderType = 2">年龄降序</button>
+        <button @click="orderType = 0">原序</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#test',
+            data: {
+                persons: [
+                    {name: 'Tom', age: 18},
+                    {name: 'jean', age: 19},
+                    {name: 'jack', age: 17},
+                    {name: 'tah', age: 20}
+                ],
+                searchName: '',
+                orderType: 0     //0: 原序； 1：年龄升序；2：年龄降序
+            },
+            computed: {
+                filterPersons () {
+                    // 取出相关的数据
+                    const {searchName, persons, orderType} = this;
+                    // 过滤persons
+                    let fPersons = persons.filter(p => p.name.indexOf(searchName) !== -1);
+
+                    // 排序
+                    if(orderType !== 0){
+                        fPersons.sort(function (p1, p2) { //默认降序
+                            //p2.age - p1.age 返回负数 p1在前面; 返回正数 p2在前面
+                            // 1:升序 2:降序
+                            if(orderType === 1)
+                                return p1.age - p2.age;
+                            else
+                                return p2.age - p1.age;
+
+                        })
+                    }
+
+                    // console.log(fPersons);
+                    return fPersons;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

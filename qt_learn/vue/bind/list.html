@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">
+        <h2>v-for 遍历数组</h2>
+        <ul>
+            <li v-for="(p, index) in persons" :key="index">
+                {{index}}: {{p.name}}--{{p.age}}
+                <button @click="deleteP(index)">删除</button>
+                <button @click="updateP(index, {name: 'Cat', age: '21'})">更新</button>
+            </li>
+        </ul>
+
+        <h2>v-for 遍历对象</h2>
+        <ul>
+            <li v-for="(value, key) in persons[1]" :key="key">{{value}} -- {{key}}</li>
+        </ul>
+    
+    </div>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                persons: [
+                    {name: 'Tom', age: 18},
+                    {name: 'jean', age: 19},
+                    {name: 'jack', age: 17},
+                ]
+            },
+            methods: {
+                deleteP (index) {
+                    this.persons.splice(index, 1);  //删除
+                },
+                updateP (index, person) {
+                    // this.persons[index] = person;  数组内部发生变化，但没有调用变异方法， vue不会更新界面
+                    this.persons.splice(index, 1, person);  //修改
+                    // this.persons.splice(index, 0, person);  //增加
+                }
+            }
+        })
+    </script>
+</body>
+</html>
