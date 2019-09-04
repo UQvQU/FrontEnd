@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- view -->
+    <div id="app">
+        <input type="text" v-model="username" v-on:change='change'>
+        <p>hello {{username}}</p>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',  // element: 选择器
+            data: {  // 数据（model）
+                username: 'thx'
+            },
+            methods:{
+                change(){
+                    console.log(this.username);
+                }
+            }
+        })
+    </script>
+    <!-- MVVM 
+    model 模型 数据对象(data)
+    view: 视图 模板页面
+    viewModel: 视图模型(Vue的实例 vm)
+    -->
+</body>
+</html>
