@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 自定义指令  (指令名不包括'v-'')
+    1. 功能类型于v-text， 但转换为全大写 v-upper-text
+    2. 功能类型于v-text， 但转换为全小写 v-lower-text--->
+    <div id="example">
+        <p v-upper-text="message"></p>
+        <p v-lower-text="message"></p>
+    </div>
+    <div id="example2">
+        <p v-upper-text="message"></p>
+        <p v-lower-text="message"></p>
+    </div>
+
+    <script>
+        // 定义全局指令
+        // el: 指令属性所在的标签对象
+        // binding：包含指令相关信息数据的对象
+        Vue.directive('upper-text', function(el, binding) {
+            console.log(el, binding);
+            el.textContent = binding.value.toUpperCase();
+        })
+
+
+        new Vue({
+            el: '#example',
+            data: {
+                message: 'NBA I Love This Game!'
+            },
+            directives: { //局部指令
+                'lower-text' (el, binding) {
+                    el.textContent = binding.value.toLowerCase();
+                }
+            }
+        })
+        new Vue({
+            el: '#example2',
+            data: {
+                message: 'Just Do It!'
+            },
+            directives: { //局部指令
+                'lower-text' (el, binding) {
+                    el.textContent = binding.value.toLowerCase();
+                }
+            }
+        })
+    </script>
+</body>
+</html>
