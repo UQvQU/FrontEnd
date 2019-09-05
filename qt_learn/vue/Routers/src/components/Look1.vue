@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-   
+    <div class="go-two" @click="goTwo">去look2</div>
   </div>
 </template>
 
@@ -10,8 +10,21 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Look1页面'
     }
+  },
+  methods:{
+    goTwo(){
+      this.$router.push({name:'Look2',params:{id:666}})
+    }
+  },
+  beforeRouteEnter(to,from,next){
+      console.log(from,to)
+      next()
+  },
+  beforeRouteLeave(to,from,next){
+      console.log(from,to)
+      next()
   }
 }
 </script>

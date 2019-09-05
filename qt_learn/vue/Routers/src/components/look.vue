@@ -1,19 +1,20 @@
 <template>
-  <div class="hello">
+  <div class="look">
     <h1>{{ msg }}</h1>
-   
+    {{$route.params.id}}--look
+    <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  export default {
+    name: 'Look',
+    data () {
+      return {
+        msg: '看一看页面'
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
