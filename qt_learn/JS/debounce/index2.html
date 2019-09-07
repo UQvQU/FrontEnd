@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="unDebounce" >没有防抖的input</label>
+        <input type="text" id="unDebounce"/><br/>
+
+        <label for="unDebounce" >防抖的input</label>
+        <input type="text" id="Debounce"/><br/>
+
+      </div>
+      <script>
+        let inputA = document.getElementById('unDebounce');
+        let inputB = document.getElementById('Debounce');
+
+        function ajax(content) {
+            console.log(content);
+        }
+        let debounceAjax = debounce(ajax, 500);
+        // 大量的事件执行
+        inputA.addEventListener('keyup', function (e) {
+            ajax(e.target.value);
+        })
+        inputB.addEventListener('keyup', function (e) {
+            debounceAjax(e.target.value);
+        })
+        // 通用的功能
+        function debounce (fun, delay) {
+            fun.id = null;
+            // 高级函数： 参数是函数 or 返回值是函数
+            return (...args) => {
+                // console.log('debounce');
+                // 如果上一次timer尚未执行完成，直接清除
+                clearTimeout(fun.id);
+                fun.id = setTimeout(() => {
+                    // console.log(...args, args);
+                    fun.apply(this, args);  // apply() 参数为：包含所有参数的数组
+                }, delay);
+            }
+        }
+        
+      </script>    
+</body>
+</html>
