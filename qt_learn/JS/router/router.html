@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="nav">
+    <a href="/page1">page1</a>
+    <a href="/page2">page2</a>
+    <a href="/page3">page3</a>
+    <a href="/page4">page4</a>
+    <a href="/page5">page5</a>
+  </div>
+  <div id="container">
+
+  </div>
+</body>
+<script>
+  class HistoryRouter {
+    constructor () {
+      this.listenLink();
+      this.routers = {};
+    }
+    register (path, callback = function(){}) {
+      console.log(path, callback);
+      this.routers[path] = callback;
+    }
+    listenLink () {
+      window.addEventListener('click', e => {
+        let dom = e.target;
+        console.log(dom);
+        if (dom.tagName.toUpperCase() === 'A' && dom.getAttribute('href')) {
+          e.preventDefault();
+          // history api
+          console.log('assign');
+          this.assign(dom.getAttribute('href'));
+        }
+      }, false);
+    }
+    assign (path) {
+      // console.log('assign')
+      history.pushState({path}, null, path);
+      this.dealPathHandler(path);
+    }
+    dealPathHandler (path) {
+      console.log('path:'+path);
+      let handler = this.routers[path];
+      handler();
+      console.log(this.routers[path]);
+    }
+  }
+  let router = new HistoryRouter();
+  // 注册
+  let container = document.getElementById('container')
+  router.register('/page1', () => container.innerHTML = 'page1');
+  router.register('/page2', () => container.innerHTML = 'page2');
+  router.register('/page3', () => container.innerHTML = 'page3');
+  router.register('/page4', () => container.innerHTML = 'page4');
+  router.register('/page5', () => container.innerHTML = 'page5');
+</script>
+</html>
