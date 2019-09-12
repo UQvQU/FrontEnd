@@ -103,6 +103,7 @@ export default {
       })
   },
   computed: {
+    // 判断当前foodlist处在哪一类
     currentIndex () {
       for (let i = 0; i < this.listHeight.length; i++) {
         let height1 = this.listHeight[i]
@@ -114,6 +115,7 @@ export default {
       return 0
     },
     selectFoods () {
+      // 查询出用户加入购物车的所有food
       let foods = []
       this.goods.forEach((good) => {
         good.foods.forEach((food) => {
@@ -126,26 +128,32 @@ export default {
     }
   },
   methods: {
-    _initScroll() {
+    _initScroll () {
+      // 初始化scroll
       this.menuScroll = new BScroll(this.$refs.menuWrapper, {
         click: true
       })
       this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
         click: true,
-        probeType: 3
+        probeType: 3,
+        bounch: true,
+        bounchTime: 700
       })
       this.foodsScroll.on('scroll', pos => {
-        console.log(pos)
+        // console.log(pos)
         this.scrollY = Math.abs(Math.round(pos.y))
       })
     },
+    // foodwrapper随menuwrapper跳转
     selectMenu (index, event) {
       // console.log(event)
       // this.currentIndex = index
       let foodList = this.$refs.foodList
       let el = foodList[index]
+      console.log('foodList:'+ el)
       this.foodsScroll.scrollToElement(el, 300)
     },
+    // 计算foodList每一项的height
     _calculateHeight() {
       let foodList = this.$refs.foodList
       let height = 0
