@@ -32,9 +32,10 @@ export default {
     this.$http.get('http://localhost:8080/static/seller.json')
     .then(res =>{
       console.log(res)
-      if(res.data.errno ===0){
+      if(res.data.errno === 0){
         // Object.assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）
         this.seller = Object.assign({},this.seller,res.data.data)
+        // console.log(this.seller)
       }
     })
   }
