@@ -7,7 +7,7 @@
 <script type="text/ecmascript-6">
 export default {
   props: {
-    addTodo: Function
+    // addTodo: Function
   },
   name: '',
   data () {
@@ -27,7 +27,9 @@ export default {
         title,
         complete: false
       }
-      this.addTodo(todo)
+      // this.addTodo(todo)
+      // 触发自定义事件：addTodo
+      this.$emit('addTodo', todo)
       this.title = ''
     }
   }

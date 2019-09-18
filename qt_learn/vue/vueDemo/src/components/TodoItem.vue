@@ -9,11 +9,12 @@
 </template>
 
 <script type="text/ecmascript-6">
+import PubSub from 'pubsub-js'
 export default {
   props: {
     todo: Object,
-    index: Number,
-    deleteTodo: Function
+    index: Number
+    // deleteTodo: Function
   },
   name: '',
   data () {
@@ -37,7 +38,9 @@ export default {
       // const {todo, index, deleteTodo} = this
       // console.log(this, this.deleteTodo, this.index, this.todo)
       if (window.confirm(`确认要删除${this.todo.title}吗?`)) {
-        this.deleteTodo(this.index)
+        // this.deleteTodo(this.index)
+        // 发布消息
+        PubSub.publish('deleteTodo', this.index)
       }
     }
   }
@@ -55,7 +58,7 @@ li {
 }
 
 li label {
-  float: left;
+  /* float: left; */
   cursor: pointer;
 }
 
