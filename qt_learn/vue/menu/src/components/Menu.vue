@@ -1,0 +1,28 @@
+<template>
+  <ul class="menu">
+    <slot></slot>
+  </ul>
+</template>
+
+<script type="text/ecmascript-6">
+export default {
+  name: '',
+  data () {
+    return {}
+  },
+  components: {}
+}
+</script>
+
+<style scoped lang="stylus">
+ul
+  margin 0
+  padding 0
+.menu
+  width 200px
+  li
+    padding 5px
+    background-color #4cb4e7
+    color #ffffff
+    border-bottom 1px solid #ffffff
+</style>
