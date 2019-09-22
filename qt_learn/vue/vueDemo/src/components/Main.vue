@@ -34,10 +34,11 @@ export default {
     Pubsub.subscribe('search', (msg, searchName) => {
       // 通过searchName进行搜索获取数据
       const url = `https://api.github.com/search/users?q=${searchName}`
-      
       // 更新状态(请求中)
       this.firstView = false
       this.loading = true
+      this.users = null
+      this.errorMsg = ''
 
       // 发ajax请求进行搜索
       axios.get(url).then(
@@ -47,19 +48,17 @@ export default {
           const users = result.items.map(item => ({
             url: item.html_url,
             avatar_url: item.avatar_url,
-            name:item.login
+            name: item.login
           }))
           // 更新状态(success)
           this.loading = false
           this.users = users
         }).catch(error => {
-          // 更新状态(failure)
-          this.loading = false
-          thsi.errorMsg = '请求失败'
-          console.log(errorMsg, error)
-        })
-      
-
+        // 更新状态(failure)
+        this.loading = false
+        this.errorMsg = '请求失败'
+        console.log(this.errorMsg, error)
+      })
     })
   },
   components: {}
