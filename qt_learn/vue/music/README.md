@@ -1,4 +1,4 @@
-# music
+# vue-components-communicate
 
 > A Vue.js project
 
