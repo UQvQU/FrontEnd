@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // https://blog.csdn.net/freshlover/article/details/19034079
+      const res = ['1', '2', '3'].map(parseInt)
+      console.log(res);  // [1, NAN, NAN]
+
+
+      // 函数是一等公民， 他和其他变量有同等地位
+      function foo (a, b) {
+        console.log(a);
+        b();
+      }
+      function bar () {console.log(123)}
+      foo(1, bar);
+
+
+      // map(value, index, array)
+      // ['1', '2', '3'].map((a, b, c) => {
+      //   console.log(a, b, c)
+      // })
+      function fun (a, b, c) {
+        console.log(a, b, c);
+      }
+      ['1', '2', '3'].map(fun)
+
+
+      // parseInt(string, radix)  
+      // radix: 可选。表示要解析的数字的基数。该值介于 2 ~ 36 之间。
+      // 返回的值为radix进制的
+      // radix=0  =>  默认转换为10
+
+      // ['1', '2', '3'].map(parseInt)
+      // 
+      
+      // 由于map的回调函数的参数index索引值作了parseInt的基数radix
+      // 导致出现超范围的radix赋值和不合法的进制解析，才会返回NaN。
+  </script>
+</body>
+</html>
