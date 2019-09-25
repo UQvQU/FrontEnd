@@ -1,15 +1,10 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+  <div></div>
 </template>
 
-<script>
-export default {
-  name: 'App'
-}
+<script type="text/ecmascript-6">
+export default {}
 </script>
 
-<style>
+<style scoped lang="stylus">
 </style>
