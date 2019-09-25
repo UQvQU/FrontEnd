@@ -3,6 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import {Button} from 'mint-ui'
+
+// 注册成标签(全局注册)
+Vue.component(Button.name, Button)
 
 Vue.config.productionTip = false
 
@@ -13,6 +17,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-
-// 配置对象的属性名都是一些确定的名称， 不能随便修改
-// import rou from './router'   =>  router: rou
