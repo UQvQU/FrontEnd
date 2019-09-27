@@ -7,6 +7,7 @@ import fastclick from 'fastclick'
 import Vuelazyload from 'vue-lazyload'
 import defLazyImg from '../static/img/loading.gif'
 import store from './vuex/store'
+import '../static/css/reset.css'
 
 Vue.use(Vuelazyload, {
   loading: defLazyImg
