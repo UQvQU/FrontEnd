@@ -1,12 +1,12 @@
 // 封装axios
-import Vue from 'vue'
+// import Vue from 'vue'
 import axios from 'axios'
 
-const vue = new Vue()
+// const vue = new Vue()
 
 // axios 的配置
 axios.defaults.timeout = 10000 // 设置默认的请求时常为10s
-axios.defaults.baseUrl = 'http://localhost:3000' // 设置基础的Url请求地址
+axios.defaults.baseURL = 'http://localhost:3000' // 设置基础的Url请求地址
 
 // 返回状态(响应拦截器)
 axios.interceptors.response.use((res) => {

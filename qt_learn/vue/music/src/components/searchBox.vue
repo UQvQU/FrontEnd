@@ -1,7 +1,7 @@
 <template>
   <div class="search-box">
     <i class="icon icon-search">&#xe638;</i>
-    <input type="text" ref="query" v-model="query" class="box" placeholder="placehoder">
+    <input type="text" ref="query" v-model="query" class="box" :placeholder="placehoder">
     <i class="icon icon-dismiss" v-show="query" @click="clear"></i>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
   // 监听用户输入，进行搜索，设置防抖
   created () {
     this.$watch('query', debounce((newQuery) => {
-      // 抛出一个query方法
+      // 抛出一个query方法 参数为newQuery
       this.$emit('query', newQuery)
     }, 500))
   }
