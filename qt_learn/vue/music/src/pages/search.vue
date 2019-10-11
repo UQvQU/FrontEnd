@@ -31,7 +31,7 @@
     </div>
     <!-- 搜索结果 -->
     <div class="search-result" v-show="query" ref="searchResult">
-      <v-suggest :query="query"></v-suggest>
+      <v-suggest :query="query" @select="saveSearch" @listScroll="blurInput" ref="suggest"></v-suggest>
     </div>
   </div>
 </template>
@@ -41,6 +41,8 @@ import searchBox from '@/components/searchBox'
 import scroll from '@/components/scroll'
 import searchList from '@/components/searchList'
 import suggest from '@/components/suggest'
+import api from '@/api'
+import { searchMixin } from '@/common/mixin.js'
 export default {
   data () {
     return {
@@ -56,8 +58,22 @@ export default {
     onQueryChange (e) {
       this.query = e
     },
-    addQuery () {}
+    addQuery () {},
+    _getHotKey () {
+      api.HotSearchKey().then((res) => {
+        // console.log(res)
+        if (res.code === 200) {
+          this.hotKey = res.result.hots.slice(0, 10)
+        }
+      })
+    },
+    blurInput () {}
   },
+  created () {
+    this._getHotKey()
+  },
+  // vue自带扩展器 和extend相似
+  mixins: [searchMixin],
   components: {
     'v-search-box': searchBox,
     'v-scroll': scroll,
