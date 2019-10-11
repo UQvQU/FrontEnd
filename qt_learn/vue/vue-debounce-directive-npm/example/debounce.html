@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<!-- vue-mixin中 npm install vue-debounce-directive-npm-tt 使用实验成功-->
+<body>
+  <div id="app"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="../index.js"></script>
+  <script>
+    Vue.component('my-button', {
+      template: `<button v-debounce="buy">立即购买</button>`,
+      methods: {
+        buy () {
+          console.log('time:', new Date().getTime())
+        }
+      }
+    })
+    new Vue({
+      el: '#app',
+      template: `
+      <div>
+        <my-button/>  
+      </div>
+      `
+    })
+  </script>
+</body>
+</html>
