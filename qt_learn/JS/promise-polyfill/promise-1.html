@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function MyPromise(executor) {
+      var self = this
+      // 初始状态
+      this.status = 'pending'
+      function resolve(val) {
+        // console.log(val)
+        self.status = 'resolved'
+        self.data = val
+      }
+      function reject() {}
+      executor(resolve, reject)
+    }
+    MyPromise.prototype.then = function (onResolve) {
+      onResolve(this.data)
+    }
+    // new MyPromise(executor)
+    var p = new MyPromise((resolve, reject) => {
+      resolve(12345)
+    })
+    p.then(res => {
+      console.log(res)
+    })
+  </script>
+</body>
+</html>

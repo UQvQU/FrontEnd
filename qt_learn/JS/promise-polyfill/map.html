@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 实现一个 myForeach 功能 和数组 foreach 一样
+    var arr = [0, 1, 2, 3]
+    arr.forEach((item, index, list) => {
+      console.log(item, index, list)
+    })
+
+    Array.prototype.myForeach = function (cb) {
+      for (let i = 0; i < this.length; i++) {
+        cb(this[i], i, this)
+      }
+    }
+    
+    arr.myForeach((item, index, list) => {
+      console.log(item, index, list)
+    })
+  </script>
+</body>
+</html>

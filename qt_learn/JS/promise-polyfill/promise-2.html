@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function MyPromise(executor) {
+      var self = this
+      // 初始状态
+      this.status = 'pending'
+      self.onResolve = null
+      function resolve(val) {
+        // console.log(val)
+        self.status = 'resolved'
+        self.data = val
+        // 3s后
+        self.onResolve && self.onResolve(val)
+      }
+      function reject() {}
+      executor(resolve, reject)
+    }
+    MyPromise.prototype.then = function (onResolve) {
+      var self = this
+      // 已执行resolve(val)
+      if (this.status === 'resolved')
+        onResolve(self.data)
+      // 未执行resolve(val)
+      if (self.status === 'pending')
+        self.onResolve = onResolve
+    }
+    // new MyPromise(executor)
+    var p = new MyPromise((resolve, reject) => {
+      setTimeout(()=> {
+        resolve(12345)
+      }, 3000)
+    })
+    p.then(res => {
+      console.log(res) //3s 后 --> 12345
+    })
+
+
+
+    // 原生promise
+    var p1 = new Promise((resolve, reject) => {
+      resolve('123')
+    }).then(res => {
+      console.log(res) //123
+      // 有返回值return 便可一直then
+      // return返回的就是下一个then
+      return res
+    }).then(data => {
+      console.log(data)  //123
+    })
+  </script>
+</body>
+</html>
