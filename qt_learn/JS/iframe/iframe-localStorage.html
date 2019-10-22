@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>localStorage 扩容</title>
+</head>
+<body>
+  <!-- 加载百度的所有资源 -->
+  <iframe src="http://localhost:3003/iframe.html" frameborder="0" id="iframe1"></iframe>
+  <script>
+    // 5M
+    // 假设localhost:8080(iframe-localStorage)不够用了, 存在localhost:3003下面
+    // postMessage
+    window.onload = function () {
+      const iframe = document.getElementById('iframe1')
+      const iframeWindow = iframe.contentWindow
+      // iframeWindow.postMessage({name: 'tt'}, 'http://localhost:3003')
+      function setAnotherOriginStorage (key, value) {
+        iframeWindow.postMessage({key: key, value: value}, 'http://localhost:3003')
+      }
+      function getAnotherOriginStorage (key, cb) {
+        window.onmessage = function (e) {
+          console.log('cb')
+          cb(null, e.data)
+        }
+        iframeWindow.postMessage({key}, 'http://localhost:3003')
+      }
+      setAnotherOriginStorage('key', {name: 'tt'})
+      getAnotherOriginStorage('key', (err, data) => {
+        console.log('data', data)
+      })
+    }
+  </script>
+</body>
+</html>
