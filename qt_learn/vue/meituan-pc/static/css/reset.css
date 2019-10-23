@@ -97,3 +97,8 @@ body {
   width: 100%;
   font-size: 12px;
 }
+
+.el-input.is-active .el-input__inner, .el-input__inner:focus{
+  border-color: #999;
+    outline: 0;
+}
