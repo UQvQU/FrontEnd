@@ -29,7 +29,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.myheader
-  height 40px
-  line-height 40px
+// .myheader
+//   border 1px solid #f40
+//   height 200px
+//   display block
 </style>

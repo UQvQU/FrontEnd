@@ -50,6 +50,11 @@ export default new Router({
       path: '/hotel',
       name: 'Hotel',
       component: _import_('hotel')
+    },
+    {
+      path: `/scenery/:name`,
+      name: 'Scenery',
+      component: _import_('scenery')
     }
   ]
 })

@@ -13,9 +13,9 @@
 </template>
 
 <script type="text/ecmascript-6">
-import city from '@/components/Header/TopBar/city'
-import user from '@/components/Header/TopBar/user'
-import navbar from '@/components/Header/TopBar/navbar'
+import city from '@/components/header/TopBar/city'
+import user from '@/components/header/TopBar/user'
+import navbar from '@/components/header/TopBar/navbar'
 export default {
   name: '',
   data () {
@@ -30,8 +30,9 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.topbar{
-      width: 1190px;
-      margin: 0 auto;
-  }
+.topbar
+  width: 1190px;
+  margin: 0 auto;
+  height 40px
+  line-height 40px
 </style>
