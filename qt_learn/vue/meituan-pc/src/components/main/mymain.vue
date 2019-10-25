@@ -5,7 +5,7 @@
         <menus/>
       </el-col>
       <el-col :span="19">
-        <content/>
+        <contents/>
       </el-col>
     </el-row>
     <el-row>
@@ -28,7 +28,7 @@
 
 <script type="text/ecmascript-6">
 import menus from '@/components/main/menu'
-import content from '@/components/main/content'
+import contents from '@/components/main/contents'
 import styles from '@/components/main/style'
 import film from '@/components/main/film'
 import HomeStay from '@/components/main/homestay'
@@ -39,7 +39,7 @@ export default {
   },
   components: {
     menus,
-    content,
+    contents,
     styles,
     film,
     HomeStay

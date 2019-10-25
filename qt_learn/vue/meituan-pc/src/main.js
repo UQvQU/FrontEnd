@@ -7,6 +7,7 @@ import router from './router'
 import store from './store/index'
 import 'element-ui/lib/theme-chalk/index.css'
 import '../static/css/reset.css'
+import '../static/css/fontfamily.css'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
