@@ -1,12 +1,12 @@
 <template>
- <div class="">
-note
- </div>
+  <div class="">
+
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
 export default {
-  name: 'noteClass',
+  name: '',
   data () {
     return {}
   },
@@ -14,5 +14,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 </style>

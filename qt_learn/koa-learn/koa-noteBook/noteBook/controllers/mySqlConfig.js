@@ -39,7 +39,7 @@ let getAllUsers = function() {
 }
 
 // 注册用户
-let insertUser = function () {
+let insertUser = function (value) {
     let _sql = `insert into users set username=?, userpwd=?, nickname=?;`
     return allServies.query(_sql, value)
 }
