@@ -8,9 +8,22 @@ const logger = require('koa-logger')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
+const cors = require('koa2-cors')
 
 // error handler
 onerror(app)
+// 跨域
+app.use(cors({
+  origin:function(ctx){
+    return '*'
+  },
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+  maxAge: 5,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'DELETE'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept']
+}))
+
 
 // middlewares
 app.use(bodyparser({
@@ -35,6 +48,16 @@ app.use(async (ctx, next) => {
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+// 跨域
+// app.use(async (ctx,next)=>{
+//   ctx.set('Access-Control-Allow-Origin','http://127.0.0.1:8080')
+//   ctx.set('Access-Control-Allow-Headers','X-custom,Content-Type')
+//   ctx.set('Access-Control-Allow-Methods','POST,GET,PUT,DELETE,OPTIONS')
+//   // 是否允许发送cookies
+//   ctx.set('Access-Control-Allow-Credentials',true)
+//   ctx.body = '123456'
+//   await next()
+// })
 
 // error-handling
 app.on('error', (err, ctx) => {

@@ -55,5 +55,8 @@ let userLogin = function (username, userpwd) {
 }
 
 module.exports = {
-    getAllUsers
+    getAllUsers,
+    insertUser,
+    findUser,
+    userLogin
 }
