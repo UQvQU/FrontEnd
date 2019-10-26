@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 相同的输入会有相同的输出
+    // 不依赖任何外部环境
+    // 不会对外部造成影响
+    const add = (a, b) => a + b
+    add(1, 2)
+
+    let cache = new Map()
+    const memoryAdd = function (a, b) {
+      // return a + b
+      const key = JSON.stringify(Array.from(arguments))
+      console.log(key)
+      if (cache.has(key)) {
+        console.log('have')
+        return cache.get(key)
+      }
+      let res = a + b
+      cache.set(key, res)
+      return res
+    }
+    memoryAdd(1, 2)
+    memoryAdd(1, 2)
+    console.log(cache)
+
+    const memorize = function (fn) {
+      let cache = new Map()
+      return function(...args) {
+        let key = JSON.stringify(args)
+        if (cache.has(key)) {
+          console.log('have')
+          return cache.get(key)
+        }
+        const res = fn(...args)
+        cache.set(key, res)
+        return res
+      }
+    }
+    const mAdd = memorize(add)
+    console.log(mAdd(1, 2))
+    console.log(mAdd(1, 2))
+  </script>
+</body>
+</html>
