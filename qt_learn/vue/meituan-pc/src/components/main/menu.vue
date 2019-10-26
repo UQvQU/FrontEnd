@@ -20,7 +20,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { menu } from '@/assets/data/menu'
+import { menu } from '@/assets/data/main'
 export default {
   name: '',
   data () {
@@ -58,11 +58,11 @@ export default {
 
 <style scoped lang="stylus">
 .menu
-  width: 230px;
+  width: 250px;
   height: 475px;
   box-sizing: border-box;
   margin-top: -50px;
-  margin-left: 20px;
+  // margin-left: 20px;
   position: relative;
   background: #fff
   border 1px solid #DCDFE6
@@ -191,9 +191,9 @@ export default {
   .child
     padding: 0 30px;
     position: absolute;
-    left: 229px;
+    left: 250px;
     bottom: 0;
-    width: 400px;
+    width: 320px;
     height: 416px;
     background: #fff;
     z-index: 9999;
