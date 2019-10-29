@@ -43,6 +43,12 @@ let insertUser = function (value) {
     let _sql = `insert into users set username=?, userpwd=?, nickname=?;`
     return allServies.query(_sql, value)
 }
+// 写笔记
+let insertNote = function(value) {
+    console.log('insertNote')
+    let _sql = `insert into createNote set note_content=?, head_img=?, title=?, note_type=?, userId=?, nickname=?;`
+    return allServies.query(_sql, value)
+}
 // 查找用户
 let findUser = function (username) {
     let _sql = `select * from users where username = "${username}";`
@@ -53,10 +59,22 @@ let userLogin = function (username, userpwd) {
     let _sql = `select * from users where username = "${username}" and userpwd = "${userpwd}";`
     return allServies.query(_sql)
 }
-
+// 根据分类名称查找对应的笔记列表
+let findNoteListByType = function(note_type){
+    let _sql = `select * from note where note_type="${note_type}"`
+    return allServies.query(_sql)
+}
+// 根据列表笔记的id查找笔记的详情
+let findNoteDetailById = function (id) {
+    let _sql = `select * from note where id = "${id}"`
+    return allServies.query(_sql)
+} 
 module.exports = {
     getAllUsers,
     insertUser,
     findUser,
-    userLogin
+    userLogin,
+    findNoteListByType,
+    findNoteDetailById,
+    insertNote
 }

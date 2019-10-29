@@ -45,7 +45,7 @@ export default {
         console.log(res)
         if (res.data.code == '800000') {
           sessionStorage.setItem('userInfo', JSON.stringify(res.data.data))
-          this.$router.push({path: '/noteClass'})
+          this.$router.push({path: 'noteClass'})
         } else {
           this.$toast(res.data.mess)
         }
@@ -165,4 +165,3 @@ input {
   }
 }
 </style>
-
