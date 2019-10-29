@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let a = 0
+    // async function test() {
+    //   let b = await 10 // promise.then()回调（待a++执行后执行） await后面的代码全部进入回调函数
+    //   console.log('b', b)
+    //   a = a + b  // 后执行
+    //   console.log('a1', a)
+    // }
+    // test()
+    // a++  // 先执行
+    // console.log('a2', a)
+
+
+      // await后面的代码全部进入回调函数
+    async function test() {
+      console.log('a3', a)  // 0
+      let b = a + await 10 // promise.then()回调（待a++执行后执行） 此时a仍等于0
+      console.log('b', b)
+      console.log('a1', a)  // 1
+    }
+    test()
+    a++  // 先执行
+    console.log('a2', a)   // 1
+  </script>
+</body>
+</html>

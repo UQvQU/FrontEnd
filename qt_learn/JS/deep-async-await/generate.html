@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // generate
+    function* test() {
+      console.log('start')
+      let a = yield 'val'
+      // ------------------ 第一次next()到此执行结束
+      console.log('a', a)
+      let b = yield '123'
+      // ------------------ 第二次next()到此执行结束
+      console.log('b', b)
+      console.log('end')
+    }
+    const obj = test()
+    // next(value)  -->  value 给上一个yield作返回值
+    // console.log(obj.next(1))  //第一个yield ‘val’之前无yield  --> 1 无效
+    // console.log(obj.next(2))  //第二个yield ‘123’之前有yield ‘val’,2 给其作返回值， --> a = 2
+    // console.log(obj.next())   //无第三个yield，但仍会给前一个yield‘123’传返回值，此处未传值  --> b = undefined
+
+    // TJ co autoRun 就是类似co的东东
+    function autoRun(generateFun) {
+      let genObj = generateFun()
+      let g = genObj.next()  // 第一次运行  g.value = 'val'
+      while (!g.done) {
+        console.log(g.value)  // 'val'
+        g = genObj.next(g.value)  //  第二次运行 -> a = 'val' , g.value = '123'
+        // 第三次运行 -> b = '123'  g.done = true
+      }
+    }
+    autoRun(test)
+  </script>
+</body>
+</html>
