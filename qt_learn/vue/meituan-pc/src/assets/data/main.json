@@ -83,11 +83,11 @@
       ]
     },
     {
-      "name":"生活服务",
+      "name":["生活服务"],
       "type":"life",
       "child":[
         {
-          "title":"生活服务",
+          "title":["生活服务"],
           "child":["衣物/皮具洗护","家政","搬家运输","送水","充值缴费","服饰/鞋包养护","开锁换锁","居家维修","管道疏通","家电维修清洗","电脑维修","手机维修","证件照/肖像摄影","照片冲印/图文文印","商务服务/法律服务","文化传媒机构","成人用品/情趣用品"]
         }
       ]
@@ -125,5 +125,47 @@
       "url": "#kjljj",
       "img": "http://p1.meituan.net/codeman/bb0abb3435a60c44d87e90ed4237b61039329.jpg"
     }
-  ]
+  ],
+  "list":{
+    "all":[
+      {"title":"八大山人梅湖景区","tag":["风景名胜", "文化传承"],"price":"66","img":"http://store.is.autonavi.com/showpic/ce7f9fd8b045ef49ef03887e1e91a5a7","url":"/changecity"},
+      {"title":"万寿宫","tag":["风景名胜", "文化传承"],"price":"5","img":"http://store.is.autonavi.com/showpic/ac3e7110e7e026af82c950642bd30e25","url":"/changecity"},
+      {"title":"阳明公园","tag":["风景名胜", "文化传承"],"price":"66","img":"http://store.is.autonavi.com/showpic/1328245a625defdf58811b0a62c375bd","url":"/changecity"},
+      {"title":"青山湖风景区","tag":["风景名胜", "文化传承"],"price":"66","img":"http://store.is.autonavi.com/showpic/ea9bdb87e7cbd03242e674bba44003c5","url":"/changecity"},
+      {"title":"赣江市民公园","tag":["风景名胜", "文化传承"],"price":"66","img":"http://store.is.autonavi.com/showpic/6f53381bc189304120e5f85a4549e1cd","url":"/changecity"},
+      {"title":"相思林公园","tag":["风景名胜", "文化传承"],"price":"66","img":"http://store.is.autonavi.com/showpic/855d1877720374339d6d94c7e3e4dd3f","url":"/changecity"}
+    ],
+    "food": [
+      {"title":"菜肴故事(旗舰店)","tag":["餐饮服务"],"price":"68","img":"http://store.is.autonavi.com/showpic/2cede2b7878c491fabab138db097c0fb","url":"/changecity"},
+      {"title":"聚轩阁聚福海鲜蒸锅旗舰店","tag":["餐饮服务"],"price":"90","img":"http://store.is.autonavi.com/showpic/d04f16b0b80b2fe9ad8981fd3d572be7","url":"/changecity"},
+      {"title":"新望江楼酒店","tag":["餐饮服务"],"price":"38","img":"http://store.is.autonavi.com/showpic/3536959fd9329b0cfa8498385b01f899","url":"/changecity"},
+      {"title":"老张烧烤火锅城(翠苑路店)","tag":["餐饮服务"],"price":"57","img":"http://store.is.autonavi.com/showpic/7388623e77a75d5d7600805cb9c454a7","url":"/changecity"},
+      {"title":"哈尔滨大水饺(十字街店)","tag":["餐饮服务"],"price":"41","img":"http://store.is.autonavi.com/showpic/b6fb1aeb2e6771f16a1e21d497a4f556","url":"/changecity"},
+      {"title":"大娘水饺(高新店)","tag":["餐饮服务"],"price":"23","img":"http://store.is.autonavi.com/showpic/316f4b188258654b568765967e3467da","url":"/changecity"}
+    ],
+    "spa":[
+      {"title":"丽人堂养生馆","tag":["生活服务"],"price":"59","img":"http://store.is.autonavi.com/showpic/aaf0bcd7ffc2a52242fca6a13c339d70","url":"/changecity"},
+      {"title":"都市丽人","tag":["购物服务", "生活服务"],"price":"59","img":"http://store.is.autonavi.com/showpic/b628f57708089d3891ba16e7aa4912fb","url":"/changecity"},
+      {"title":"都市丽人(一二三九店)","tag":["购物服务", "生活服务"],"price":"59","img":"http://store.is.autonavi.com/showpic/54179800a3103bc636698575","url":"/changecity"},
+      {"title":"都市丽人(零九二店)","tag":["购物服务", "生活服务"],"price":"127","img":"http://store.is.autonavi.com/showpic/65278daa800442248c8c4df61b4c2bb9","url":"/changecity"},
+      {"title":"都市丽人(沁园路店)","tag":["购物服务", "生活服务"],"price":"59","img":"http://store.is.autonavi.com/showpic/ac601582b5625a5559b6eecfc916648a","url":"/changecity"},
+      {"title":"丽人专业美发","tag":["生活服务"],"price":"59","img":"http://store.is.autonavi.com/showpic/bdc00be7a766fc436cd483bb2b7b7c0b","url":"/changecity"}
+    ],
+    "film": [
+      {"title":"万达影城","tag":["娱乐休闲"],"price":"44","img":"http://store.is.autonavi.com/showpic/e85a87502167704cf124d4ceb4996085","url":"/changecity"},
+      {"title":"金逸国际电影城(红谷滩店)","tag":["娱乐休闲"],"price":"35","img":"http://store.is.autonavi.com/showpic/de950fd7e3df2684e9fba3fbc2ab544c","url":"/changecity"},
+      {"title":"至潮主题影城(渊明北路店)","tag":["娱乐休闲"],"price":"32","img":"http://store.is.autonavi.com/showpic/55f21289ba21d3f91fa74faf9fe32d05","url":"/changecity"},
+      {"title":"大地影院(新力方广场店)","tag":["娱乐休闲"],"price":"32","img":"http://store.is.autonavi.com/showpic/3ecc1a3b974bc508b915e39b086628de","url":"/changecity"},
+      {"title":"逸家私人影院","tag":["娱乐休闲"],"price":"32","img":"http://store.is.autonavi.com/showpic/2f05c1644451062f97979cd2468f7bb2","url":"/changecity"},
+      {"title":"大峡谷私人影院","tag":["娱乐休闲"],"price":"32","img":"http://store.is.autonavi.com/showpic/d99058193428b68ddf292f96fb7be9c4","url":"/changecity"}
+    ],
+    "sight": [
+      {"title":"江西省凤凰沟风景区","tag":["风景名胜", "文化传承"],"price":"25","img":"http://store.is.autonavi.com/showpic/5785f95b29815f5a9b3898efe670a210","url":"/changecity"},
+      {"title":"中盛山庄","tag":["风景名胜", "文化传承"],"price":"25","img":"http://store.is.autonavi.com/showpic/d28b90f944b23f60dd3e4552e44460c1","url":"/changecity"},
+      {"title":"滕王阁","tag":["风景名胜", "文化传承"],"price":"45","img":"http://store.is.autonavi.com/showpic/f697c405246282619b41e00e796fab24","url":"/changecity"},
+      {"title":"紫清山","tag":["风景名胜", "文化传承"],"price":"10","img":"http://store.is.autonavi.com/showpic/4943d460d81926000ecd84a967db875e","url":"/changecity"},
+      {"title":"艾溪湖森林湿地公园","tag":["风景名胜", "文化传承"],"price":"25","img":"http://store.is.autonavi.com/showpic/28cdd13f371e230b0a75f6dd67498be7","url":"/changecity"},
+      {"title":"绳金塔","tag":["风景名胜", "文化传承"],"price":"25","img":"http://store.is.autonavi.com/showpic/762a5e85340105f599c30407d02b81f5","url":"/changecity"}
+    ]
+  }
 }
