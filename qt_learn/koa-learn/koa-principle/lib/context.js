@@ -8,6 +8,17 @@ function defineGetter(prop, name) {
     return this[prop][name]
   })
 }
+// ctx.body代理response的body
+function defineSetter (prop, name) {
+  proto.__defineSetter__(name, function(val) {
+    this[prop][name] = val
+  })
+}
+
 defineGetter('request', 'url')
 defineGetter('request', 'path')
+
+defineGetter('response', 'body')
+defineSetter('response', 'body')
+
 module.exports = proto
