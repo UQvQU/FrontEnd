@@ -185,7 +185,7 @@ router.post('/findNoteListByType', async(ctx, next) =>{
       }
     })
 })
-// 根据
+// 根据id获取笔记详情
 router.post('/findNoteDetailById',async(ctx,next) => {
   let id = ctx.request.body.id
   await userService.findNoteDetailById(id)
