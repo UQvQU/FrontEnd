@@ -30,4 +30,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.el-container
+  background-color #f8f8f8
 </style>
