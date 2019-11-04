@@ -24,6 +24,16 @@ app.use(cors({
   allowMethods: ['GET', 'POST', 'DELETE'],
   allowHeaders: ['Content-Type', 'Authorization', 'Accept']
 }))
+// 跨域
+// app.use(async (ctx,next)=>{
+//   ctx.set('Access-Control-Allow-Origin','http://127.0.0.1:8080')
+//   ctx.set('Access-Control-Allow-Headers','X-custom,Content-Type')
+//   ctx.set('Access-Control-Allow-Methods','POST,GET,PUT,DELETE,OPTIONS')
+//   // 是否允许发送cookies
+//   ctx.set('Access-Control-Allow-Credentials',true)
+//   ctx.body = '123456'
+//   await next()
+// })
 
 // middlewares
 app.use(bodyparser({
