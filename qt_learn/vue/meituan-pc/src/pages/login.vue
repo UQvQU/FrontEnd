@@ -10,12 +10,12 @@
         <img src="//s0.meituan.net/bs/file/?f=fe-sso-fs:build/page/static/banner/www.jpg" width="480" height="370" alt="美团网">
       </div>
       <div class="right">
-        <form action="/">
+        <form>
           <p>账号登录</p>
           <el-input type="text" v-model="phoneNumber"></el-input>
           <el-input type="password" v-model="password"></el-input>
           <span class="password">忘记密码？</span>
-          <input class="submit" type="submit" value="登录"/>
+          <input class="submit" type="button" @click="login" value="登录"/>
           <p>还没有账号？<router-link to="/register"><span>免费注册</span></router-link></p>
         </form>
       </div>
@@ -30,6 +30,63 @@ export default {
     return {
       phoneNumber: '',
       password: ''
+    }
+  },
+  methods: {
+    register () {
+      console.log('register')
+      this.$http({
+        url: 'http://localhost:3000/users/register',
+        method: 'post',
+        data: {
+          phoneNumber: this.phoneNumber.trim(),
+          userPassword: this.password.trim()
+        }
+      }).then(res => {
+        // console.log('res:', res)
+        if (res.data.code === '800000') {
+          this.$router.push({path: '/login'})
+        } else {
+          this.$message({
+            message: res.data.message,
+            type: 'warning'
+          })
+        }
+      }).catch(error => {
+        console.log('error', error)
+      })
+    },
+    login () {
+      console.log('login')
+      if (this.phoneNumber.trim() === '' || this.password.trim() === '') {
+        this.$message({
+          message: '手机号或密码不能为空',
+          type: 'warning'
+        })
+        return
+      }
+      this.$http({
+        url: 'http://localhost:3000/users/login',
+        method: 'post',
+        data: {
+          phoneNumber: this.phoneNumber.trim(),
+          userPassword: this.password.trim()
+        }
+      }).then(res => {
+        console.log('res:', res)
+        if (res.data.code === '800000') {
+          console.log(this.$store)
+          this.$store.dispatch('setUser', res.data.data)
+          this.$router.push({path: '/'})
+        } else {
+          this.$message({
+            message: res.data.message,
+            type: 'warning'
+          })
+        }
+      }).catch(error => {
+        console.log('error', error)
+      })
     }
   },
   components: {}

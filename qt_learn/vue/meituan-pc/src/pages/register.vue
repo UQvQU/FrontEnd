@@ -48,7 +48,6 @@ export default {
   },
   methods: {
     register () {
-      let self = this
       if (this.phoneNumber.trim() === '' || this.password.trim() === '') {
         this.$message({
           message: '手机号或密码不能为空',
@@ -75,7 +74,7 @@ export default {
         console.log('res:', res)
         if (res.data.code === '800000') {
           console.log('login', this === self)
-          self.$router.push({path: '/login'})
+          this.$router.push({path: '/login'})
         } else {
           this.$message({
             message: res.data.message,

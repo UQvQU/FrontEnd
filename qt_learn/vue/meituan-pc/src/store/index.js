@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import loginState from './modules/login_state/login_state'
 
 Vue.use(Vuex)
 
-const state = {
-
-}
-
-export default {
-  state
-}
+export default new Vuex.Store({
+  modules: {
+    loginState
+  }
+})

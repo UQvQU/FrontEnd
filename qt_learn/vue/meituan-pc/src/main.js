@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import ElementUI from 'element-ui'
 import router from './router'
+import Router from 'vue-router'
 import store from './store/index'
 import 'element-ui/lib/theme-chalk/index.css'
 import '../static/css/reset.css'
@@ -21,6 +22,11 @@ router.beforeEach((to, from, next) => {
   document.title = to.meta.title
   next()
 })
+
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 /* eslint-disable no-new */
 new Vue({
