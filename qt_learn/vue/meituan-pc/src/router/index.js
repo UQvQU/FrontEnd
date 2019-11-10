@@ -85,6 +85,14 @@ export default new Router({
       meta: {
         title: '景区'
       }
+    },
+    {
+      path: `/me/:name`,
+      name: 'Me',
+      component: _import_('me'),
+      meta: {
+        title: '我的'
+      }
     }
   ]
 })

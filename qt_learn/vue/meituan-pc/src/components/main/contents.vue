@@ -7,14 +7,43 @@
           <img @click="toEntertainment" src="http://p0.meituan.net/codeman/e473bb428f070321269b23370ff02ba956209.jpg" alt="entertainment">
         </div>
       </el-col>
-      <el-col :span="6">
-        <div class="user">
+      <el-col :span="6" >
+        <div class="user" v-if="user">
+          <div class="setting" v-show="user" @click="toMe">
+            <div class="icon el-icon-setting"></div>
+          </div>
+          <img style="cursor: pointer;" :src="user.avatar" alt="me" @click="toMe">
+          <p style="cursor: pointer;" @click="toMe">{{user.nickname}}</p>
+          <div class="fn">
+            <div class="item" @click="toMe">
+              <div class="icon el-icon-s-order"></div>
+              <p class="name">我的订单</p>
+            </div>
+            <div class="item" @click="toMe">
+              <div class="icon el-icon-star-on"></div>
+              <p class="name">我的收藏</p>
+            </div>
+            <div class="item" @click="toMe">
+              <div class="icon el-icon-s-ticket"></div>
+              <p class="name">抵用券</p>
+            </div>
+            <div class="item" @click="toMe">
+              <div class="icon el-icon-s-finance"></div>
+              <p class="name">余额</p>
+            </div>
+            <div class="item" @click="toMe">
+              <div class="icon el-icon-more"></div>
+              <p class="name">更多</p>
+            </div>
+          </div>
+        </div>
+        <div class="user" v-else >
           <img src="//s0.meituan.net/bs/fe-web-meituan/e350c4a/img/avatar.jpg" alt="avatar">
           <p>Hi! 你好</p>
-          <router-link to="login">
+          <router-link to="register">
             <el-button>注册</el-button>
           </router-link>
-          <router-link to="register">
+          <router-link to="login">
             <el-button>立即登录</el-button>
           </router-link>
         </div>
@@ -50,16 +79,26 @@
 
 <script type="text/ecmascript-6">
 import carousel from '@/components/main/carousel'
+import { mapState } from 'vuex'
 export default {
   name: '',
   data () {
     return {
+      // avatar: user ? require(`../../assets/img/${user.avatar}`) : '',
       entertainment: require('../../assets/img/wr2.jpg')
     }
+  },
+  computed: {
+    ...mapState({
+      user: state => state.loginState.user
+    })
   },
   methods: {
     toEntertainment () {
       this.$router.push({path: '/changecity'})
+    },
+    toMe () {
+      this.$router.push({path: '/me'})
     }
   },
   components: {
@@ -90,13 +129,8 @@ export default {
   p
     font-size 16px
     color #222
-    // text-align center
     font-weight 500
-    // white-space nowrap
-    // width 6em
-    // overflow hidden
-    // text-overflow ellipsis
-    margin 12px auto
+    margin 13px auto
   .el-button
     width 118px
     // text-align center
@@ -116,10 +150,28 @@ export default {
     height 47px
     border-radius 50%
     border 4px solid #E5E5E5
-        // p>button {
-        //   width 120px
-        //   margin-bottom 15px
-        // }
+  .icon
+    font-size: 24px;
+  .setting
+    position absolute
+    top: 20px;
+    right: 12px;
+    color #aaa
+    cursor pointer
+  .fn
+    width 233px
+    padding: 0 15px;
+    display flex
+    flex-wrap wrap
+    .item
+      cursor pointer
+      .icon
+        width 66px
+        color: #FFC300;
+      .name
+        font-size: 12px;
+        color: #222;
+        margin: 6px 0;
 .hotel,.study
   height 165px
   // width 135px
