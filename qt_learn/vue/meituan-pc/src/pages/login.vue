@@ -16,7 +16,7 @@
           <el-input type="password" v-model="password"></el-input>
           <span class="password">忘记密码？</span>
           <input class="submit" type="button" @click="login" value="登录"/>
-          <p>还没有账号？<router-link to="/register"><span>免费注册</span></router-link></p>
+          <p>还没有账号？<router-link to="/register" tag="span">免费注册</router-link></p>
         </form>
       </div>
     </div>

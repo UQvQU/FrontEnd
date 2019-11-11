@@ -87,12 +87,54 @@ export default new Router({
       }
     },
     {
-      path: `/me/:name`,
+      path: `/me`,
       name: 'Me',
       component: _import_('me'),
       meta: {
         title: '我的'
-      }
+      },
+      children: [
+        {
+          path: '/',
+          name: 'userInfo',
+          component: _import_('userInfo'),
+          meta: {
+            title: '我的首页'
+          }
+        },
+        {
+          path: '/me/order',
+          name: 'order',
+          component: _import_('order'),
+          meta: {
+            title: '我的订单'
+          }
+        },
+        {
+          path: '/me/collect',
+          name: 'collect',
+          component: _import_('collect'),
+          meta: {
+            title: '我的收藏'
+          }
+        },
+        {
+          path: '/me/ticket',
+          name: 'ticket',
+          component: _import_('ticket'),
+          meta: {
+            title: '我的抵用券'
+          }
+        },
+        {
+          path: '/me/settings',
+          name: 'settings',
+          component: _import_('settings'),
+          meta: {
+            title: '账户设置'
+          }
+        }
+      ]
     }
   ]
 })

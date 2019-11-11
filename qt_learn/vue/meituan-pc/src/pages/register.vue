@@ -8,7 +8,7 @@
         <div class="login">
           <span>已有美团账号？</span>
           <!-- <router-link to="login"><el-button>登录</el-button></router-link> -->
-          <el-button @click.native="login">登录</el-button>
+          <el-button @click="login">登录</el-button>
         </div>
       </div>
     </div>

@@ -48,7 +48,4 @@ export default {
 </script>
 
 <style lang="stylus">
-// .mymain
-//   border 1px solid #000
-//   display block
 </style>

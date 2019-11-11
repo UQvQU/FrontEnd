@@ -1,7 +1,9 @@
 <template>
   <el-row class="searchbar">
     <el-col :span="3" class="logo">
-      <img src="//s0.meituan.net/bs/fe-web-meituan/fa5f0f0/img/logo.png" alt="美团">
+      <router-link to="/">
+        <img src="//s0.meituan.net/bs/fe-web-meituan/fa5f0f0/img/logo.png" alt="美团">
+      </router-link>
     </el-col>
     <el-col :span="21" class="searchwrapper">
       <div class="search">
@@ -14,7 +16,7 @@
           <router-link :to="{name: 'Scenery', params:{name: item.name}}">{{item.name}}</router-link>
         </li>
       </ul>
-      <ul class="recommend">
+      <ul class="recommend" v-show="header">
         <li v-for="(item, index) in recommend" :key="index">
           <router-link :to="{name: item.url}">{{item.name}}</router-link>
         </li>
@@ -25,7 +27,15 @@
 
 <script type="text/ecmascript-6">
 export default {
-  name: '',
+  name: 'SearchBar',
+  props: {
+    header: {
+      type: Boolean,
+      default () {
+        return true
+      }
+    }
+  },
   data () {
     return {
       scenery: [
@@ -55,7 +65,7 @@ export default {
 <style scoped lang="stylus">
 .searchbar
   margin 0 auto
-  height 160px
+  // height 160px
   // display flex
   padding 15px 45px
   background #fff
@@ -96,13 +106,16 @@ export default {
       display flex
       padding 10px 10px 0 70px
       box-sizing border-box
+      padding-bottom 16px
       li
         margin-right 10px
         a:hover
           color #fe8c00
     .recommend
       display flex
-      margin-top 28px
+      // margin-top 12px
+      padding-top 20px
+      box-sizing border-box
       // border 1px solid #000
       li
         margin 0 20px

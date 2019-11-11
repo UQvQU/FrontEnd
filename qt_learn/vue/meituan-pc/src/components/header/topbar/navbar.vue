@@ -2,12 +2,12 @@
   <div class="navbar">
     <ul class="nav">
       <li class="list">
-        <router-link to="/my">我的美团</router-link>
+        <router-link to="/me">我的美团</router-link>
         <dl>
-          <dd><router-link to="/order">我的订单</router-link></dd>
-          <dd><router-link to="/order">我的收藏</router-link></dd>
-          <dd><router-link to="/order">抵用券</router-link></dd>
-          <dd><router-link to="/order">账户设置</router-link></dd>
+          <dd><router-link to="/me/order">我的订单</router-link></dd>
+          <dd><router-link to="/me/order">我的收藏</router-link></dd>
+          <dd><router-link to="/me/order">抵用券</router-link></dd>
+          <dd><router-link to="/me/order">账户设置</router-link></dd>
         </dl>
       </li>
       <li class="list mobile"><router-link to="/mobile">手机App</router-link></li>

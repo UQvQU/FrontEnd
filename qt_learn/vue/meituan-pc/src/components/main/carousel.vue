@@ -2,7 +2,9 @@
   <div class="carousel">
     <el-carousel :interval="5000" arrow="always" hight="240px">
       <el-carousel-item v-for="(item, index) in carousel" :key="index">
-        <img :src="item.img" alt="美团">
+        <router-link :to="item.url">
+          <img :src="item.img" alt="美团">
+        </router-link>
       </el-carousel-item>
     </el-carousel>
   </div>

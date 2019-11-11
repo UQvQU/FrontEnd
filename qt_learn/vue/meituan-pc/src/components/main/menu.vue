@@ -62,7 +62,6 @@ export default {
   height: 475px;
   box-sizing: border-box;
   margin-top: -50px;
-  // margin-left: 20px;
   position: relative;
   background: #fff
   border 1px solid #DCDFE6
@@ -94,14 +93,11 @@ export default {
         font-family: 'meituan';
         font-size: 14px;
         font-style: normal;
-        // opacity: 0.3;
         margin-right: 11px;
         vertical-align: middle;
         &:before
           width: 16px;
           height: 16px;
-          // display: inline-block
-          // line-height: 16px;
       .food
         &:before
           content: "\e622";
@@ -180,13 +176,8 @@ export default {
         border-top: 1px solid #fff;
         border-left: 1px solid #fff;
         transform: rotate(-45deg);
-        // display: inline-block;
         float right
         vertical-align: middle;
-        // position: absolute;
-        // right: 13px;
-        // top: 0;
-        // bottom: 0;
         margin: 8px auto 0;
   .child
     padding: 0 30px;

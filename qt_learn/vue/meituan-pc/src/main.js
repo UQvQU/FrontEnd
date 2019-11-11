@@ -10,8 +10,10 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '../static/css/reset.css'
 import '../static/css/fontfamily.css'
 import axios from 'axios'
+import glComponent from '@/utils/globalComponents'
 
 Vue.use(ElementUI)
+Vue.use(glComponent)
 Vue.config.productionTip = false
 
 Vue.prototype.$http = axios

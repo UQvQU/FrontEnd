@@ -7,7 +7,7 @@
     </el-row>
     <el-row>
       <el-col>
-        <search-bar></search-bar>
+        <search-bar :header="header"></search-bar>
       </el-col>
     </el-row>
   </div>
@@ -18,6 +18,14 @@ import TopBar from './topbar/topbar'
 import SearchBar from './searchbar/searchbar'
 export default {
   name: '',
+  props: {
+    header: {
+      type: Boolean,
+      default () {
+        return true
+      }
+    }
+  },
   data () {
     return {}
   },
@@ -29,8 +37,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-// .myheader
-//   border 1px solid #f40
-//   height 200px
-//   display block
+.myheader
+  box-shadow 0 2px 27px 0 rgba(0, 0, 0, 0.10)
 </style>

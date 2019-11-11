@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header style="height: 200px">
-      <my-header></my-header>
+      <gl-my-header></gl-my-header>
     </el-header>
     <el-main>
       <my-main></my-main>
@@ -14,7 +14,6 @@
 
 <script type="text/ecmascript-6">
 import MyFooter from '@/components/footer/myfooter'
-import MyHeader from '@/components/header/myheader'
 import MyMain from '@/components/main/mymain'
 export default {
   name: 'Home',
@@ -22,7 +21,6 @@ export default {
     return {}
   },
   components: {
-    MyHeader,
     MyMain,
     MyFooter
   }

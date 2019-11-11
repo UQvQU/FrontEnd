@@ -15,23 +15,23 @@
           <img style="cursor: pointer;" :src="user.avatar" alt="me" @click="toMe">
           <p style="cursor: pointer;" @click="toMe">{{user.nickname}}</p>
           <div class="fn">
-            <div class="item" @click="toMe">
+            <div class="item" @click="toOrder">
               <div class="icon el-icon-s-order"></div>
               <p class="name">我的订单</p>
             </div>
-            <div class="item" @click="toMe">
+            <div class="item" @click="toOrder">
               <div class="icon el-icon-star-on"></div>
               <p class="name">我的收藏</p>
             </div>
-            <div class="item" @click="toMe">
+            <div class="item" @click="toOrder">
               <div class="icon el-icon-s-ticket"></div>
               <p class="name">抵用券</p>
             </div>
-            <div class="item" @click="toMe">
+            <div class="item" @click="toOrder">
               <div class="icon el-icon-s-finance"></div>
               <p class="name">余额</p>
             </div>
-            <div class="item" @click="toMe">
+            <div class="item" @click="toOrder">
               <div class="icon el-icon-more"></div>
               <p class="name">更多</p>
             </div>
@@ -52,22 +52,22 @@
     <el-row>
       <el-col :span="7">
         <div class="hotel">
-          <img @click="toEntertainment" src="http://p1.meituan.net/codeman/8cce56c467a17e04f3094d1e455462a0132772.png" alt="entertainment">
+          <img @click="toEntertainment" src="http://p1.meituan.net/codeman/8cce56c467a17e04f3094d1e455462a0132772.png" alt="hotel">
         </div>
       </el-col>
       <el-col :span="7">
         <div class="study">
-          <img @click="toEntertainment" src="http://p1.meituan.net/codeman/16442c19da1f1c4544f794e29d99c92051716.jpg" alt="entertainment">
+          <img @click="toEntertainment" src="http://p1.meituan.net/codeman/16442c19da1f1c4544f794e29d99c92051716.jpg" alt="study">
         </div>
       </el-col>
       <el-col :span="4">
         <div class="merchantsSettle">
-          <img @click="toEntertainment" src="http://p1.meituan.net/codeman/5b21cddb4bb1cbc3a9c3bce0f726c75940469.jpg" alt="entertainment">
+          <img @click="toEntertainment" src="http://p1.meituan.net/codeman/5b21cddb4bb1cbc3a9c3bce0f726c75940469.jpg" alt="merchantsSettle">
         </div>
       </el-col>
       <el-col :span="6">
         <div class="download-app">
-          <img @click="toEntertainment" src="//s1.meituan.net/bs/fe-web-meituan/60ac9a0/img/download-qr.png" alt="entertainment">
+          <img src="//s1.meituan.net/bs/fe-web-meituan/60ac9a0/img/download-qr.png" alt="download-app">
           <p>美团APP手机版</p>
           <span class="red">1元起</span>
           <span class="gary">吃喝玩乐</span>
@@ -99,6 +99,9 @@ export default {
     },
     toMe () {
       this.$router.push({path: '/me'})
+    },
+    toOrder () {
+      this.$router.push({path: '/me/order'})
     }
   },
   components: {
@@ -143,7 +146,7 @@ export default {
     transition background-color 0.5s
     // display block
     // line-height 38px
-    &hover
+    &:hover
       background-color #eee
   img
     width 47px
