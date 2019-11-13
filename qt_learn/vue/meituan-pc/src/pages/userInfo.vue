@@ -34,11 +34,19 @@
         </div>
       </div>
     </div>
-    <div class="recommend-list"></div>
+    <div class="recommend-list">
+      <div class="list-head">
+        <p>猜你喜欢<b>为你甄选最合适的</b></p>
+      </div>
+      <div class="list">
+        <card :isUserInfo="true"/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+import card from '@/components/main/card'
 import { mapState } from 'vuex'
 export default {
   name: '',
@@ -55,7 +63,7 @@ export default {
       this.$router.push('/me/order')
     }
   },
-  components: {}
+  components: {card}
 }
 </script>
 
@@ -124,4 +132,23 @@ export default {
         font-size: 14px;
         color: #666666;
         cursor pointer
+.recommend-list
+  background: #fff;
+  margin-top: 20px;
+  padding: 20px 6px;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+  box-sizing border-box
+  .list-head
+    margin-left: 20px;
+    margin-bottom: 10px;
+    p
+      font-size: 20px;
+      color: #222222;
+      font-weight: 500;
+      b
+        font-size: 14px;
+        color: #666;
+        margin-left: 10px;
+        font-weight: 400;
 </style>

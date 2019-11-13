@@ -15,7 +15,7 @@
     </el-row>
     <el-row>
       <el-col :span="24">
-        <film/>
+        <recommend/>
       </el-col>
     </el-row>
     <el-row>
@@ -30,7 +30,7 @@
 import menus from '@/components/main/menu'
 import contents from '@/components/main/contents'
 import styles from '@/components/main/style'
-import film from '@/components/main/film'
+import recommend from '@/components/main/recommend'
 import HomeStay from '@/components/main/homestay'
 export default {
   name: '',
@@ -41,7 +41,7 @@ export default {
     menus,
     contents,
     styles,
-    film,
+    recommend,
     HomeStay
   }
 }

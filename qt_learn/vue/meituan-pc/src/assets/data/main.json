@@ -167,5 +167,35 @@
       {"title":"艾溪湖森林湿地公园","tag":["风景名胜", "文化传承"],"price":"25","img":"http://store.is.autonavi.com/showpic/28cdd13f371e230b0a75f6dd67498be7","url":"/changecity"},
       {"title":"绳金塔","tag":["风景名胜", "文化传承"],"price":"25","img":"http://store.is.autonavi.com/showpic/762a5e85340105f599c30407d02b81f5","url":"/changecity"}
     ]
-  }
+  },
+  "recommend": [
+    {
+      "itemId":"158809828",
+      "title":"旺顺阁鱼头泡饼（长阳半岛店）",
+      "imgUrl":"https://p0.meituan.net/msmerchant/526235ea490f56d823cd05eab59ce559367109.jpg@321w_180h_1e_1c",
+      "score":"4.0",
+      "consumeNum":null,
+      "areaName":"长阳镇",
+      "lowPrice":"95.0",
+      "saleNum":null,
+      "commentNum":160,
+      "detailUrl":"",
+      "firstCate":[1,20632,20426,20557],
+      "avgPrice":129
+    },
+    {"itemId":"5158487","title":"铁木真自助涮烤城（石景山店）","imgUrl":"//p0.meituan.net/merchantpic/0818e7c977e26b52e27d99a3a21e9172221427.jpg@321w_180h_1e_1c","score":"3.0","consumeNum":null,"areaName":"鲁谷","lowPrice":"82.9","saleNum":null,"commentNum":1107,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":72},
+    {"itemId":"263972","title":"好伦哥（永定路店）","imgUrl":"//p1.meituan.net/deal/ef2953834e5e9d61feaf5c4d1286e63b388390.jpg@321w_180h_1e_1c","score":"3.7","consumeNum":null,"areaName":"五棵松","lowPrice":"67.0","saleNum":null,"commentNum":12219,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":54},
+    {"itemId":"263830","title":"蟹老宋香锅（方庄店）","imgUrl":"//p0.meituan.net/msmerchant/4cc4955ca943c84bf31515731bdf6088174650.jpg@321w_180h_1e_1c","score":"5.0","consumeNum":null,"areaName":"刘家窑/宋家庄","lowPrice":"88.0","saleNum":null,"commentNum":14391,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":96},
+    {"itemId":"110245771","title":"火炉火烤肉·芝士排骨（BHGMall店）","imgUrl":"//p1.meituan.net/msmerchant/485f0f50e51c1a8f02f8e6e44cc6e92531766.jpg@321w_180h_1e_1c","score":"4.5","consumeNum":null,"areaName":"顺义城区","lowPrice":"198.0","saleNum":null,"commentNum":4495,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":91},
+    {"itemId":"4000941","title":"大渔铁板烧（欧美汇购物中心店）","imgUrl":"//p1.meituan.net/joymerchant/7283070750405207289-24678597-1513234791149.jpg@321w_180h_1e_1c","score":"4.5","consumeNum":null,"areaName":"中关村","lowPrice":"245.0","saleNum":null,"commentNum":570,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":240},
+    {"itemId":"6570878","title":"鼎极轩海鲜自助烤肉（小营店）","imgUrl":"//p0.meituan.net/bbia/d2efab083b8f5c73268615c52b6f79ff292184.jpg@321w_180h_1e_1c","score":"4.3","consumeNum":null,"areaName":"小营","lowPrice":"79.9","saleNum":null,"commentNum":30481,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":79},
+    {"itemId":"194785564","title":"分米鸡DM Chicken（喜隆多店）","imgUrl":"//p0.meituan.net/wedding/1b5118b8a94718a4d9507271845fba5519360.jpg@321w_180h_1e_1c","score":"4.9","consumeNum":null,"areaName":"苹果园","lowPrice":"168.0","saleNum":null,"commentNum":197,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":88},
+    {"itemId":"2412338","title":"金真子纸上烤肉（双桥店）","imgUrl":"//p1.meituan.net/mogu/2e66f8f35e0c77635fb538b13b91528c267815.jpg@321w_180h_1e_1c","score":"4.2","consumeNum":null,"areaName":"双桥","lowPrice":"63.0","saleNum":null,"commentNum":17606,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":63},
+    {"itemId":"178896819","title":"阿芮烤鸡爪（三里屯SOHO店）","imgUrl":"//p1.meituan.net/msmerchant/dd6a8ade8e61326e5b3fbd2f494a41ff524157.jpg@321w_180h_1e_1c","score":"4.2","consumeNum":null,"areaName":"三里屯/工体","lowPrice":"28.5","saleNum":null,"commentNum":26,"detailUrl":"","firstCate":[1,20426,20557],"avgPrice":23},
+    {"itemId":"42539662","title":"丁丁洋回转自助火锅（太阳岛物美店）","imgUrl":"//p0.meituan.net/deal/526e4f56e801d6e07fc9ca456a9c1656104665.jpg@321w_180h_1e_1c","score":"3.7","consumeNum":null,"areaName":"古城/八角","lowPrice":"42.9","saleNum":null,"commentNum":7370,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":41},
+    {"itemId":"165508822","title":"老诚一锅（菜市口店）","imgUrl":"//p1.meituan.net/wedding/04dbf0f1cbf09a1520fecd2af8b16fad3669418.png@321w_180h_1e_1c","score":"3.3","consumeNum":null,"areaName":"菜市口/陶然亭","lowPrice":"90.0","saleNum":null,"commentNum":266,"detailUrl":"","firstCate":[1,20632,20426],"avgPrice":98},
+    {"itemId":"349466","title":"戈拿旺巴西烤肉（崇文门店）","imgUrl":"//p0.meituan.net/wedding/371ffe5c67b57eb8dab431706c86fb23663044.jpg@321w_180h_1e_1c","score":"4.5","consumeNum":null,"areaName":"崇文门新世界","lowPrice":"118.0","saleNum":null,"commentNum":15497,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":89},
+    {"itemId":"150660331","title":"Visual Salon 视觉造型·e万造型（顺义店）","imgUrl":"//p0.meituan.net/deal/f826ff337ef18bb11a9f2878191f8076248164.jpg@321w_180h_1e_1c","score":"5.0","consumeNum":null,"areaName":"顺义城区","lowPrice":"39.9","saleNum":null,"commentNum":1258,"detailUrl":"","firstCate":[20611,22,20630,20426],"avgPrice":187},
+    {"itemId":"6399484","title":"永远爱小海鲜自助烤肉火锅","imgUrl":"//p1.meituan.net/mogu/4906bfe4bffb989b1e8e995a9b8c667338554.jpg@321w_180h_1e_1c","score":"3.7","consumeNum":null,"areaName":"天通苑","lowPrice":"89.0","saleNum":null,"commentNum":16315,"detailUrl":"","firstCate":[1,20632,20426,20557],"avgPrice":62}
+  ]
 }
