@@ -63,6 +63,22 @@ export default new Router({
       }
     },
     {
+      path: '/food/:id',
+      name: 'FoodDetail',
+      component: _import_('food-detail'),
+      meta: {
+        title: '美食详情'
+      }
+    },
+    {
+      path: '/vouchers/:id',
+      name: 'VouchersDetail',
+      component: _import_('vouchers-detail'),
+      meta: {
+        title: '优惠详情'
+      }
+    },
+    {
       path: '/movie',
       name: 'Movie',
       component: _import_('movie'),
@@ -91,6 +107,7 @@ export default new Router({
       name: 'Me',
       component: _import_('me'),
       meta: {
+        requireAuth: true,
         title: '我的'
       },
       children: [
@@ -99,6 +116,7 @@ export default new Router({
           name: 'userInfo',
           component: _import_('userInfo'),
           meta: {
+            requireAuth: true,
             title: '我的首页'
           }
         },
@@ -107,6 +125,7 @@ export default new Router({
           name: 'order',
           component: _import_('order'),
           meta: {
+            requireAuth: true,
             title: '我的订单'
           }
         },
@@ -115,6 +134,7 @@ export default new Router({
           name: 'collect',
           component: _import_('collect'),
           meta: {
+            requireAuth: true,
             title: '我的收藏'
           }
         },
@@ -123,6 +143,7 @@ export default new Router({
           name: 'ticket',
           component: _import_('ticket'),
           meta: {
+            requireAuth: true,
             title: '我的抵用券'
           }
         },
@@ -131,6 +152,7 @@ export default new Router({
           name: 'settings',
           component: _import_('settings'),
           meta: {
+            requireAuth: true,
             title: '账户设置'
           }
         }

@@ -1,20 +1,22 @@
 <template>
   <div class="card">
     <el-card :body-style="{ padding: '0px' }" :class="{'mar': isUserInfo}" v-for="(item, index) in recommend" :key="index">
-      <div class="image">
-        <img :src="item.imgUrl" alt="meituan">
-      </div>
-      <div class="text">
-        <div class="title">{{item.title}}</div>
-        <div class="score-line">
-          <div class="score">{{item.score}}</div>
-          <div class="comment">{{item.commentNum}}个评价</div>
+      <div data-id="item.itemId" @click="toFoodDetail($event, item.itemId)">
+        <div class="image">
+          <img :src="item.imgUrl" alt="meituan">
         </div>
-        <div class="desc-line">{{item.areaName}}</div>
-        <div class="price-line">
-          <span class="symbol">￥</span>
-          <span class="numfont">{{item.lowPrice}}</span>
-          <span class="desc">起</span>
+        <div class="text">
+          <div class="title">{{item.title}}</div>
+          <div class="score-line">
+            <div class="score">{{item.score}}</div>
+            <div class="comment">{{item.commentNum}}个评价</div>
+          </div>
+          <div class="desc-line">{{item.areaName}}</div>
+          <div class="price-line">
+            <span class="symbol">￥</span>
+            <span class="numfont">{{item.lowPrice}}</span>
+            <span class="desc">起</span>
+          </div>
         </div>
       </div>
     </el-card>
@@ -36,6 +38,12 @@ export default {
   data () {
     return {
       recommend: recommend
+    }
+  },
+  methods: {
+    toFoodDetail (ev, id) {
+      console.log('el', id)
+      this.$router.push({path: `/food/${id}`})
     }
   },
   components: {}

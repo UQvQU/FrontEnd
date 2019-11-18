@@ -22,7 +22,22 @@ Vue.prototype.$http = axios
 router.beforeEach((to, from, next) => {
   // router跳转之前都会经过beforeEach
   document.title = to.meta.title
-  next()
+  if (to.meta.requireAuth) {
+    // 判断该路由是否需要登录权限
+    console.log('to.meta.requireAuth')
+    if (store.state.loginState.user) {
+      // 通过vuex state获取当前的token是否存在
+      next()
+    } else {
+      next({
+        path: '/login',
+        // 将跳转的路由path作为参数，登录成功后跳转到该路由
+        query: {redirect: to.fullPath}
+      })
+    }
+  } else {
+    next()
+  }
 })
 
 const originalPush = Router.prototype.push

@@ -1,6 +1,6 @@
 <template>
   <div class="">
-exit
+food
   </div>
 </template>
 
