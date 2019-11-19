@@ -5,8 +5,8 @@
       <span @click="exit" style="cursor: pointer">退出</span>
     </template>
     <template v-else>
-      <router-link to="login" class="username">立即登录</router-link>
-      <router-link to="register">注册</router-link>
+      <router-link to="/login" class="username">立即登录</router-link>
+      <router-link to="/register">注册</router-link>
     </template>
   </div>
 </template>

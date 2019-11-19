@@ -5,6 +5,7 @@ Vue.use(Router)
 const _import_ = file => () => import(`@/pages/${file}.vue`)
 
 export default new Router({
+  // mode: 'history',
   routes: [
     {
       path: '/',
@@ -71,11 +72,19 @@ export default new Router({
       }
     },
     {
-      path: '/vouchers/:id',
+      path: '/vouchers/:id/:index',
       name: 'VouchersDetail',
       component: _import_('vouchers-detail'),
       meta: {
         title: '优惠详情'
+      }
+    },
+    {
+      path: '/buy',
+      name: 'Buy',
+      component: _import_('buy'),
+      meta: {
+        title: '购买详情'
       }
     },
     {

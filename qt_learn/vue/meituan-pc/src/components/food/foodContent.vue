@@ -4,7 +4,7 @@
       <el-col :span="19">
         <div class="vouchers-box">
           <h3>商家团购及优惠</h3>
-          <div class="vouchers">
+          <div class="vouchers" v-if="user">
             <h4>{{data.length}}张代金券</h4>
             <div v-for="(item, index) in data" :key="index">
               <div class="one">
@@ -14,12 +14,17 @@
                 </div>
                 <div class="name">
                   <router-link to="/buy" class="buy">立即抢购</router-link>
-                  <router-link to="/buy" tag="p">{{item.curPrice}}元代{{item.oriPrice}}元代金券</router-link>
+                  <router-link :to="`/vouchers/${id}/${index}`" tag="p">{{item.curPrice}}元代{{item.oriPrice}}元代金券</router-link>
                   已售{{item.soldNum}}
                 </div>
               </div>
               <div class="line" v-show="index === data.length-1 ? false : true"></div>
             </div>
+          </div>
+          <div class="no-login" v-else>
+            <img src="https://p0.meituan.net/codeman/56a7d5abcb5ce3d90fc91195e5b5856911194.png" alt="登录查看">
+            <span>请登录后查看详细团购优惠</span>
+            <button @click="toLogin">立即登录</button>
           </div>
         </div>
         <div class="recommend"></div>
@@ -37,6 +42,7 @@
 
 <script type="text/ecmascript-6">
 import card from '@/components/main/card'
+import { mapState } from 'vuex'
 export default {
   name: '',
   props: {
@@ -49,7 +55,17 @@ export default {
   },
   data () {
     return {
-      num: this.data.length
+      id: this.$route.params.id
+    }
+  },
+  computed: {
+    ...mapState({
+      user: state => state.loginState.user
+    })
+  },
+  methods: {
+    toLogin () {
+      this.$router.push('/login')
     }
   },
   components: {card}
@@ -129,6 +145,37 @@ export default {
             height: 1px;
             overflow: hidden;
             border-bottom: 1px solid #e5e5e5;
+        .no-login
+          margin-bottom: 40px;
+          background: #fff;
+          border: 1px solid #e5e5e5;
+          border-radius: 4px;
+          padding: 20px;
+          text-align center
+          img
+            display: inline-block;
+            width: 160px;
+            height: 120px;
+          span
+            display: block;
+            margin: 10px 0 14px;
+            color: #666;
+            font-size: 16px;
+            line-height: 26px;
+          button
+            width: 120px;
+            height: 40px;
+            font-size: 14px;
+            line-height: 40px;
+            padding: 0;
+            border-radius: 100px;
+            border: none;
+            outline: 0;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            transition: background .6s ease;
+            background-color: #13D1BE;
     .el-col-5
       padding-top: 34px;
       padding-left: 10px;
