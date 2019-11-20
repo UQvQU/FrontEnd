@@ -2,7 +2,7 @@ const https = require('https')
 const fs = require('fs')
 // const cheerio require('cheerio')
 
-let url = 'https://nc.meituan.com/ptapi/recommends'
+let url = 'https://www.meituan.com/meishi/d52812500.html'
 
 https.get(url, function (res) {
   let chunks = [],
