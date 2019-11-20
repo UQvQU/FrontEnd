@@ -13,7 +13,7 @@
                   代{{item.oriPrice}}元代金券
                 </div>
                 <div class="name">
-                  <router-link to="/buy" class="buy">立即抢购</router-link>
+                  <div class="buy" ref="voucher" @click.stop="toBuy($event)" :data-index="index">立即抢购</div>
                   <router-link :to="`/vouchers/${id}/${index}`" tag="p">{{item.curPrice}}元代{{item.oriPrice}}元代金券</router-link>
                   已售{{item.soldNum}}
                 </div>
@@ -51,6 +51,10 @@ export default {
       default: function () {
         return []
       }
+    },
+    title: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -62,10 +66,34 @@ export default {
     ...mapState({
       user: state => state.loginState.user
     })
+    // current () {
+    //   console.log('index', this.$refs.voucher.dataset)
+    // }
+    // voucher () {
+    //   return {
+    //     id: this.id,
+    //     title: this.data.title,
+    //     index: this.index,
+    //     unitPrice: parseInt(this.current.curPrice),
+    //     num: parseInt(this.$refs.num.value)
+    //   }
+    // }
   },
   methods: {
     toLogin () {
       this.$router.push('/login')
+    },
+    toBuy (ev) {
+      console.log('index', ev.target.dataset.index)
+      let index = ev.target.dataset.index
+      let voucher = {
+        id: this.id,
+        title: this.title,
+        index: index,
+        unitPrice: parseInt(this.data[index].curPrice),
+        num: 1
+      }
+      this.$router.push({path: '/buy', name: 'Buy', params: {data: voucher}})
     }
   },
   components: {card}

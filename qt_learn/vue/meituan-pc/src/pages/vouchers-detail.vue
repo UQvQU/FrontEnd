@@ -39,9 +39,9 @@
               <dt class="v-middle">数量</dt>
               <dd>
                 <div class="input-number">
-                  <button class="minus" @click="minus">-</button>
+                  <button class="minus" @click.stop="minus">-</button>
                   <input type="text" value="1" class="input" ref="num">
-                  <button class="plus" @click="plus">+</button>
+                  <button class="plus" @click.stop="plus">+</button>
                 </div>
               </dd>
             </dl>
@@ -87,10 +87,10 @@ export default {
     let data = recommend.filter((item) => item.itemId === this.$route.params.id)
     this.data = data[0]
     this.details = data[0].vouchers
-    console.log('index', this.index)
+    // console.log('index', this.index)
     this.current = data[0].vouchers[this.index]
-    console.log('current', this.current)
-    console.log('details', this.details)
+    // console.log('current', this.current)
+    // console.log('details', this.details)
   },
   methods: {
     minus () {
@@ -106,8 +106,19 @@ export default {
       console.log(this.$refs.num.value)
     },
     toBuy () {
-      let num = parseInt(this.$refs.num.value)
-      this.$router.push({path: '/buy', query: {num: num}})
+      console.log('voucher:', this.voucher)
+      this.$router.push({path: '/buy', name: 'Buy', params: {data: this.voucher}})
+    }
+  },
+  computed: {
+    voucher () {
+      return {
+        id: this.data.itemId,
+        title: this.data.title,
+        index: this.index,
+        unitPrice: parseInt(this.current.curPrice),
+        num: parseInt(this.$refs.num.value)
+      }
     }
   },
   components: {}

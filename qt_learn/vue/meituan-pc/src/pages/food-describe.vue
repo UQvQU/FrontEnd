@@ -4,18 +4,19 @@
       <gl-my-header :header="false"></gl-my-header>
     </el-header>
     <el-main>
-      <food-content :data="vouchers"/>
+      <food-detail :data="details" />
+      <food-content :data="vouchers" :title="details.title"/>
     </el-main>
   </el-container>
 </template>
 
 <script type="text/ecmascript-6">
-// import FoodDetail from '@/components/food/foodDetail'
+import FoodDetail from '@/components/food/foodDetail'
 import FoodContent from '@/components/food/foodContent'
 import { recommend } from '@/assets/data/main'
 
 export default {
-  name: 'FoodDetail',
+  name: 'FoodDescribe',
   data () {
     return {
       details: {}
@@ -34,6 +35,7 @@ export default {
     }
   },
   components: {
+    FoodDetail,
     FoodContent
   }
 }

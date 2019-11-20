@@ -65,8 +65,8 @@ export default new Router({
     },
     {
       path: '/food/:id',
-      name: 'FoodDetail',
-      component: _import_('food-detail'),
+      name: 'FoodDescribe',
+      component: _import_('food-describe'),
       meta: {
         title: '美食详情'
       }
@@ -121,7 +121,7 @@ export default new Router({
       },
       children: [
         {
-          path: '/',
+          path: '/me',
           name: 'userInfo',
           component: _import_('userInfo'),
           meta: {
