@@ -25,3 +25,8 @@ element ui 组件修改样式覆盖无效
 12. 路由切换不刷新
     vue-router的切换不同于传统的页面的切换。路由之间的切换，其实就是组件之间的切换，不是真正的页面切换。这也会导致一个问题，就是引用相同组件的时候，会导致该组件无法更新，也就是我们口中的页面无法更新的问题了。
     在 router-view 中加 :key="$route.fullPath"
+
+## mysql database
+
+1. 用户表 (id, phone, password, nickname, avatar)
+2. 优惠券 (id, itemId, title, num, index, nuitPrice)
