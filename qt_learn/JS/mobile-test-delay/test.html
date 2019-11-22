@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- 去除 content="width=device-width, initial-scale=1.0" 仍会延迟-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 移动端300ms点击延迟 谷歌、Safari和360急速没有延迟，火狐有延迟-->
+  <div>
+    <label for="touchstart">touchstart:</label>
+    <span id="touchstart"></span>
+  </div>
+  <div>
+    <label for="touchend">touchend:</label>
+    <span id="touchend"></span>
+  </div>
+  <div>
+    <label for="click">click:</label>
+    <span id="click"></span>
+  </div>
+  <div>
+    <div id="test">开始检测</div>
+    <div id="diff">计算时间</div>
+  </div>
+  <script>
+    var test = document.getElementById('test')
+    var diff = document.getElementById('diff')
+    var touchstart = document.getElementById('touchstart')
+    var touchend = document.getElementById('touchend')
+    var click = document.getElementById('click')
+
+    // 默认顺序：touchstart -> touchend -> click
+    test.addEventListener('touchstart', () => {
+      touchstart.innerHTML = Date.now()
+    })
+    test.addEventListener('touchend', (e) => {
+      // 阻止touchend事件则不执行click事件
+      e.preventDefault()
+      touchend.innerHTML = Date.now()
+      // 1、提前click事件,几乎零延迟
+      // test.click()
+      // 2、
+      let event = document.createEvent('MouseEvents')
+      // bubble e.preventDefault
+      event.initEvent('click', true, true)
+      test.dispatchEvent(event)
+    })
+    test.addEventListener('click', () => {
+      click.innerHTML = Date.now()
+    })
+
+    diff.addEventListener('click', () => {
+      let p = document.createElement('p')
+      p.innerHTML = click.innerText - touchend.innerText
+      document.body.appendChild(p)
+    })
+  </script>
+</body>
+</html>
