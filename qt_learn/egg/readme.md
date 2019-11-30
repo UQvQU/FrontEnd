@@ -16,3 +16,12 @@
 npm init egg --type=simple
 npm install
 npm install mysql2 sequelize sequelize-cli
+
+<!-- 为了留下创建数据库的文件记录 -->
+./node_modules/.bin/sequelize.cmd init
+删除新建出来的文件（除logs）
+新建.sequelizerc文件
+再次 执行./node_modules/.bin/sequelize.cmd init
+
+./node_modules/.bin/sequelize.cmd db:create  //Database instagram created.(新建config.json中命名的数据库)
+./node_modules/.bin/sequelize.cmd migration:create --name create-user-table  //新建user表的数据迁移文件
