@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function asyncQue(cb) {
+      setTimeout(() => {
+        cb()
+      }, 1000)
+    }
+    const cb = () => {
+      console.log(123)
+    }
+    // 一秒后同时执行
+    asyncQue(cb);
+    asyncQue(cb);
+    asyncQue(cb);
+
+    // 劫持函数
+    // Reflect 反射
+    // promise 代表上一个任务
+    let promise
+    let asyncQueProxy = new Proxy(asyncQue, {
+      // 调用asyncQue函数
+      apply(target, ctx, args) {
+        console.log(args)
+        // args： 参数数组； ctx： this
+       promise =  Promise.resolve(promise).then(() => {
+          return new Promise((resolve, reject) => {
+            // 恢复函数的默认行为
+            // args: cb
+            Reflect.apply(target, ctx, [() => {
+              args[0]()
+              resolve()
+            }])
+          })
+        })
+      }
+    })
+
+    asyncQueProxy(cb); // 1秒后执行
+    asyncQueProxy(cb); // 2秒后执行
+    asyncQueProxy(cb); // 3秒后执行
+
+  </script>
+
+</body>
+</html>

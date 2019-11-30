@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      k: 123,
+      _k: undefined,
+      get skk() {
+        return obj._k
+      },
+      set kk(val) {
+        console.log('kk变了')
+        this._k = val
+      }
+    }
+    console.log(obj.k)
+    obj.kk = '55'
+  </script>
+</body>
+</html>
