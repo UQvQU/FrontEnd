@@ -92,6 +92,7 @@ router.post('/login', async(ctx, next) => {
       } else {
         let result = {
           id: res[0].id,
+          phoneNumber: res[0].phoneNumber,
           nickname: res[0].nickname,
           avatar: res[0].avatar,
           birthday: res[0].birthday
