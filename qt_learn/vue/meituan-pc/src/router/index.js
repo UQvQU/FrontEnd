@@ -88,6 +88,14 @@ export default new Router({
       }
     },
     {
+      path: '/payment',
+      name: 'Payment',
+      component: _import_('payment'),
+      meta: {
+        title: '收银台'
+      }
+    },
+    {
       path: '/movie',
       name: 'Movie',
       component: _import_('movie'),
