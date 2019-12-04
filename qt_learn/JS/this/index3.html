@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    this.a = 20
+    function Go() {
+      console.log(this.a)
+      this.a = 30
+    }
+    Go.prototype.a = 40
+    var test = {
+      a: 50,
+      init: function(fn) {
+        fn()
+        console.log(this.a)
+        return fn
+      }
+    }
+    // 方法体中调用window中的a方法，a方法的this仍指向window
+    var go = new Go()
+    console.log(go.a)
+    console.log(Go.prototype.a, this.a,'-----------')
+    test.init(Go)  //window.a 改为 30
+    console.log(this.a)
+    var p = test.init(Go)
+  </script>
+
+</body>
+</html>

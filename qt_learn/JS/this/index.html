@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <iframe></iframe>
+  <iframe></iframe>
+  <iframe></iframe>
+
+  <script>
+    function fn() {
+      // 输出iframe节点个数
+      console.log(this.length)
+    }
+    var obj = {
+      length: 5
+      // fn: function(){console.log(this.length)}
+    }
+    var m = function() {
+      console.log(this === obj)   //bind 函数内部this指向obj
+      fn.bind(obj)()
+      fn()
+      // 仍为window.fn()
+      console.log(arguments)
+      // arguments是类数组
+      // 此处输出arguments.length，即参数的个数
+      arguments[0]()
+    }
+
+    var res = m.bind(obj)
+    res(fn, 1, 2)
+  </script>
+
+  
+</body>
+</html>
