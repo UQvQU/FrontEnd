@@ -15,6 +15,7 @@
         // 函数节流
         const throttle = (fun, delay) => {
             let flag = true;
+            console.log('flag', flag)
             // 待上一次执行结束后，才执行
             return (...args) => {
                 if(!flag) return;
@@ -25,7 +26,7 @@
                 },delay);
             }
         }
-        const oThrottle = throttle(success, 1000);
+        const oThrottle = throttle(success, 2000);
 
         let btn = document.getElementById('btn');
         btn.addEventListener('click', oThrottle);
