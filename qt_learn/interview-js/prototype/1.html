@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // prototype   constructor   __proto__
+    function Person() {
+      this.age = 20
+    }
+
+    console.log('Person的原型对象:', Person.prototype)
+    var proto = Person.prototype
+    console.log(proto.constructor === Person)
+
+    Person.prototype.say = function() {}
+    console.log(Person.prototype.say())
+
+    var p = new Person()
+    console.log(p)
+    console.log(p.__proto__ === proto)
+
+    console.log(p.say)
+    // hasOwnProperty 是否是自己本身的属性
+    console.log(p.hasOwnProperty('say'))
+    p.a = 1
+    console.log(p.hasOwnProperty('a'))
+
+
+    var obj = {}
+    console.log(obj.__proto__ === Object.prototype)
+
+// ----------------------------------------------------------
+    // 浅复制
+    // 实现Object.create()
+    // 继承方法
+    function myCreate(obj) {
+      var F = function() {}
+      F.prototype = obj
+      return new F()
+    }
+    var student = myCreate(Person)
+    console.log(student)
+
+    // 完美继承
+    function Student2() {
+      // 1、继承属性
+      Person.call(this)
+    }
+    // 2、继承方法
+    Student2.prototype = Object.create(Person.prototype)
+    // 3、constructor
+    Student2.prototype.constructor = Student2
+    var student2 = new Student2()
+    console.log('student2', student2)
+    
+  </script>
+</body>
+</html>
