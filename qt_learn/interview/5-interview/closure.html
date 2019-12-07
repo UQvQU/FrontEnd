@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 闭包：有权访问 另一个函数作用域中的变量的函数
+  function Bar(name) {
+    this.name = name
+  }
+  function makeFactor(name){
+    var p = new Bar(name)
+    return function () {
+      return p
+    }
+  }
+  var p1 = makeFactor('tt')
+  var p2 = p1()
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // vue data中数组是如何实现双向数据流的，实现原理
+
+    // 数组劫持
+    // 重写数组方法，捕获数据改变
+    var a = [1, 2, 3]
+    a.push(4)
+    // 改写push
+    // 1、保存原先的push
+    // var oldPush = Array.prototype.push
+    // Array.prototype.push = function() {
+    //   // 2、双向数据流绑定
+
+    //   // 3、恢复
+    //   oldPush()
+    // }
+
+    // 注意坑：vue2.0通过数组索引改变数组某个值时，未能捕获数组改变
+    // a[3] = 6
+
+    // 延伸：Proxy()代理，既可以知道数组的所有行为，也能捕获数组通过索引来改变值的行为
+    let pArr = new Proxy(a, {
+      get: function(target, key,receiver) {
+        // 改写get()
+        console.log('get')
+        // 恢复
+        // Reflect与Proxy一一对应，有Reflect无需再提前保存原始get()
+        return Reflect.get(target, key, receiver)
+      },
+      set: function(target, key, value, receiver) {
+        console.log('set')
+        return Reflect.set(target, key, value, receiver)
+      }
+    })
+    pArr.push(555)
+    pArr[2] = 333
+    console.log(a)
+  </script>
+</body>
+</html>

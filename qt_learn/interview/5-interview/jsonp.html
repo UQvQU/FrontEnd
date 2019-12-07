@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // jsonp实现原理
+    // 1、前端定义方法
+    function cb(data) {
+      console.log(data)
+    }
+  </script>
+  <!--2、 利用script src特性  请求 -->
+  <script src="/api/abc?callback=cb"></script>
+  <!-- 后端
+  /api/abc?callback=cb
+
+  返回：cb({name: '123'}) 当做js执行
+-->
+</body>
+</html>
