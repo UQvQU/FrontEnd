@@ -2,7 +2,7 @@ const https = require('https')
 const fs = require('fs')
 // const cheerio require('cheerio')
 
-let url = 'https://www.meituan.com/meishi/d52812500.html'
+let url = 'https://www.meituan.com/meishi/api/poi/getNearPoiList?offset=0&limit=10&cityId=83&lat=28.670105&lng=115.908092'
 
 https.get(url, function (res) {
   let chunks = [],

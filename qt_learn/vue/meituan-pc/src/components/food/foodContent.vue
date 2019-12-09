@@ -27,8 +27,7 @@
             <button @click="toLogin">立即登录</button>
           </div>
         </div>
-        <div class="recommend"></div>
-        <div class="comment"></div>
+        <foodComment/>
       </el-col>
       <el-col :span="5">
         <div class="recommend">
@@ -42,7 +41,9 @@
 
 <script type="text/ecmascript-6">
 import card from '@/components/main/card'
+import foodComment from '@/components/food/foodComment'
 import { mapState } from 'vuex'
+// import FoodContent from '@/components/food/foodContent';
 export default {
   name: '',
   props: {
@@ -96,7 +97,10 @@ export default {
       this.$router.push({path: '/buy', name: 'Buy', params: {data: voucher}})
     }
   },
-  components: {card}
+  components: {
+    card,
+    foodComment
+  }
 }
 </script>
 
