@@ -124,5 +124,9 @@ export default {
             margin-top: 3px;
             height: 16px;
             font-size: 11px;
+          .desc
+                font-size: 14px;
+            line-height: 20px;
+            padding-top: 13px;
 
 </style>

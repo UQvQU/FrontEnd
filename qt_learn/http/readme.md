@@ -56,3 +56,35 @@
 2. http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl/tls加密传输协议。
 3. http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。
 4. http的连接很简单，是无状态的；HTTPS协议是由SSL/TLS+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。
+
+## http 缓存
+
+优先级： 强缓存 > 协商缓存
+
+1. 强缓存
+优先级： cache-control > expires
+http1.1 cache-control：值为相对时间 eg：当前时间基础上加一个小时内有效
+
+http1.0 expires：值为固定的时间 eg:8:00 即：8:00之前有效
+电脑本地时间可更改，故不适合用expires的固定时间
+
+请求： 不发请求，直接走缓存
+若时间未过，即缓存仍有效，直接读取 返回200： from memory / from disk
+2. 协商缓存
+优先级：etag > last-modified
+
+<!-- 根据etag判断文件修改更准确 -->
+文件：a.js
+服务器给etag：'123' md5(a.js)
+请求：if-none-match: '123'
+服务端判断
+
+  1. req.headers[if-none-match] ? == md5(a.js)
+  2. == 304
+  3. !== 200 a.js
+
+文件的 hash 值：md5
+同样的输入同样的输出
+
+服务：last-modified: 2019-12-12
+请求：if-modified-since: 2019-12-12

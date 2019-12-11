@@ -1,0 +1,15 @@
+{
+  "name": "http",
+  "version": "1.0.0",
+  "description": "- 角色\r   女主角：轻柔\r   男主角：耽雪\r   中间人：留情",
+  "main": "cache.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "md5": "^2.2.1"
+  }
+}
