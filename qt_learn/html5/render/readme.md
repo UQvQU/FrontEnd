@@ -1,5 +1,7 @@
 # translate3D 开启 GPU 加速
 
+https://juejin.im/post/5df0b04951882512632e73ea
+
 1. html 解析 dom树
 2. css -> cssom
 3. render tree 渲染树
