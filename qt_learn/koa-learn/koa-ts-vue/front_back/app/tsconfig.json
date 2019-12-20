@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs", // node环境标准
+    "target": "ES2017",    // 语法支持
+    "noImplicitAny": true,  // 不能存在any类型（未定义类型数据不能默认为any）
+    "removeComments": true,  // 打包后去除注释和无意义代码（eg:console.log()），减小代码体积
+    "preserveConstEnums": true,  // 枚举
+    "sourceMap": true,  // 后续调试使用，资源位置查找（true：控制台可查看代码位置）
+    "outDir": "./dist",  // 打包生成存放到dist文件夹，即入口文件
+    "experimentalDecorators": true,  // ts装饰器支持
+    "emitDecoratorMetadata": true,  // 元素支持
+
+  },
+  "compileOnSave": true // 每次保存实时自动编译
+}

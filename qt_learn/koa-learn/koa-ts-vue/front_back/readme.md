@@ -55,3 +55,16 @@
 
 - 导入数据
 ./node_modules/.bin/sequelize.cmd db:seed:all
+./node_modules/.bin/sequelize.cmd db:seed:undo:all 删除所有导入的数据
+
+## 项目开发
+
+app 后端 koa + ts
+
+1. tsc --init  配置tsconfig.json
+2. npm i koa (--save)
+3. npm i --save @types/koa  ts环境下使用koa需要加@types/koa
+4. npm i koa-controllers (npm i koa-ts-controllers)  ts装饰器启动服务
+    npm install reflect-metadata --save
+5. 
+
