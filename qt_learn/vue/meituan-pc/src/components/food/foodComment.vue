@@ -99,7 +99,7 @@ export default {
         this.$message('请先登录')
       }
     }
-  },
+  }
 }
 </script>
 
