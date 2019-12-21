@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module">
+    import { createStore, combineReducer } from './index.js'
+
+    function count(state, action) {
+      console.log('state', state)
+      switch (action.type) {
+        case 'ADD':
+          return ++state;
+        case 'DELETE':
+          return --state;
+        default:
+          return 0;
+      }
+    }
+    function count2(state, action) {
+      console.log('state', state)
+      switch (action.type) {
+        case 'ADD2':
+          return ++state;
+        case 'DELETE2':
+          return --state;
+        default:
+          return 0;
+      }
+    }
+
+    // 组合count count2
+    const reducer = combineReducer({
+      count,
+      count2
+    })
+
+    // const store = createStore(count)
+    const store = createStore(reducer)
+    console.log('..................')
+    // 订阅 数据改变
+    store.subscribe(() => {
+      console.log('data change')
+    })
+
+    store.dispatch({
+      type: 'ADD'
+    })
+    console.log(store.getState())
+    store.dispatch({
+      type: 'DELETE'
+    })
+
+    console.log(store.getState())
+  </script>
+</body>
+</html>
