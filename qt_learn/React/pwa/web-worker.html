@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // let sum = 0
+    // for (let i = 0; i < 10000000; i++) {
+    //   sum += 0
+    // }
+    // 让超大的运算去另外一个进程运行
+    // console.log('html2')
+    let worker = new Worker('work.js')
+    // console.log('html')
+    worker.onmessage = function(e) {
+      console.log('receive', e.data)
+    }
+  </script>
+</body>
+</html>
