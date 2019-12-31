@@ -29,7 +29,7 @@ function initRouter(app) {
   load('routes', (fileName, routes) => {
     // 给路由添加前缀(除了index)
     const prefix = fileName === 'index' ? '' : `/${fileName}`
-    console.log(prefix, routes)
+    // console.log(prefix, routes)
 
     // 加上controller/home.js , 更改routes
     routes = typeof routes === 'function' ? routes(app) : routes
@@ -41,27 +41,27 @@ function initRouter(app) {
       // 注册路由 app.get('/', ctx => {})
       // console.log(routes)
       // router[method](prefix + path, routes[key])  service user.js返回的是方法
-      console.log('key', routes[key])
+      // console.log('key', routes[key])
       router[method](prefix + path, async ctx => {
         app.ctx = ctx   //更改上下文环境
         await routes[key](app)
       })
     })
   })
-  console.log(router.methods)
+  // console.log(router.methods)
   return router
 }
 
 // 初始化控制层
-function initController() {
-  const controller = {}
+function initController(app) {
+  const controllers = {}
   // 读取控制器目录文件
-  load('controller', (fileName, controllers) => {
-    console.log(fileName, controllers)   // fileName: home
+  load('controller', (fileName, controller) => {
+    // console.log(fileName, controller)   // fileName: home controllers: function
     // 添加路由
-    controller[fileName] = controllers
+    controllers[fileName] = controller(app)
   })
-  return controller
+  return controllers
 }
 
 // 初始化service层
@@ -89,6 +89,27 @@ function loadConfig(app) {
       // 使用sync()实现模块同步
       app.$db.sync()  
     }
+    // 加载中间件
+    if (conf.middleware) {
+      conf.middleware.forEach(mid => {
+        // 读取中间件地址
+        const midPath = path.resolve(__dirname, 'middleware', mid)
+        console.log(midPath, mid)
+        // this.$app.use()  调用中间件
+        console.log(require(midPath))
+        app.$app.use(require(midPath))
+      })
+    }
+
+  })
+}
+
+// 初始化定时任务
+const schedule = require('node-schedule')   //cron
+function initSchedule() {
+  load('schedule', (fileName, {interval, handler}) => {
+    console.log('interval', interval)
+    schedule.scheduleJob(interval, handler)
   })
 }
 
@@ -97,6 +118,7 @@ module.exports ={
   initRouter,
   initController,
   initService,
-  loadConfig
+  loadConfig,
+  initSchedule
 }
 

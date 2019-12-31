@@ -27,3 +27,9 @@ npm i sequelize
 model/user.js
 10. controller/home.js
 改为请求model中的数据 model数据来自数据库
+sequelize 自动新建users表
+11. 加载中间件
+middleware/logger
+12. 定时任务
+schedule/log(user)
+npm install node-schedule
