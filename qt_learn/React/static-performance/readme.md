@@ -32,3 +32,12 @@ link(html) @import(css)
    styled-components(共享 js变量)
 5. 为什么 js in css
    1. js提出的语法 因babel
+
+## transform 属性
+
+scale
+translate
+rotate
+
+矩阵：
+transform: matrix()
