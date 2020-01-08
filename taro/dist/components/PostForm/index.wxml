@@ -1,0 +1,12 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="post-form">
+        <view>新的帖子</view>
+        <form bindsubmit="funPrivatebzzzz">
+            <view class="form-hint">标题</view>
+            <input class="input-title" type="text" placeholder="点击输入标题" value="{{props.formTitle}}" bindinput="funPrivateczzzz" />
+            <view class="form-hint">正文</view>
+            <textarea class="input-content" placeholder="点击输入正文" value="{{props.formContent}}" bindinput="funPrivatedzzzz"></textarea>
+            <at-button compid="{{$compid__2}}">发帖</at-button>
+        </form>
+    </view>
+</block>

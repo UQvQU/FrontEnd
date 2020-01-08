@@ -1,0 +1,6 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="index">
+        <post-card wx:key="id" wx:for="{{loopArray0}}" wx:for-item="post" wx:for-index="ad" compid="{{post.$compid__0}}"></post-card>
+        <post-form compid="{{$compid__1}}"></post-form>
+    </view>
+</block>
