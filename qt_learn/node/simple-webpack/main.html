@@ -1,0 +1,55 @@
+<script>
+// // 解析dist/main.js
+// (function(modules){  //modules: {'./src/hello.js': {}, './src/index.js': {}}
+//   // 新建模块
+//   var installedModules = {};
+//   function __webpack_require__(moduleId) {  // moduleId: './src/hello.js'
+//     // 如果之前已加载该模块，则直接导出
+//     if (installedModules[moduleId]) {
+//       return installedModules[moduleId].exports;
+//     }
+//     // 新建一个模块对象
+//     var module = installedModules[moduleId] = {
+//       i: moduleId,
+//       exports: {}
+//     };
+//     // 调用module: this
+//     modules[moduleId].call(module, module.exports, __webpack_require__);
+//     // 返回
+//     return module.exports;
+//   }
+//   return __webpack_require__("./src/index.js");
+// })({
+//   './src/hello.js': {},
+//   './src/index.js': {}
+// })
+
+// 简易版
+(function(modules)
+{
+  function require(id) {
+
+    function localRequire(relativePath) {
+      return require(modules[id].dependencies[relativePath]);
+    };
+    var exports = {};
+
+    (function(require, exports, code){
+      eval(code);
+    })(localRequire, exports, modules[id].code);
+    return exports;
+  }
+  return require('./src/index.js');
+  
+})({
+  './src/hello.js': {
+    code: "\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.say = say;\n\nfunction say(name) {\n  return \"hello \".concat(name);\n}"
+  },
+  './src/index.js': {
+    dependencies: {
+      "./hello.js": "./src/hello.js"
+    },
+    code: "\"use strict\";\n\nvar _hello = require(\"./hello.js\");\n\ndocument.write((0, _hello.say)(\"webpack\"));"
+  }
+})
+</script>
