@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    #page { width: 520px; border: 1px solid #abe;}
+    .nav  { width: 200px; float: right; }
+    .main { width: 200px; float: left; padding-left: 110px; }    
+    .sub  { width: 100px; float: left; margin: 10px 0 10px -100px; }    
+    .main { border: 1px solid #000; }
+    .nav, .sub { border: 1px dashed #000; height: 300px; }    
+    .sub { height: 280px; }
+  </style>
+</head>
+<body>
+<!-- 请用JavaScript语言实现 sort 排序函数，要求：sort([5, 100, 6, 3, -12]) 
+  // 返回 [-12, 3, 5, 6, 100]。如果你有多种解法，请阐述各种解法的思路及优缺点。
+  （仅需用代码实现一种解法，其它解法用文字阐述思路即可） -->
+  <div id="page">
+    <div class="main">
+        <div class="sub"></div>
+    </div>
+    <div class="nav"></div>
+</div>
+
+  <script>
+    var arr = [5, 100, 6, 3, -12]
+    console.log(arr)
+    arr.sort((a, b) => {
+      console.log(a, b, a - b)
+      return a - b
+    })
+    console.log(arr)
+    var Obj = function(msg){
+      this.msg = msg;
+      this.shout = function(){
+          alert(this.msg);
+          // console.log(this.msg)
+      }
+      this.runShout = function(){
+        this.shout()
+      }
+      this.waitAndShout = function(){
+          //隔五秒钟后执行上面的shout方法
+          setTimeout(()=>{this.shout()}, 5000)
+      }
+
+    }
+    let obj = new Obj('tt')
+    console.log('obj', obj)
+
+    function parseQueryString(arg) {
+      var str = arg.split('?')[1]
+      var result = {}
+      var temps = str.split('&')
+      for (var i = 0; i < temps.length; i++) {
+        var temp = temps[i].split('=')
+        console.log(temp)
+        result[temp[0]] = temp[1]
+      }
+      return result
+    }
+    var url = 'http://www.taobao.com/index.php?key0=0&key1=1&key2=2'
+    var u = parseQueryString(url);
+    console.log(u)
+  </script>
+</body>
+</html>
