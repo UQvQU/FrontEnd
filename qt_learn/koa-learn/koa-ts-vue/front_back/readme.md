@@ -66,5 +66,3 @@ app 后端 koa + ts
 3. npm i --save @types/koa  ts环境下使用koa需要加@types/koa
 4. npm i koa-controllers (npm i koa-ts-controllers)  ts装饰器启动服务
     npm install reflect-metadata --save
-5. 
-
