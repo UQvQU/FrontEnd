@@ -1,0 +1,239 @@
+*{
+  margin: 0;padding: 0;
+}
+.header{
+  width: 100%;
+  height: 40px;
+  background: url(./images/ui/thGlass.png) no-repeat;
+  box-shadow: 10px 10px 5px #abe;
+}
+.header span{
+  display: inline-block;
+  line-height: 40px;
+}
+.header img{
+  height: 100%;
+  float: right;
+}
+.container{
+  width: 100%;
+  display: flex;
+}
+.menu{
+  padding: 20px 0;
+  width: 118px;
+  background-color: #abe;
+  box-sizing: border-box;
+  /* border: 1px solid #000; */
+}
+.self,
+.userList,
+.catalog,
+.suits,
+.mySuits,
+.exits{
+  width: 100%;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  /* border: 1px solid #000; */
+}
+
+.self img,
+.userList img,
+.catalog img,
+.suits img,
+.mySuits img,
+.exits img {
+  width: 100%;
+}
+
+
+.content1{
+  flex: 1;
+  position: relative;
+}
+.clothes{
+  /* padding: 40px 60px;
+  box-sizing: border-box; */
+  width: 500px;
+  /* height: 600px; */
+  margin: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 1px solid #000; */
+}
+.table{
+  height: 150px;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 5px 5px  10px #abe;
+  margin: 0 20px 20px 0;
+  background-color: rgba(141, 167, 245, 0.383);
+}
+.table p,
+.cloth-box p{
+  margin-bottom: 5px;
+}
+.table p span,
+.cloth-box p span{
+  display: inline-block;
+  padding: 3px;
+  box-sizing: border-box;
+}
+.table p span.id,
+.cloth-box p span.id{
+  color: rgba(255, 238, 5, 0.945);
+  background-color: rgba(255, 0, 0, 0.835);
+  border-radius: 5px;
+}
+.table p span.name,
+.cloth-box p span.name{
+  color: rgba(255, 238, 5, 0.945);
+  background-color: rgba(4, 0, 255, 0.835);
+  border-radius: 5px;
+}
+.table p span.price,
+.cloth-box p span.price{
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.835);
+  border-radius: 5px;
+}
+.icon-wrapper{
+  width: 100%;
+  display: flex;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+.up, .down, .remove, .icon{
+  width: 30px;
+}
+.up img,
+.down img,
+.remove img,
+.icon img{
+  width: 100%;
+}
+.z-index{
+  width: 50px;
+  display: flex;
+  align-items: center;
+}
+.z-index .text{
+  margin-left: 5px;
+}
+
+.select-clothes{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 180px;
+  /* height: 700px; */
+  /* border: 1px solid #000; */
+}
+.select-clothes .clothes-header{
+  box-shadow: 5px 5px 10px #abe;
+}
+.select-clothes .clothes-header select{
+  width: 80px;
+  height: 30px;
+  line-height: 25px;
+  border-radius: 5px;
+  background-color: rgb(96, 81, 235);
+  color: #fff;
+}
+.select-clothes .content{
+  width: 100%;
+  height: 500px;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 0 10px;
+  margin-top: 10px;
+}
+
+.select-clothes .content .cloth-box{
+  width: 100%;
+  /* border: 1px solid #000; */
+  padding: 0 5px;
+  box-sizing: border-box;
+  background-color: rgba(141, 167, 245, 0.383);
+  /* background-color-opacity: .5; */
+}
+.select-clothes .content .cloth-box .add{
+  height: 50px;
+}
+.select-clothes .content .cloth-box .add img{
+  height: 100%;
+  float: right;
+}
+.select-clothes .content .cloth-box .cloth{
+  width: 100%;
+  z-index: 100;
+  /* margin-bottom: 50px; */
+}
+.select-clothes .content .cloth-box .cloth img{
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.model{
+  position: absolute;
+  top: 50px;
+  left: 580px;
+  /* border: 1px solid #000; */
+  width: 300px;
+  height: 500px;
+}
+.model .content{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* background-color: #aaa; */
+}
+.model .content .bg{
+  position: absolute;
+  left: 0;
+  bottom: -74px;
+  width: 280px;
+  height: 200px;
+  background: url(./images/data/clothes/bg.jpg) no-repeat;
+  background-size: 100% 100%;
+  z-index: -5;
+  transform: rotateX(37deg) rotateZ(22deg) skew(-48deg, 6deg);
+  opacity: .8;
+}
+.model .content .cloth{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  z-index: 0;
+}
+.model .content .cloth img{
+  width: 100%;
+}
+.model .content .person img{
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.model .content .totalPrice{
+  position: absolute;
+  bottom: -20px;
+  right: -80px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  z-index: 99;
+}
+.model .content .totalPrice p{
+  text-align: center;
+  padding: 5px 8px;
+}
+.model .content .totalPrice p:first-child{
+  background-color: #ccc;
+}
+.model .content .totalPrice p:last-child{
+  background-color: #000;
+  color: #fff;
+}

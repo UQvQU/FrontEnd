@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="./index.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="header">
+    <span>当前用户：管理员 </span>
+    <img src="./images/ui/themeBanner.png" alt="">
+  </div>
+  <div class="container">
+    <div class="menu">
+      <div class="self">
+        <img src="./images/ui/self.png" alt="">
+      </div>
+      <div class="userList">
+        <img src="./images/ui/userList.png" alt="">
+      </div>
+      <div class="catalog">
+        <img src="./images/ui/catalog.png" alt="">
+      </div>
+      <div class="suits">
+        <img src="./images/ui/suits.png" alt="">
+      </div>
+      <div class="mySuits">
+        <img src="./images/ui/mySuits.png" alt="">
+      </div>
+      <div class="exits">
+        <img src="./images/ui/exit.png" alt="">
+      </div>
+    </div>
+    <div class="userListContent">
+      <table cellspacing="0">
+        <tr>
+          <th><div>id</div></th>
+          <th><div>用户名称</div></th>
+          <th><div>用户实名</div></th>
+          <th><div>性别</div></th>
+          <th><div>模型选择</div></th>
+          <th><div>是否管理员</div></th>
+          <th><div>操作</div></th>
+        </tr>
+        <tr>
+          <td><div>12</div></td>
+          <td><div>normal</div></td>
+          <td><div>普通用户</div></td>
+          <td><div>男</div></td>
+          <td><div><img src="./images/data/model/mheadB.png" alt=""></div></td>
+          <td><div>否</div></td>
+          <td><div>
+            <button class="blue" id="update">修改</button>
+            <button class="red" id="delete">删除</button>
+          </div></td>
+        </tr>
+      </table>
+    </div>
+    <div class="catalogContent">
+        <div class="clothes">
+          <div class="createTable">
+            <div class="class">服饰类别</div>
+            <div class="group">
+              <label for="user">编号:</label>
+              <input type="text" name="user" id="user">
+            </div>
+            <div class="group">
+              <label for="name">名称:</label>
+              <input type="text" name="name" id="name">
+            </div>
+            <div class="button">
+                <button class="create" id="conserve">添加</button>
+            </div>
+          </div>
+          <div class="table">
+              <div class="class">服饰类别</div>
+              <div class="group">
+                <label for="user">编号:</label>
+                <input type="text" name="user" id="user" value="001">
+              </div>
+              <div class="group">
+                <label for="name">名称:</label>
+                <input type="text" name="name" id="name" class="name" value="帽子1">
+              </div>
+              <div class="button">
+                  <button class="blue" id="conserve">保存</button>
+                  <button class="red" id="delete">删除</button>
+              </div>
+          </div>
+          <div class="table">
+              <div class="class">服饰类别</div>
+              <div class="group">
+                <label for="user">编号:</label>
+                <input type="text" name="user" id="user" value="001">
+              </div>
+              <div class="group">
+                <label for="name">名称:</label>
+                <input type="text" name="name" id="name" class="name" value="帽子">
+              </div>
+              <div class="button">
+                  <button class="blue" id="conserve">保存</button>
+                  <button class="red" id="delete">删除2</button>
+              </div>
+          </div>
+          <div class="table">
+              <div class="class">服饰类别</div>
+              <div class="group">
+                <label for="user">编号:</label>
+                <input type="text" name="user" id="user" value="001">
+              </div>
+              <div class="group">
+                <label for="name">名称:</label>
+                <input type="text" name="name" id="name" class="name" value="帽子3">
+              </div>
+              <div class="button">
+                  <button class="blue" id="conserve">保存</button>
+                  <button class="red" id="delete">删除3</button>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="selfContent">
+        <div class="update" id="update_content">
+            <div class="update_h">用户信息</div>
+            <div class="update_b">
+              <div class="group">
+                <label for="user">用户名称:</label>
+                <input type="text" name="user" id="user" value="normal">
+              </div>
+              <div class="group">
+                <label for="name">用户实名:</label>
+                <input type="text" name="name" id="name" value="普通用户">
+              </div>
+              <div class="group">
+                <label for="pwd">密码:</label>
+                <input type="password" name="password" id="pwd">
+              </div>
+              <div class="group">
+                <label for="verPwd">密码:</label>
+                <input type="password" name="verifyPassword" id="verPwd">
+              </div>
+              <div class="group">
+                <label>性别:</label>
+                <input type="radio" name="sex" value="1" checked="checked">男
+                <input type="radio" name="sex" value="0">女
+              </div>
+              <div class="group">
+                <div class="avatar">头像</div>
+                <div class="img">
+                  <div class="A"><img src="./images/data/model/mheadA.png" alt=""></div>
+                  <div class="B active"><img src="./images/data/model/mheadB.png" alt=""></div>
+                </div>
+                <div class="administrator">
+                  <label for="">是否管理员:</label>
+                  <input type="radio" name="administrator" value="1">是
+                  <input type="radio" name="administrator" value="0" checked="checked">否
+                </div>
+                <div class="button">
+                  <button class="blue" id="conserve">保存信息</button>
+                  <button class="red" id="close">关闭窗口</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $(".userList").click(function(){
+        $(".userListContent").hide()
+        $(".catalogContent").show()
+        $(".selfContent").hide()
+        $("#update_content").hide()
+      })
+      $(".self").click(function(){
+        $(".userListContent").hide()
+        $(".catalogContent").hide()
+        // $(".selfContent").show()
+        $("#update_content").show()
+      })
+      $("#update").click(function(){
+        $("#update_content").show()
+      });
+      $("#conserve").click(function(){
+        $("#update_content").hide()
+      });
+      $("#close").click(function(){
+        $("#update_content").hide()
+      });
+      $("#delete").click(function(){
+        alert("确定要删除吗?")
+      });
+    });
+  </script>
+</body>
+</html>

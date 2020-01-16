@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="./clothes.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="header">
+    <span>当前用户：管理员 </span>
+    <img src="./images/ui/themeBanner.png" alt="">
+  </div>
+  <div class="container">
+    <div class="menu">
+      <div class="self">
+        <img src="./images/ui/self.png" alt="">
+      </div>
+      <div class="userList">
+        <img src="./images/ui/userList.png" alt="">
+      </div>
+      <div class="catalog">
+        <img src="./images/ui/catalog.png" alt="">
+      </div>
+      <div class="suits">
+        <img src="./images/ui/suits.png" alt="">
+      </div>
+      <div class="mySuits">
+        <img src="./images/ui/mySuits.png" alt="">
+      </div>
+      <div class="exits">
+        <img src="./images/ui/exit.png" alt="">
+      </div>
+    </div>
+    <div class="content1">
+      <div class="clothes">
+        <div class="table" >
+          <p>编号：<span class="id" id="id">wAcc01</span></p>
+          <p>名称：<span class="name">项链</span></p>
+          <p>单价：<span class="price">￥<span id="price">1,000.00</span></span></p>
+          <div class="icon-wrapper">
+            <div class="z-index">
+              <div class="icon">
+                <img src="./images/ui/zIndex.png" alt="">
+              </div>
+              <div class="text">0</div>
+            </div>
+            <div class="up"><img src="./images/ui/up.png" alt=""></div>
+            <div class="down"><img src="./images/ui/down.png" alt=""></div>
+            <div class="remove"><img src="./images/ui/remove.png" alt=""></div>
+          </div>
+        </div>
+        <div class="table" >
+          <p>编号：<span class="id" id="id">wAcc02</span></p>
+          <p>名称：<span class="name">眼镜</span></p>
+          <p>单价：<span class="price">￥<span id="price">800.00</span></span></p>
+          <div class="icon-wrapper">
+            <div class="z-index">
+              <div class="icon">
+                <img src="./images/ui/zIndex.png" alt="">
+              </div>
+              <div class="text">0</div>
+            </div>
+            <div class="up"><img src="./images/ui/up.png" alt=""></div>
+            <div class="down"><img src="./images/ui/down.png" alt=""></div>
+            <div class="remove"><img src="./images/ui/remove.png" alt=""></div>
+          </div>
+        </div>
+        <div class="table" >
+          <p>编号：<span class="id" id="id">wHat01</span></p>
+          <p>名称：<span class="name">帽子</span></p>
+          <p>单价：<span class="price">￥<span id="price">700.00</span></span></p>
+          <div class="icon-wrapper">
+            <div class="z-index">
+              <div class="icon">
+                <img src="./images/ui/zIndex.png" alt="">
+              </div>
+              <div class="text">0</div>
+            </div>
+            <div class="up"><img src="./images/ui/up.png" alt=""></div>
+            <div class="down"><img src="./images/ui/down.png" alt=""></div>
+            <div class="remove"><img src="./images/ui/remove.png" alt=""></div>
+          </div>
+        </div>
+        <div class="table" >
+          <p>编号：<span class="id" id="id">wShirt01</span></p>
+          <p>名称：<span class="name">衬衫</span></p>
+          <p>单价：<span class="price">￥<span id="price">2,000.00</span></span></p>
+          <div class="icon-wrapper">
+            <div class="z-index">
+              <div class="icon">
+                <img src="./images/ui/zIndex.png" alt="">
+              </div>
+              <div class="text">0</div>
+            </div>
+            <div class="up"><img src="./images/ui/up.png" alt=""></div>
+            <div class="down"><img src="./images/ui/down.png" alt=""></div>
+            <div class="remove"><img src="./images/ui/remove.png" alt=""></div>
+          </div>
+        </div>
+        <div class="table">
+          <p>编号：<span class="id" id="id">wJean01</span></p>
+          <p>名称：<span class="name">裤子</span></p>
+          <p>单价：<span class="price">￥<span id="price">3,000.00</span></span></p>
+          <div class="icon-wrapper">
+            <div class="z-index">
+              <div class="icon">
+                <img src="./images/ui/zIndex.png" alt="">
+              </div>
+              <div class="text">0</div>
+            </div>
+            <div class="up"><img src="./images/ui/up.png" alt=""></div>
+            <div class="down"><img src="./images/ui/down.png" alt=""></div>
+            <div class="remove"><img src="./images/ui/remove.png" alt=""></div>
+          </div>
+        </div>
+        <div class="table">
+          <p>编号：<span class="id" id="id">wShoe01</span></p>
+          <p>名称：<span class="name">鞋子</span></p>
+          <p>单价：<span class="price">￥<span id="price">100.00</span></span></p>
+          <div class="icon-wrapper">
+            <div class="z-index">
+              <div class="icon">
+                <img src="./images/ui/zIndex.png" alt="">
+              </div>
+              <div class="text">0</div>
+            </div>
+            <div class="up"><img src="./images/ui/up.png" alt=""></div>
+            <div class="down"><img src="./images/ui/down.png" alt=""></div>
+            <div class="remove"><img src="./images/ui/remove.png" alt=""></div>
+          </div>
+        </div>
+        <div class="table">
+          <p>编号：<span class="id" id="id">wBag01</span></p>
+          <p>名称：<span class="name">包包</span></p>
+          <p>单价：<span class="price">￥<span id="price">5,000.00</span></span></p>
+          <div class="icon-wrapper">
+            <div class="z-index">
+              <div class="icon">
+                <img src="./images/ui/zIndex.png" alt="">
+              </div>
+              <div class="text">0</div>
+            </div>
+            <div class="up"><img src="./images/ui/up.png" alt=""></div>
+            <div class="down"><img src="./images/ui/down.png" alt=""></div>
+            <div class="remove"><img src="./images/ui/remove.png" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="select-clothes">
+        <div class="clothes-header">
+          <span>选择分类: </span>
+          <select name="clothes" id="clothes">
+            <option value="衬衫" selected="selected">请选择</option>
+            <option value="裤子">裤子</option>
+            <option value="鞋子">鞋子</option>
+            <option value="饰品">饰品</option>
+          </select>
+        </div>
+        <div class="content">
+          <div class="cloth-box">
+            <div class="add">
+              <img src="./images/ui/add.png" alt="">
+            </div>
+            <div class="cloth">
+              <img src="./images/data/clothes/wSkirt02.png" alt="">
+            </div>
+            <p>编号：<span class="id">wSkirt02</span></p>
+            <p>名称：<span class="name">衬衫</span></p>
+            <p>单价：<span class="price">￥<span>1,000.00</span></span></p>
+          </div>
+          <div class="cloth-box">
+            <div class="add">
+              <img src="./images/ui/add.png" alt="">
+            </div>
+            <div class="cloth">
+              <img src="./images/data/clothes/wShirt03.png" alt="">
+            </div>
+            <p>编号：<span class="id">wShirt03</span></p>
+            <p>名称：<span class="name">衬衫</span></p>
+            <p>单价：<span class="price">￥<span>1,000.00</span></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="model">
+        <div class="content">
+          <div class="bg">
+            <!-- <img src="./images/data/clothes/bg.jpg" alt=""> -->
+          </div>
+          <div class="person">
+            <img src="./images/data/model/wheadAModel.png" alt="">
+          </div>
+          <div id="wHat01" class="cloth">
+            <img src="./images/data/clothes/wHat01.png" alt="">
+          </div>
+          <div id="wAcc02" class="cloth">
+            <img src="./images/data/clothes/wAcc02.png" alt="">
+          </div> 
+          <div id="wShirt01" class="cloth">
+            <img src="./images/data/clothes/wShirt01.png" alt="">
+          </div> 
+          <div id="wAcc01" class="cloth">
+            <img src="./images/data/clothes/wAcc01.png" alt="">
+          </div>
+          <div id="wJean01" class="cloth">
+            <img src="./images/data/clothes/wJean01.png" alt="">
+          </div>
+          <div id="wShoe01" class="cloth">
+            <img src="./images/data/clothes/wShoe01.png" alt="">
+          </div>
+          <div id="wBag01" class="cloth">
+            <img src="./images/data/clothes/wBag01.png" alt="">
+          </div>
+          <div class="totalPrice">
+            <p>总价</p>
+            <p>￥<span>1,300.00</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+      var tables = $(".clothes .table")
+      var texts = $(".clothes .table .z-index")
+      var ups = $(".clothes .table .up")
+      var downs = $(".clothes .table .down")
+      var removes = $(".clothes .table .icon-wrapper")
+      var clothesContent = $(".model .content")
+      var addClothes = $(".select-clothes .content .cloth-box .add img")
+      console.log(addClothes)
+
+      // 计算总价
+      var totalPrice = 0
+      tables.children("p").children(".price").children("#price").each(function(){
+        totalPrice += parseInt($(this).text().replace(/,/g, ''))
+      })
+      clothesContent.children(".totalPrice").children("p").children("span").text(totalPrice)
+      // console.log(totalPrice)
+
+      // 绑定加衣服事件
+      addClothes.each(function(){
+        $(this).bind('click', function(){
+          // console.log('add')
+          var clothBox = $(this).parent().parent()
+          var id = clothBox.children("p").children(".id").text()
+          var name = clothBox.children("p").children(".name").text()
+          var price = clothBox.children("p").children(".price").children("span").text()
+          console.log(price)
+          // 衣服列表增加
+          let tableHtml = `<div class="table">
+                      <p>编号：<span class="id" id="id">${id}</span></p>
+                      <p>名称：<span class="name">${name}</span></p>
+                      <p>单价：<span class="price">￥<span id="price">${price}</span></span></p>
+                      <div class="icon-wrapper">
+                        <div class="z-index">
+                          <div class="icon">
+                            <img src="./images/ui/zIndex.png" alt="">
+                          </div>
+                          <div class="text">0</div>
+                        </div>
+                        <div class="up"><img src="./images/ui/up.png" alt=""></div>
+                        <div class="down"><img src="./images/ui/down.png" alt=""></div>
+                        <div class="remove"><img src="./images/ui/remove.png" alt=""></div>
+                      </div>
+                    </div>`
+          $(".content1 .clothes").prepend(tableHtml)
+          // 模特加衣服  
+          let clothHtml = `<div id="${id}" class="cloth">
+                            <img src="./images/data/clothes/${id}.png" alt="">
+                          </div>`
+          $(".model .content").prepend(clothHtml)
+          var totalPrice = clothesContent.children(".totalPrice").children("p").children("span").text()
+          totalPrice = parseInt(totalPrice.replace(/,/g, ''))
+          totalPrice += parseInt(price.replace(/,/g, ''))
+          clothesContent.children(".totalPrice").children("p").children("span").text(totalPrice)
+        })
+
+      })
+
+      // 绑定事件
+        // remove 移除
+        $(".clothes").on('click', ".table .icon-wrapper .remove", function() {
+          console.log('remove')
+          var table = $(this).parent().parent()
+          var id = table.children("p").children("#id").text()
+          var price = table.children("p").children(".price").children("#price").text()
+          price = parseInt(price.replace(/,/g, ''))
+          console.log(price)
+          var totalPrice = clothesContent.children(".totalPrice").children("p").children("span").text()
+          totalPrice = parseInt(totalPrice.replace(/,/g, ''))
+          totalPrice -= price
+          clothesContent.children(".totalPrice").children("p").children("span").text(totalPrice)
+          var cloth = clothesContent.children("#" + id)
+          // 移除模特身上的衣服
+          cloth.remove()
+          // 移除衣服列表
+          table.remove()
+        })
+        // z-index ++
+        $(".clothes").on("click", ".table .up", function () {
+          var table = $(this).parent().parent()
+          var id = table.children("p").children("#id").text()
+          console.log(id)
+          var cloth = clothesContent.children("#" + id)
+          console.log(cloth)
+          var zIndex = cloth.css('z-index')
+          console.log(zIndex)
+          cloth.css("z-index", ++zIndex)
+          table.children(".icon-wrapper").children(".z-index").children(".text").text(zIndex)
+        })
+        // z-index --
+        $(".clothes").on("click", ".table .down", function () {
+          var table = $(this).parent().parent()
+          var id = table.children("p").children("#id").text()
+          var cloth = clothesContent.children("#" + id) 
+          var zIndex = cloth.css('z-index')
+          console.log(zIndex)
+          cloth.css("z-index", --zIndex)
+          table.children(".icon-wrapper").children(".z-index").children(".text").text(zIndex)
+          // console.log(texts[i].children(".text"))
+        })
+    });
+  </script>
+</body>
+</html>

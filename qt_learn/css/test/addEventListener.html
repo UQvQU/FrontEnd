@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .div1{
+      width: 400px;
+      height: 400px;
+      background-color: #aaa;
+    }
+    .div2{
+      width: 200px;
+      height: 200px;
+      background-color: #abe;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="div1" class="div1">
+    <div id="div2" class="div2">
+      <button id="btn">hello</button>
+    </div>
+  </div>
+  <script>
+    window.onload = function () {
+      document.getElementById("btn").addEventListener("click", function () {
+        console.log("hello");
+      });
+      document.getElementById("div1").addEventListener("click", function () {
+        console.log("div1");
+      }, true);
+      document.getElementById("div2").addEventListener("click", function () {
+        console.log("div2");
+      }, true);
+    }
+  </script>
+</body>
+
+</html>

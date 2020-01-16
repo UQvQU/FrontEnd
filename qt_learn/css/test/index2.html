@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="./clothes-classify.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="content">
+    <div class="clothes">
+      <!--上部导航  -->
+      <div class="navigate">
+        <label for="name">性别:</label> <select id="gender">
+          <option name="M" value="1">男</option>
+          <option name="F" value="0">女</option>
+        </select> <label for="name">分类:</label> <select id="catalog">
+        <option></option></select>
+        <div class="button">
+          <button class="red" id="search">查询</button>
+        </div>
+      </div>
+    </div>
+    <div class="clothes" id="total">
+      <!--  和页面一起加载出来的盒子-->
+      <div class="table">
+        <div class="table-title"
+          style="background: url(<%=basePath%>/images/ui/subTitle.png) no-repeat; background-size: 100% 100%;">服饰细目</div>
+        <div class="group">
+          <label for="user">编号:</label> <input type="text" name="user"
+            id="number">
+        </div>
+        <div class="group">
+          <label for="name">名称:</label> <input type="text" name="name"
+            id="name" class="name">
+        </div>
+        <div class="group">
+          <label for="name">价格:</label> <input type="text" name="price"
+            id="price" class="price">
+        </div>
+        <div class="group">
+          <label for="name">性别:</label> <select>
+          </select>
+        </div>
+        <div class="group">
+          <label for="name">分类:</label><select>
+          </select>
+        </div>
+
+        <div class="button">
+          <button class="blue a" id="add">添加</button>
+        </div>
+      </div>
+      <!--  点击添加后加载出来的新盒子-->
+      <div class="suit table" id="suit">
+        <div class="table-title"
+          style="background: url(<%=basePath%>/images/ui/subTitle.png) no-repeat; background-size: 100% 100%;">服饰细目
+        </div>
+        <div class="table-left">
+          <div class="group">
+            <label for="user">编号:</label> <input type="text" name="user"
+              id="number">
+          </div>
+          <div class="group">
+            <label for="name">名称:</label> <input type="text" name="name"
+              id="name" class="name">
+          </div>
+          <div class="group">
+            <label for="name">价格:</label> <input type="text" name="price"
+              id="price" class="price">
+          </div>
+          <div class="group">
+            <label for="name">性别:</label> <select id="suit-gender">
+              <option name="M" value="1">男</option>
+              <option name="F" value="0">女</option>
+              <select>
+          </div>
+          <div class="group">
+            <label for="name">分类:</label> <select id="suit-catalog"></select>
+          </div>
+
+        </div>
+        <div class="uploadContainer table-right">
+          <div class="picture-area">
+            <button class="picture-area-button">点击添加图片
+            </button>
+            <div class="picture">
+              <div id="prompt3">
+                <img src="" id="suitImage"></img>
+              </div>
+              <!-- <img src="" id="suitImage" /> -->
+            </div>
+          </div>
+        </div>
+        <div class="button">
+          <button class="blue" id="conserve">保存</button>
+          <button class="red" id="conserve">删除</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

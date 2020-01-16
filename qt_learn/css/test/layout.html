@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;padding: 0;
+    }
+    .middle,
+    .left,
+    .right{
+      height: 100vh;
+      float: left;
+    }
+    .left{
+      width: 100px;
+      margin-left: -100%;
+      background-color: #a19;
+    }
+    .right{
+      width: 100px;
+      margin-left: -100px;
+      background-color: #abe;
+    }
+    .middle{
+      width: 100%;
+      padding: 0 100px;
+      box-sizing: border-box;
+      background-color: #8b1e;
+    }
+    .inner{
+      margin: 0 100px;
+      height: 100vh;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="middle">
+      <!-- <div class="inner"></div>  双飞翼-->  
+    </div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  
+</body>
+</html>
