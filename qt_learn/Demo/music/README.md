@@ -18,5 +18,7 @@ npm i @types/react-dom -s
 npm run eject 暴露config文件
 修改开发环境的配置文件  /config/webpack.config.js
 <https://segmentfault.com/a/1190000019667384>
-2. 布局layout
+2. sequelize
+
+3. 布局layout
 BlankLayout.tsx
