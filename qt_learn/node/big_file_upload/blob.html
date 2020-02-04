@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img src="" alt="" id="pic" width="800px">
+  <input type="file" id="file">
+  <script>
+    // es5及es5以前文件上传到服务器后，静态服务器提供一个远程地址，客户才可看到自己上传的文件
+    // es6有在客户端操作文件的能力 file对象 通过blob协议将文件立即显示出来，再加上进度，优化用户体验
+    document.getElementById('file').addEventListener('change', event => {
+      const file = event.target.files[0]
+      console.log(file)
+      const URL = window.URL
+      const objectUrl = URL.createObjectURL(file)
+      console.log(objectUrl)
+      const pic = document.getElementById('pic')
+      pic.src = objectUrl
+      pic.onload = function() {
+        // 释放对象 提高性能节约内存
+        URL.revokeObjectURL(objectUrl)
+      }
+    })
+  </script>
+</body>
+</html>
