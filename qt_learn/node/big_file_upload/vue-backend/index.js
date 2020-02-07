@@ -17,6 +17,15 @@ server.on("request", async (req, res) => {
   if (req.url == '/verify') {
     await controller.handleVerifyUpload(req, res)
   }
+
+  if (req.url == '/') {
+    // 处理上传的文件
+    await controller.handleFormData(req, res)
+  }
+
+  if (req.url == '/merge') {
+    await controller.handleMerge(req, res)
+  }
 })
 
 server.listen(3000, () => console.log('server running in 3000'));
