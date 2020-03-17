@@ -35,6 +35,7 @@
         function step(arg) {
           const obj = genObj.next(arg)
           if (obj.done) {
+            console.log('obj.done', obj.done)
             resolve(obj.value)
           } else {
             return Promise.resolve(obj.value).then(res => {
