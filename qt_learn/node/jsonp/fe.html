@@ -12,36 +12,31 @@
   https://www.baidu.com:443
   协议域名端口号三者其一不同则跨域
   baidu.com -> api.baidu.com 会跨域
-  <script>
-    function getBook(data) {
-      console.log(data)
-    }  
-  </script>
-  <script src="http://localhost:3002/api/books?callback=getBook"></script>
-  <!-- 封装一个jsonp
-  jsonP({
-    url: 'http://localhost:3002/api/books',
-    callback: 'getBook'
-  }).then(res => {})
--->
-  <script>
+  <script> 
+
     function jsonP (option) {
       const { url, callback } = option
       return new Promise((resolve, reject) => {
         let methodName = 'abc'
         window[methodName] = function (data) {
           resolve(data)
+          console.log('window')
+          // 删除
           delete window[methodName]
           document.body.removeChild(scriptNode)
         }
+        // 生成script
         let scriptNode = document.createElement('script')
         scriptNode.src = `${url}?${callback}=${methodName}`
+        console.log(`${url}?${callback}=${methodName}`)
         document.body.appendChild(scriptNode)
+        // 失败
         scriptNode.onerror = function () {
           reject('error')
         }
       })
     }
+
     jsonP({
       url: 'http://localhost:3002/api/books',
       callback: 'getBook'
