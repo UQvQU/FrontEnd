@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .back{
+      font-size: 3em;
+      font-weight: bold;
+      color: transparent;
+      font-family: Lato, sans-serif;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: url('../ShiningText/back.jpg') no-repeat center center;
+      background-size: cover;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+    .shiningBox{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+      background-color: #000;
+    }
+    /* p.i{
+      font-size: 16px;
+      color: #fff;
+    } */
+    .shining{
+      font-size: 3em;
+      font-weight: bold;
+      color: transparent;
+      font-family: Lato, sans-serif;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 100%);
+      background-size: 80%;
+      background-repeat: no-repeat;
+      /* background-clip: text; */
+      -webkit-background-clip:text;
+      animation: shining 4s linear infinite;
+    }
+    @keyframes shining {
+      from {
+        background-position: -500%;
+      }
+      to {
+        background-position: 500%;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- <p class="i">16px</p> -->
+  <!-- <img src="../ShiningText/back.jpg" alt=""> -->
+  <p class="back">forgive my free spirit this life</p>
+  <div class="shiningBox">
+    <p class="shining">forgive my free spirit this life</p>
+  </div>
+  
+</body>
+</html>
