@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="rainbow">ano hi mada shiranai no fushigi no monogatari</div>
+  <script>
+    let rainbow = document.querySelector('.rainbow');
+    let letters = rainbow.textContent.split('');
+    rainbow.textContent = '';
+    letters.forEach((letter, i) => {
+      let span = document.createElement('span');
+      span.textContent = letter;
+      span.style.animationDelay = `${i * 0.2 - 20}s`;
+      console.log(`${i * 0.2 - 20}s`)
+      rainbow.append(span)
+    })
+  </script>
+</body>
+
+</html>

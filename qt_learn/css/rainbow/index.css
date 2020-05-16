@@ -1,0 +1,159 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background: #222;
+}
+
+.rainbow {
+  letter-spacing: 0.2rem;
+  font-size: 1.2rem;
+  font-family: Lato, serif;
+  text-transform: uppercase;
+}
+
+.rainbow span {
+  -webkit-animation: rainbow 45s alternate infinite forwards;
+          animation: rainbow 45s alternate infinite forwards;
+}
+
+@-webkit-keyframes rainbow {
+  0% {
+    color: #d4ef8f;
+  }
+  5% {
+    color: #8fef9f;
+  }
+  10% {
+    color: #dcef8f;
+  }
+  15% {
+    color: #9fef8f;
+  }
+  20% {
+    color: #ef8fdc;
+  }
+  25% {
+    color: #8fbcef;
+  }
+  30% {
+    color: #8fefa4;
+  }
+  35% {
+    color: #ef8fc6;
+  }
+  40% {
+    color: #8fefef;
+  }
+  45% {
+    color: #c2ef8f;
+  }
+  50% {
+    color: #e78fef;
+  }
+  55% {
+    color: #ef8fcf;
+  }
+  60% {
+    color: #8fefe2;
+  }
+  65% {
+    color: #8fe2ef;
+  }
+  70% {
+    color: #8fe9ef;
+  }
+  75% {
+    color: #ef8fa7;
+  }
+  80% {
+    color: #ef8fa4;
+  }
+  85% {
+    color: #ef8fc9;
+  }
+  90% {
+    color: #e48fef;
+  }
+  95% {
+    color: #8fef94;
+  }
+  100% {
+    color: #d4ef8f;
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    color: #d4ef8f;
+  }
+  5% {
+    color: #8fef9f;
+  }
+  10% {
+    color: #dcef8f;
+  }
+  15% {
+    color: #9fef8f;
+  }
+  20% {
+    color: #ef8fdc;
+  }
+  25% {
+    color: #8fbcef;
+  }
+  30% {
+    color: #8fefa4;
+  }
+  35% {
+    color: #ef8fc6;
+  }
+  40% {
+    color: #8fefef;
+  }
+  45% {
+    color: #c2ef8f;
+  }
+  50% {
+    color: #e78fef;
+  }
+  55% {
+    color: #ef8fcf;
+  }
+  60% {
+    color: #8fefe2;
+  }
+  65% {
+    color: #8fe2ef;
+  }
+  70% {
+    color: #8fe9ef;
+  }
+  75% {
+    color: #ef8fa7;
+  }
+  80% {
+    color: #ef8fa4;
+  }
+  85% {
+    color: #ef8fc9;
+  }
+  90% {
+    color: #e48fef;
+  }
+  95% {
+    color: #8fef94;
+  }
+  100% {
+    color: #d4ef8f;
+  }
+}
+/*# sourceMappingURL=index.css.map */
