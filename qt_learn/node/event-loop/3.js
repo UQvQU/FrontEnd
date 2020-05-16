@@ -1,5 +1,6 @@
 console.log('script start'); // 1
-
+process.nextTick(() => {console.log('nextTick')})   
+setImmediate(() => {console.log('setImmediate')}, 0)
 // 宏任务
 setTimeout(function () {
   console.log('setTimeout');  // 7

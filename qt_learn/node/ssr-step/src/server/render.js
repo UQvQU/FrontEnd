@@ -8,6 +8,7 @@ import { renderRoutes} from 'react-router-config'
 import { StaticRouter} from 'react-router-dom'
 
 export default (req) => {
+  console.log('path', req.path)
   // jsx
   const App = (
     <StaticRouter location={req.path}>
@@ -27,6 +28,7 @@ export default (req) => {
   <title>Document</title>
 </head>
 <body>
+  <div>SSR</div>
   <div id="app">${renderToString(App)}</div>
   <script src="/index.js"></script>
 </body>

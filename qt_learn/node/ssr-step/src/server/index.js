@@ -17,6 +17,7 @@ const app = new express();
 app.use(express.static('public'))
 app.get('*', (req, res) => {
   const html = render(req);
+  console.log('html', html)
   res.send(html)
 })
 app.listen(3000, () => {

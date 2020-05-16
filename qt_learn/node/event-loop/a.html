@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="./b.html" id="from">
+    <input type="text" id="text"/>
+    <input type="submit" id="submit">
+  </form>
+  <script>
+    let submit = document.getElementById('submit')
+    let form = document.getElementById('from')
+    let text = document.getElementById('text')
+    var value = ''
+    text.addEventListener('change', () => {
+      value = text.value
+      console.log(value)
+      form.action = `./b.html?text=${value}`
+      console.log(form.action)
+    })
+    
+    submit.addEventListener('click', () => {
+      console.log('submit', form.action)
+    })
+  </script>
+</body>
+</html>
