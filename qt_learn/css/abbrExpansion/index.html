@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Lato);
+
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
+
+    abbr {
+      display: flex;
+      color: #fff;
+      font-size: 2em;
+      font-weight: bold;
+      font-family: Lato, sans-serif;
+      /* text-decoration: none; */
+    }
+    abbr span{
+      text-decoration: underline white;
+      transition: all 0.5s ease-in-out;
+    }
+    /* span标签设置max-width:0 在flex容器中的width为0 */
+    abbr span.hidden{
+      max-width: 0;
+      text-decoration: none;
+      opacity: 0;
+    }
+    /* abbr:hover span{} 作用于所有span（initial和hidden） */
+    abbr:hover span{
+      max-width: 2em;
+      text-decoration: none;
+      opacity: 1;
+    }
+    abbr:hover span.initial{
+      margin-left: 0.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <abbr> 标签用来表示一个缩写词或者首字母缩略词，如"WWW"或者"NATO"。 -->
+  <abbr data-title="Animation Comics Games">ACG</abbr>
+  <script>
+    let abbr = document.querySelector('abbr')
+    abbr.textContent = ''
+    let title = abbr.dataset.title
+    let words = title.split(' ')
+    words.forEach(word => {
+      let [initial, ...restLetters] = word.split('')
+      console.log(initial, restLetters)
+      let initialSpan = document.createElement('span')
+      initialSpan.textContent = initial
+      initialSpan.className = 'initial'
+      abbr.append(initialSpan)
+      restLetters.forEach(letter => {
+        let hiddenSpan = document.createElement('span')
+        hiddenSpan.textContent = letter
+        hiddenSpan.className = 'hidden'
+        abbr.append(hiddenSpan)
+      })
+    })
+  </script>
+</body>
+
+</html>
