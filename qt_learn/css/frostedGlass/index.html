@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    @import url("https://fonts.googleapis.com/css?family=Lato:200");
+
+    body {
+      padding-top: 30px;
+      box-sizing: border-box;
+      height: 100vh;
+    }
+
+    .frosted-glass {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 64vw;
+      height: 18vh;
+      box-shadow: 0 0.3px 0.7px rgba(0, 0, 0, 0.126),
+        0 0.9px 1.7px rgba(0, 0, 0, 0.179), 0 1.8px 3.5px rgba(0, 0, 0, 0.224),
+        0 3.7px 7.3px rgba(0, 0, 0, 0.277), 0 10px 20px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(20px);
+      transition: 0.5s ease;
+    }
+    .frosted-glass:hover {
+      box-shadow: 0 0.7px 1px rgba(0, 0, 0, 0.157),
+        0 1.7px 2.6px rgba(0, 0, 0, 0.224), 0 3.5px 5.3px rgba(0, 0, 0, 0.28),
+        0 7.3px 11px rgba(0, 0, 0, 0.346), 0 20px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .title {
+      padding-left: 0.375em;
+      font-size: 3.6em;
+      font-family: Lato, sans-serif;
+      font-weight: 200;
+      letter-spacing: 0.75em;
+      color: white;
+
+    }
+
+    .frosted-bg,
+    .glass {
+      background: url(https://i.loli.net/2019/11/17/GAYyzeKsiWjP5qO.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .frosted-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: 1s;
+    }
+
+    .glass {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 1;
+      width: 800px;
+      height: 250px;
+      transform: translate(-50%, -50%);
+      transition: 1s;
+    }
+
+    .glass:hover {
+      /* filter: blur(10px); */
+      box-shadow: 0 0.7px 1.7px rgba(0, 0, 0, 0.248),
+        0 1.7px 4.3px rgba(0, 0, 0, 0.355), 0 3.5px 8.9px rgba(0, 0, 0, 0.445),
+        0 7.3px 18.3px rgba(0, 0, 0, 0.552), 0 20px 50px rgba(0, 0, 0, 0.8);
+    }
+
+    .glass:hover+.frosted-bg {
+      filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glass"></div>
+  <div class="frosted-bg"></div>
+  <div class="frosted-glass">
+    <h1 class="title">sakura</h1>
+  </div>
+</body>
+
+</html>
