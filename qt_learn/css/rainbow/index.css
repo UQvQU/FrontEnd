@@ -27,133 +27,133 @@ body {
 
 @-webkit-keyframes rainbow {
   0% {
-    color: #d9ef8f;
+    color: #8fef9e;
   }
   5% {
-    color: #ef8fca;
+    color: #efb68f;
   }
   10% {
-    color: #efab8f;
+    color: #efd28f;
   }
   15% {
-    color: #b4ef8f;
+    color: #8fb4ef;
   }
   20% {
-    color: #ef8f99;
+    color: #ef8fa6;
   }
   25% {
-    color: #b4ef8f;
+    color: #97ef8f;
   }
   30% {
-    color: #efc68f;
+    color: #8fcaef;
   }
   35% {
-    color: #d68fef;
+    color: #8fa7ef;
   }
   40% {
-    color: #978fef;
+    color: #e28fef;
   }
   45% {
-    color: #8fefe4;
+    color: #ef8fc7;
   }
   50% {
-    color: #8feaef;
+    color: #d48fef;
   }
   55% {
-    color: #8fefaf;
+    color: #9e8fef;
   }
   60% {
-    color: #ef8fa7;
+    color: #ef8fb6;
   }
   65% {
-    color: #8fb1ef;
+    color: #ef8fb7;
   }
   70% {
-    color: #938fef;
+    color: #ef8f93;
   }
   75% {
-    color: #de8fef;
+    color: #efbf8f;
   }
   80% {
-    color: #efa38f;
+    color: #ef8fef;
   }
   85% {
-    color: #a4ef8f;
+    color: #ccef8f;
   }
   90% {
-    color: #b6ef8f;
+    color: #e28fef;
   }
   95% {
-    color: #ef8fe6;
+    color: #8fa4ef;
   }
   100% {
-    color: #ef8fa6;
+    color: #ef8f94;
   }
 }
 
 @keyframes rainbow {
   0% {
-    color: #d9ef8f;
+    color: #8fef9e;
   }
   5% {
-    color: #ef8fca;
+    color: #efb68f;
   }
   10% {
-    color: #efab8f;
+    color: #efd28f;
   }
   15% {
-    color: #b4ef8f;
+    color: #8fb4ef;
   }
   20% {
-    color: #ef8f99;
+    color: #ef8fa6;
   }
   25% {
-    color: #b4ef8f;
+    color: #97ef8f;
   }
   30% {
-    color: #efc68f;
+    color: #8fcaef;
   }
   35% {
-    color: #d68fef;
+    color: #8fa7ef;
   }
   40% {
-    color: #978fef;
+    color: #e28fef;
   }
   45% {
-    color: #8fefe4;
+    color: #ef8fc7;
   }
   50% {
-    color: #8feaef;
+    color: #d48fef;
   }
   55% {
-    color: #8fefaf;
+    color: #9e8fef;
   }
   60% {
-    color: #ef8fa7;
+    color: #ef8fb6;
   }
   65% {
-    color: #8fb1ef;
+    color: #ef8fb7;
   }
   70% {
-    color: #938fef;
+    color: #ef8f93;
   }
   75% {
-    color: #de8fef;
+    color: #efbf8f;
   }
   80% {
-    color: #efa38f;
+    color: #ef8fef;
   }
   85% {
-    color: #a4ef8f;
+    color: #ccef8f;
   }
   90% {
-    color: #b6ef8f;
+    color: #e28fef;
   }
   95% {
-    color: #ef8fe6;
+    color: #8fa4ef;
   }
   100% {
-    color: #ef8fa6;
+    color: #ef8f94;
   }
 }
 /*# sourceMappingURL=index.css.map */
