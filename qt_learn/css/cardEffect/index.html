@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../cardEffect/index.css">
+  <script src="https://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <!-- <style>
+ 
+
+    .slider {
+      width: 100%;
+      height: 100vh;
+      /* background-color: #abe; */
+    }
+
+    .items-group {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .item {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      /* 不可见 */
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 50px 20px;
+      overflow: hidden;
+      transition: 0.5s;
+    }
+
+    .item:hover .bg {
+      opacity: 0.2;
+    }
+
+    .item:hover .block {
+      box-shadow: 0px 0px 50px #333;
+    }
+
+    .item.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style> -->
+
+</head>
+
+<body>
+  <div class="slider">
+    <div class="items-group">
+      <div class="item">
+        <div class="block">
+          <span class="circleLight"></span>
+          <div class="text">
+            <h2>Hi</h2>
+            <p>I`m cool card</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="block">
+          <span class="circleLight"></span>
+          <div class="text">
+            <h2>Hi</h2>
+            <p>I`m cool card</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="block">
+          <span class="circleLight"></span>
+          <div class="text">
+            <h2>Hi</h2>
+            <p>I`m cool card</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="block">
+          <span class="circleLight"></span>
+          <div class="text">
+            <h2>Hi</h2>
+            <p>I`m cool card</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navigations">
+      <ul class="dots"></ul>
+    </div>
+  </div>
+  <script>
+    // Hy! You can really help me if you donate me leastways 1 dollor :)
+    // -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+    var mouse = {
+        X: 0,
+        Y: 0,
+        CX: 0,
+        CY: 0
+      },
+      block = {
+        X: mouse.X,
+        Y: mouse.Y,
+        CX: mouse.CX,
+        CY: mouse.CY
+      },
+      imags = [
+        "https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
+        "https://images.pexels.com/photos/210546/pexels-photo-210546.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
+        "https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
+        "https://images.pexels.com/photos/210546/pexels-photo-210546.jpeg?w=940&h=650&auto=compress&cs=tinysrgb",
+      ];
+
+    $(".block").on("mousemove", function (e) {
+      mouse.X = e.pageX - $(this).offset().left - $(".block").width() / 2;
+      mouse.Y = e.pageY - $(this).offset().top - $(".block").height() / 2;
+    });
+
+    $(".block").on("mouseleave", function (e) {
+      mouse.X = mouse.CX;
+      mouse.Y = mouse.CY;
+    });
+
+    setInterval(function () {
+      block.CY += (mouse.Y - block.CY) / 12;
+      block.CX += (mouse.X - block.CX) / 12;
+
+      $(".block .circleLight").css(
+        "background",
+        "radial-gradient(circle at " +
+        mouse.X +
+        "px " +
+        mouse.Y +
+        "px, #fff, transparent)"
+      );
+      $(".block").css({
+        transform: "scale(1.03) translate(" + block.CX * 0.05 + "px, " + block.CY * 0.05 + "px) rotateX(" +
+          block.CY * 0.05 + "deg) rotateY(" + block.CX * 0.05 + "deg)"
+      });
+    }, 20);
+
+    $(".slider .item").each(function (i) {
+      if (i == 0) {
+        $(this).addClass("active");
+      }
+
+      $(this).attr("id", "slide-" + i);
+
+      $(this).prepend(
+        $("<div>", {
+          class: "blur",
+          style: "background-image: url(" + imags[i] + ");"
+        }),
+        $("<div>", {
+          class: "bg",
+          style: "background-image: url(" + imags[i] + ");"
+        })
+      );
+
+      $(this)
+        .find(".block")
+        .css("background-image", "url(" + imags[i] + ")");
+
+      $(".navigations .dots").append(
+        $("<li>", {
+          class: i == 0 ? "active" : "",
+          id: i
+        }).on(
+          "click",
+          function () {
+            var cSlide = $(".slider #slide-" + $(this).attr("id"));
+
+            $(".navigations .dots li").removeClass("active");
+            $(this).addClass("active");
+
+            $(".slider .item").removeClass("active ");
+            cSlide.addClass("active");
+          }
+        )
+      );
+    });
+  </script>
+</body>
+
+</html>
