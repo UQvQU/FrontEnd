@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #143360;
+    }
+
+    .box-canvas {
+      position: relative;
+      margin: auto;
+      display: block;
+      margin-top: 8%;
+      margin-bottom: 8%;
+      width: 600px;
+      height: 600px;
+      /* 光晕 */
+      background: radial-gradient(#FFFAA7, #143360 70%);
+      animation: lightOnOff 4s infinite;
+    }
+
+    @keyframes lightOnOff {
+      0% {
+        background: #143360;
+      }
+
+      49% {
+        background: #143360;
+      }
+
+      50% {
+        background: radial-gradient(#FFFAA7, #143360 70%);
+      }
+
+      99% {
+        background: radial-gradient(#FFFAA7, #143360 70%);
+      }
+
+      100% {
+        background: #143360;
+      }
+    }
+
+    .bulb {
+      position: absolute;
+      top: 150px;
+      left: 200px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: #FFFAA7;
+      animation: bulbOnOff 4s infinite;
+    }
+
+    .bulb::before {
+      content: '';
+      position: absolute;
+      width: 150px;
+      height: 100px;
+      background: #FFFAA7;
+      bottom: -60px;
+      left: 26px;
+      /* clip-path: 裁剪 （裁剪的赐个点的坐标） */
+      clip-path: polygon(20% 100%, 80% 100%, 100% 0, 0 0);
+      animation: bulbOnOff 4s infinite;
+    }
+
+    @keyframes bulbOnOff {
+      0% {
+        background: #D6D6D6;
+      }
+
+      49% {
+        background: #D6D6D6;
+      }
+
+      50% {
+        background: #FFFAA7;
+      }
+    }
+
+    .bulb-bottom {
+      position: absolute;
+      top: 370px;
+      left: 275px;
+      width: 45px;
+      height: 40px;
+      border-left: 3px solid gray;
+      border-right: 3px solid gray;
+    }
+
+    .bulb-bottom::before {
+      content: '';
+      position: absolute;
+      left: -15px;
+      top: 40px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: darkgray;
+    }
+
+    .bulb-bottom::after {
+      content: '';
+      top: 35px;
+      left: -28px;
+      position: absolute;
+      width: 103px;
+      height: 55px;
+      /* 颜色值、开始/停止位置 */
+      background: repeating-linear-gradient(to bottom, gray, grey 5px, darkgray 5px, darkgray 10px);
+      border-radius: 10%;
+    }
+
+    .filament {
+      position: absolute;
+      top: -68px;
+      width: 28px;
+      height: 20px;
+      border-radius: 50%;
+      box-shadow: 0px 4px 0px 0px gray;
+      animation: filamentOnOff 4s infinite;
+    }
+
+    .filament-left {
+      left: -20px;
+    }
+
+    .filament-right {
+      right: -20px;
+    }
+
+    .filament::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      border-left: 3px solid gray;
+      height: 60px;
+    }
+
+    .filament-left::before {
+      left: 7px;
+      transform: rotate(-20deg);
+    }
+
+    .filament-right::before {
+      right: 7px;
+      transform: rotate(20deg);
+    }
+
+    .filament-left::after {
+      content: '';
+      position: absolute;
+      left: 28px;
+      width: 29px;
+      height: 20px;
+      border-radius: 50%;
+      box-shadow: 0px 4px 0px 0px gray;
+      animation: filamentOnOff 4s infinite;
+    }
+
+    @keyframes filamentOnOff {
+
+      0% {
+        box-shadow: 0px 4px 0px 0px gray;
+      }
+
+      49% {
+        box-shadow: 0px 4px 0px 0px gray;
+      }
+
+      50% {
+        box-shadow: 0px 4px 0px 0px #F8C600;
+      }
+
+      99% {
+        box-shadow: 0px 4px 0px 0px #F8C600;
+      }
+
+      100% {
+        box-shadow: 0px 4px 0px 0px gray;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <body>
+    <div class="box-canvas">
+      <div class="bulb"></div>
+      <div class="bulb-bottom">
+        <div class="filament-left filament"></div>
+        <div class="filament-right filament"></div>
+      </div>
+    </div>
+  </body>
+</body>
+
+</html>
