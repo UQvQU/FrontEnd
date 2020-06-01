@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      height: 200px;
+    }
+    .parent{
+      display: flex;
+      width: 400px;
+      height: 300px;
+      border: 1px solid #aaa;
+      /* background-color: #aaa; */
+    }
+    /* 不设置flex-shrink AB等比例缩小 => A:160  B:240*/
+    .A{
+      /* flex-shrink: 0  =>  不缩小，A仍为200px， B缩小至200px */
+      flex-shrink: 0;
+      width: 200px;
+      background-color: #fbf;
+    }
+    .B{
+      width: 300px;
+      background-color: #abe;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="A"></div>
+    <div class="B"></div>
+  </div>
+</body>
+</html>
