@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+
+</head>
+
+<body>
+    <div id="main" style="width:900px;height: 600px"></div>
+    <script>
+        let myChart = echarts.init(document.getElementById('main'))
+        let option = {
+            tooltip: {
+                formatter: '{a} <br/>{b}:{c}%'
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {},
+                    restore: {}
+                },
+            },
+            series: [{
+                name: '业务指标',
+                type: 'gauge',
+                detail: {
+                    formatter: '{value}%'
+                },
+                data: [{
+                    value: 32,
+                    name: '完成率'
+                }]
+            }]
+        }
+        myChart.setOption(option)
+        setInterval(function() {
+            option.series[0].data[0].value = (Math.random() *100).toFixed(2) - 0
+            // lazyUpdate: true  -> 立即更新图表
+            myChart.setOption(option, true)
+        }, 2000)
+    </script>
+</body>
+
+</html>

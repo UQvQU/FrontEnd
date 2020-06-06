@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input name="submit" type="button" id="submit" value="向服务器发出请求" />
+  <script>
+    window.onload = function () { //页面初始化
+      var b = document.getElementsByTagName("input")[0];
+      b.onclick = function () {
+        var url = "https://lab.isaaclin.cn/nCoV/api/area?latest=0"; //设置查询字符串
+        var xhr = createXHR(); //实例化XMLHttpRequest 对象
+        xhr.open("GET", url, false); //建立连接，要求同步响应
+        xhr.send(null); //发送请求
+        console.log(xhr.responseText); //接收数据
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+  <title>Bar 直方图</title>
+</head>
+
+<body>
+  <!-- <div id="main" style="width: 600px; height: 400px;"></div> -->
+  <div id="line" style="width: 600px; height: 400px;"></div>
+  <script>
+    // 初始化echarts实例
+    // let myChart = echarts.init(document.getElementById('main'))
+    // // option对象
+    // let option = {
+    //   title: {
+    //     text: 'Bar 直方图'
+    //   },
+    //   tooltip: {},
+    //   toolbox: {
+    //     show: true,
+    //     feature: {
+    //       show: true,
+    //       saveAsImage: {
+    //         show: true,
+    //         type: 'png',
+    //         title:'保存图片',
+    //         name: '直方图',
+    //         backgroundColor: '#00f',
+    //         excludeComponents: ['toolbox', 'title']
+    //       }
+    //     }
+    //   },
+    //   legend: {
+    //     data: ['销量']
+    //   },
+    //   xAxis: {
+    //     data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+    //   },
+    //   yAxis: {
+    //     position: 'right',
+    //     type: 'value',
+    //     name: '销量数值',
+    //     nameTextStyle: {
+    //       color: '#fff',
+    //       backgroundColor: '#00f'
+    //     }
+    //   },
+    //   series:[{
+    //     name: '销量',
+    //     type: 'bar',
+    //     data:[5, 20, 38, 10, 30, 25]
+    //   }]
+    // }
+    // // 绘制图表
+    // myChart.setOption(option)
+
+    let lineChart = echarts.init(document.getElementById('line'))
+    let lineOption = {
+      title: {
+        text: '折线图',
+        target: 'self',
+        link: 'https://www.baidu.com',
+        subtext: '直方图\n折线图',
+        textStyle: {
+          color: '#f40'
+        },
+        subtextStyle: {
+          color: '#abe'
+        },
+        sublink: 'https://www.runoob.com/',
+        subtarget: 'blank',
+        textAlign: 'left',
+        textVerticalAlign: 'top',
+        itemGap: 20,
+        left: 'right',
+        borderColor: '#f30',
+        borderWidth: 3,
+        shadowBlur: 10,
+        shadowColor: '#f40'
+      },
+      // grid: {
+      //   show: true,
+      //   z: 2
+      // },
+      toolbox: {
+        show: true,
+        left: 'left',
+        feature: {
+          saveAsImage: {
+            show: true,
+            type: 'png',
+            name: '折线图'
+          },
+          dataView: {
+
+          },
+          dataZoom: {}
+        }
+      },
+      legend: {
+        data: ['销量', '产量'],
+      },
+      xAxis: {
+        data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: ['red'],
+            width: 1,
+            type: 'solid'
+          }
+        },
+
+      },
+      yAxis: {
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: ['blue'],
+            width: 1,
+            type: 'solid'
+          }
+
+        }
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      series: [{
+        name: '销量',
+        type: 'bar',
+        data: [5, 20, 34, 20, 10, 30],
+        markPoint: {
+          data: [{
+              name: '最大值',
+              type: 'max'
+            },
+            {
+              name: '某个坐标',
+              coord: ['羊毛', 20]
+            },
+            {
+              name: '固定 x 像素位置',
+              yAxis: 10,
+              x: '50%'
+            },
+            // {
+            //   name: '某个屏幕坐标',
+            //   x: 100,
+            //   y: 100
+            // }
+          ]
+        }
+      }, {
+        name: '产量',
+        type: 'line',
+        data: [7, 25, 35, 21, 20, 32],
+        markLine: {
+          data: [{
+              name: '平均线',
+              type: 'average'
+            },
+            {
+              name: 'X 轴值为 100 的水平线',
+              xAxis: '羊毛'
+            },
+          ]
+        }
+      }]
+    };
+    lineChart.setOption(lineOption)
+  </script>
+</body>
+
+</html>
