@@ -1,0 +1,60 @@
+var fs = require('fs')
+const { resolve } = require('path')
+
+// 同步
+let fd = fs.openSync('hello.txt', 'r')
+console.log(fd)   // 内存中打开，返回标识 3
+
+// 未设置编码默认返回缓冲区buffer
+// 若读取内容乱码，可能存在文件编码与读取编码不一致的情况
+// let content2 = fs.readFileSync(fd)
+// let content3 = fs.readFileSync('hello.txt', {flag: 'r', encoding: 'utf-8'})
+// console.log('content2', content2.toString(), 'content3', content3)
+
+// 异步
+let buf = Buffer.alloc(20)
+let content1 = fs.read(fd, buf,0, 20, 1, (err,byteRead, buffer) => {
+  console.log('byteRead', byteRead, buffer.toString())
+})
+fs.readFile('hello.txt', {flag: 'r', encoding: 'utf-8'}, (err, data) => {
+  if (err) {
+    // 失败
+    console.log('err', err)    
+  } else {
+    // 成功
+    console.log('data', data)
+  }
+})
+
+// 封装readFile 返回promise对象
+let fsRead = path => new Promise((resolve, reject) => {
+  fs.readFile(path, {flag: 'r', encoding: 'utf-8'}, (err, data) => {
+    // console.log('thx', data)
+    if (err) {
+      // 失败
+      // console.log('err', err)
+      reject(err)
+    } else {
+      // 成功
+      // console.log('data', data)
+      resolve(data)
+    }
+  })
+})
+
+// let read = fsRead('hello.txt')
+// // console.log(result)
+// read.then(res => {
+//   console.log('res', res)
+// }).catch(err => {
+//   console.log('resErr', err)
+// })
+
+async function readList(path) {
+  let f2 = await fsRead(path)
+  let f3 = await fsRead(f2 + '.txt')
+  let f3Content = await fsRead(f3 + '.txt')
+  console.log('content', f3Content)
+}
+
+readList('hello.txt')
