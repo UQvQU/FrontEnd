@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eye</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container .eye {
+      position: relative;
+      width: 20em;
+      height: 20em;
+      background-color: #e2bfb7;
+      border-radius: 94% 7px;
+      transform: rotate(45deg);
+      border: 2px solid #4d3a18;
+      border-left: 3px solid #4d3a18;
+      border-top: 3px solid #4d3a18;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 5px 16px 20px 0px lightgray;
+      overflow: hidden;
+      animation: open 0.4s;
+    }
+
+    .container .eye::after {
+      content: '';
+      width: 24em;
+      height: 24em;
+      position: absolute;
+      border-radius: 100%;
+      background-color: #fff;
+      box-shadow: inset -3px 4px 20px 0px lightgray;
+    }
+
+    .pupil {
+      width: 5em;
+      height: 5em;
+      border-radius: 50%;
+      background-color: #000;
+      transition-duration: 0.5s;
+    }
+
+    .iris {
+      transform: rotate(-45deg);
+      width: 15em;
+      height: 15em;
+      background-color: #4e3c1a;
+      border-radius: 50%;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 0px 20px 0px #8b451391;
+      margin-top: 3em;
+      margin-right: 1em;
+    }
+
+    .iris-1 {
+      width: 14em;
+      height: 14em;
+      box-shadow: 0 0 5px 1px #5e481e;
+      background: linear-gradient(90deg,
+          #5e481e 1%,
+          #5e481e 22%,
+          #5e481e 50%,
+          #5e481e 76%,
+          #5e481e 99%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    .iris-2 {
+      width: 13em;
+      height: 13em;
+      box-shadow: 0 0 5px 1px #542a0e;
+      background: linear-gradient(90deg,
+          #542a0e 1%,
+          #542a0e 22%,
+          #542a0e 50%,
+          #542a0e 76%,
+          #542a0e 99%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    .iris-3 {
+      width: 12em;
+      height: 12em;
+      box-shadow: 0 0 5px 1px #63390f;
+      background: linear-gradient(90deg,
+          #63390f 1%,
+          #63390f 22%,
+          #63390f 50%,
+          #63390f 76%,
+          #63390f 99%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    /* #5e481e, #542a0e, #63390f, #451800, #451800, #451800; */
+    .iris-4 {
+      width: 11em;
+      height: 11em;
+      box-shadow: 0 0 5px 1px #603101;
+      background: linear-gradient(90deg,
+          #603101 1%,
+          #603101 22%,
+          #603101 50%,
+          #603101 76%,
+          #603101 99%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    .iris-5 {
+      width: 10em;
+      height: 10em;
+      box-shadow: 0 0 5px 1px #451800;
+      background: linear-gradient(90deg,
+          #451800 1%,
+          #451800 22%,
+          #451800 50%,
+          #451800 76%,
+          #451800 99%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    .iris-6 {
+      width: 9em;
+      height: 9em;
+      box-shadow: 0 0 5px 1px #491b00;
+      background: linear-gradient(90deg,
+          #491b00 1%,
+          #491b00 22%,
+          #491b00 50%,
+          #491b00 76%,
+          #491b00 99%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+    }
+
+    .iris:hover .pupil {
+      width: 6em;
+      height: 6em;
+    }
+
+    .brightness {
+      width: 2em;
+      height: 3em;
+      background-color: #fff;
+      position: absolute;
+      z-index: 1;
+      top: 7em;
+      /* Σ(⊙▽⊙"a) */
+      border-radius: 14px 31px 10px 7px / 68px 28px 4px 9px;
+      opacity: 0.8;
+    }
+
+    .brightness--1 {
+      position: absolute;
+      width: 1em;
+      height: 2em;
+      top: 13em;
+      left: 7em;
+      background-color: #fff;
+      /* box-shadow: none; */
+      z-index: 1;
+      border-radius: 27px 26px 23px 9px / 92px 58px 43px 14px;
+      opacity: 0.8;
+    }
+
+    @keyframes open {
+      from {
+        height: 0em;
+        /* transform: rotate(-45deg); */
+      }
+
+      to {}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="eye">
+      <div class="iris">
+        <div class="iris-1">
+          <div class="iris-2">
+            <div class="iris-3">
+              <div class="iris-4">
+                <div class="iris-5">
+                  <div class="iris-6">
+                    <div class="pupil"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brightness"></div>
+      <div class="brightness--1"></div>
+    </div>
+  </div>
+</body>
+
+</html>
