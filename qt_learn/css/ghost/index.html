@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    *::before,
+    *::after {
+      position: absolute;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100vh;
+      padding: 0 20em;
+      background: #2b998c;
+    }
+
+    #container {
+      width: 10rem;
+      height: 18rem;
+      /* border: 1px solid rgb(2, 97, 161); */
+    }
+
+    #container2 {
+      width: 10rem;
+      height: 16rem;
+      /* border: 1px solid rgb(0, 255, 213); */
+    }
+
+    .ghost {
+      position: relative;
+    }
+
+    .body {
+      width: 10rem;
+      /* height: 100%; */
+      background: #fff;
+      border-radius: 5rem 5rem 1rem 1rem;
+      box-shadow: inset 1.25rem 0.8rem 0.6rem #e4e4e4;
+      /* 添加动画后，z-index失效， 因新建了一个stacking context（层叠上下文） */
+      /* animation: ghostFloat 2s ease-in-out infinite; */
+    }
+    #container,
+    #container2{
+      animation: ghostFloat 2s ease-in-out infinite;
+    }
+    #container .body {
+      height: 18rem;
+    }
+
+    #container2 .body {
+      height: 16rem;
+    }
+
+    .face {
+      position: absolute;
+    }
+
+    #container .face {
+      top: 4.625rem;
+      left: 3.8rem;
+    }
+
+    #container2 .face {
+      top: 4.625rem;
+      left: 2.2rem;
+    }
+
+    .eyes {
+      border-radius: 50%;
+    }
+
+    #container2 .eyes {
+      width: 2rem;
+      height: 2.5rem;
+      background: #014b3b;
+      animation: eyesBlink 3s linear infinite;
+    }
+
+    #container .eyes {
+      width: 1.8rem;
+      height: 2.4rem;
+      transition: transform 2s;
+      background: #00634d;
+      animation: eyesBlink 7s linear infinite;
+    }
+
+    #container .eyes::after {
+      content: '';
+      width: 1.74rem;
+      height: 2.32rem;
+      top: 0.05rem;
+      left: 3.2rem;
+      background: inherit;
+      border-radius: inherit;
+      /* animation: inherit; */
+    }
+
+    #container2 .eyes::after {
+      content: '';
+      width: inherit;
+      height: inherit;
+      left: 4rem;
+      background: inherit;
+      border-radius: inherit;
+    }
+
+    .mouth {
+      position: absolute;
+      top: 2.5rem;
+      left: .5rem;
+      z-index: 1;
+      background: #fff;
+      /* border: 1px solid #000; */
+      width: 4rem;
+      height: 1.6rem;
+      border-radius: 50%;
+    }
+
+    #container .face::after {
+      content: '';
+      position: absolute;
+      top: 1.2rem;
+      left: .9rem;
+      width: 3.2rem;
+      height: 2.6rem;
+      border-radius: 50%;
+      box-shadow: 0px 16px 0px 0px #195157;
+    }
+
+    /* .mouth::after {
+      content: '';
+      position: absolute;
+      无效z-index: -1;
+      width: 83%;
+      top: .1rem;
+      left: .3rem;
+      background: #abe;
+      height: inherit;
+      border-radius: 50%;
+      box-shadow: 0px 8px 0px 0px #195157;
+    } */
+    .blush {
+      position: absolute;
+      top: 3rem;
+      left: -1rem;
+      width: 2rem;
+      height: 1rem;
+      border-radius: 50%;
+      background-image: repeating-linear-gradient(45deg,
+          #ff95d6,
+          #ff95d6 0.2rem,
+          transparent 0.2rem,
+          transparent 0.5rem);
+    }
+
+    .blush::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 6rem;
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+      background-image: inherit;
+    }
+
+    .bottom {
+      z-index: -1;
+      position: absolute;
+    }
+
+    #container .bottom {
+      top: 17rem;
+    }
+
+    #container2 .bottom {
+      top: 15rem;
+    }
+
+    .circle {
+      position: absolute;
+
+      width: 2.22rem;
+      height: 2.2rem;
+      background: #fff;
+      border-radius: 0 0 1rem 1rem;
+
+    }
+
+    .circle:nth-child(1) {
+      left: 0;
+      box-shadow: inset 1.25rem 0.025rem 0.6rem #e4e4e4;
+    }
+
+    .circle:nth-child(2) {
+      left: 3.9rem;
+      border-radius: 1rem;
+    }
+
+    .circle:nth-child(3) {
+      left: 7.8rem;
+    }
+
+    .wave {
+      position: relative;
+      z-index: -2;
+      top: .1rem;
+      left: 1.96rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      background: #c3c7cb;
+      border-radius: 1rem;
+      box-shadow: inset 0rem 1.1rem 0 #fff;
+
+    }
+
+    .wave::before {
+      content: '';
+      position: absolute;
+      left: 3.9rem;
+      width: inherit;
+      height: inherit;
+      background: inherit;
+      border-radius: inherit;
+      box-shadow: inherit;
+    }
+
+    .shadow {
+      position: absolute;
+      width: 10rem;
+      height: 1rem;
+      top: 20rem;
+      border-radius: 50%;
+      background: #174142;
+      filter: blur(0.1rem);
+      animation: shadowAnimation 2s linear infinite;
+    }
+
+    #container2 .shadow {
+      top: 18rem;
+    }
+
+    @keyframes ghostFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-1rem);
+      }
+    }
+
+    @keyframes eyesBlink {
+
+      0%,
+      30%,
+      38%,
+      100% {
+        transform: scale(1, 1);
+      }
+
+      34%,
+      36% {
+        transform: scale(1, 0);
+      }
+    }
+
+    @keyframes shadowAnimation {
+
+      0%,
+      100% {
+        opacity: 100%;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 70%;
+        transform: scale(0.9, 0.9);
+      }
+    }
+
+    /* $white: #fff;
+$gray: #dbdbdb;
+$darkgray: #c3c7cb;
+$eyes: #195157;
+$shadow: #174142;
+$bg: #2b998c; */
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <div class="ghost">
+      <div class="body">
+        <div class="face">
+          <div class="eyes"></div>
+          <div class="mouth"></div>
+        </div>
+        <div class="bottom">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="wave"></div>
+        </div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+
+  </div>
+  <div id="container2">
+    <div class="ghost">
+      <div class="body">
+        <div class="face">
+          <div class="eyes"></div>
+          <div class="blush"></div>
+        </div>
+        <!-- <div class="line"></div> -->
+        <div class="bottom">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="wave"></div>
+        </div>
+      </div>
+      <div class="shadow"></div>
+      <div class="glow"></div>
+    </div>
+  </div>
+</body>
+
+</html>
