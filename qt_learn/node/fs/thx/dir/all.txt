@@ -1,5 +1,4 @@
-var fs = require('fs')
-const { resolve } = require('path')
+hello chinaworldchinavar fs = require('fs')
 
 // 同步
 let fd = fs.openSync('hello.txt', 'r')
@@ -52,6 +51,7 @@ let fsRead = path => new Promise((resolve, reject) => {
 
 async function readList(path) {
   let f2 = await fsRead(path)
+  console.log(f2, f2.length)
   let f3 = await fsRead(f2 + '.txt')
   let f3Content = await fsRead(f3 + '.txt')
   console.log('content', f3Content)
