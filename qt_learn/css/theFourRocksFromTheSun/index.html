@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: black;
+      background-image:
+        radial-gradient(#fff, rgba(255, 255, 255, .2) 2px, transparent 10px),
+        radial-gradient(#fff, rgba(255, 255, 255, .15) 1.5px, transparent 5px),
+        radial-gradient(#fff, rgba(255, 255, 255, .1) 1px, transparent 10px),
+        radial-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .1) 1px, transparent 5px);
+      background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+      background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    }
+
+    .container {
+      display: flex;
+      /* flex-direction: row; */
+      justify-content: space-evenly;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .mercury,
+    .venus,
+    .earth,
+    .mars {
+      border-radius: 50%;
+      background-size: cover;
+      backface-visibility: hidden;
+    }
+
+    .mercury {
+      width: 114px;
+      height: 114px;
+      /* background-image: url("https://assets.codepen.io/2705117/rsz_mercury.jpg"); */
+      background-image: url(./2019081.jpg);
+      box-shadow: -70px -20px 70px 2px rgb(29, 28, 28) inset, 2px 0 20px rgba(167, 160, 147, 0.384);
+      animation: spin 30s linear infinite;
+      transform: rotate(2deg);
+    }
+
+    .venus {
+      width: 285px;
+      height: 285px;
+      /* background-image: url("https://assets.codepen.io/2705117/rsz_venus_1.jpg"); */
+      background-image: url(./2004371.jpg);
+      box-shadow: -80px -20px 70px 2px rgb(29, 28, 28) inset, 3px 0 20px rgba(206, 182, 138, 0.555);
+      animation: spin 30s linear reverse infinite;
+      transform: rotate(3deg);
+    }
+
+    .earth {
+      width: 300px;
+      height: 300px;
+      /* background-image: url("https://assets.codepen.io/2705117/rsz_1earth.jpg"); */
+      background-image: url(./1001533.jpg);
+      box-shadow: -100px -20px 70px 2px rgb(29, 28, 28) inset, 3px 0 20px rgba(116, 162, 180, 0.493);
+      animation: spin 60s linear infinite;
+      transform: rotate(23.5deg);
+    }
+
+    .mars {
+      width: 162px;
+      height: 162px;
+      /* background-image: url("https://assets.codepen.io/2705117/rsz_2k_mars.jpg"); */
+      background-image: url(./1001541.jpg);
+      box-shadow: -60px -20px 50px 2px rgb(29, 28, 28) inset, 3px 0 20px rgba(214, 185, 158, 0.486);
+      animation: spin 40s linear infinite;
+      transform: rotate(25deg);
+    }
+
+    @keyframes spin {
+
+      0%,
+      100% {
+        background-position: 0%;
+      }
+
+      50% {
+        background-position: 100%;
+      }
+
+      /* 100%{
+        background-position: 100%;
+      } */
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        /* display: flex; */
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .mercury {
+        width: 57px;
+        height: 57px;
+      }
+
+      .venus {
+        width: 143px;
+        height: 143px;
+      }
+
+      .earth {
+        width: 150px;
+        height: 150px;
+      }
+
+      .mars {
+        width: 81px;
+        height: 81px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="mercury"></div>
+    <div class="venus"></div>
+    <div class="earth"></div>
+    <div class="mars"></div>
+  </div>
+</body>
+
+</html>
