@@ -5,6 +5,7 @@ const path = require('path')
 
 let httpUrl = 'https://www.doutula.com/article/list/?page=1'
 
+// 爬取网页源代码中的信息
 // 获取表情包链接及名称
 async function getPageList(pageNum) {
   let url = `https://www.doutula.com/article/list/?page=${pageNum}`
