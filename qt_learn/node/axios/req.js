@@ -2,7 +2,7 @@
 const request = require('request')
 let {fsWrite, fsRead, fsDir} = require('./module')
 
-// 获取https://www.dytt8.net/index.htm源代码
+// 爬取网页源代码中的信息（后端渲染的html，含有信息）
 let httpUrl = 'https://www.1905.com/vod/list/n_1/o3u1p1.html?fr=vodhome_js_lx'
 // axios.get(httpUrl).then(res => {
 //   console.log(res)
