@@ -16,7 +16,7 @@ async function getPageList(pageNum) {
   let $ = cheerio.load(res.data)
 
   // 获取每种表情包的链接及名称
-  $('#home .col-sm-9 a.list-group-item').each((i, element) => {
+  $('#home .col-sm-9 a.list-group-item').each(async (i, element) => {
     let url = $(element).attr('href')
     let title = $(element).find('.random_title').text()
     let reg = /(.*?)\d/igs
@@ -33,10 +33,19 @@ async function getPageList(pageNum) {
           }
         })
       }
-    })
-    parsePage(url, title)
+    });
+    // 每个请求之间间隔50ms
+    await wait(50*i)
+    await parsePage(url, title)
   })
 }
+
+// 等待函数：延迟下载图片
+let wait = (millSecondes) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('成功延迟：', millSecondes)
+  }, millSecondes)
+})
 
 // 获取页面总数（分页）
 async function getPageNumber(url) {
@@ -86,7 +95,9 @@ async function spider(url) {
   let allPageNum = await getPageNumber(url)
   console.log('pageNum', allPageNum)
   // 请求数量太大，测试2页
-  for (let i = 1; i <= 2; i++) {
+  for (let i = 1; i <= 3; i++) {
+    // 每个请求之间间隔3s
+    await wait(3000*i)
     await getPageList(i)
   }
 }
